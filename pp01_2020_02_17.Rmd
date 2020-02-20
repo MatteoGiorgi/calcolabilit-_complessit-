@@ -56,4 +56,4 @@ $$
 \end{definition}
 
 [^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto di una più generica relazione
-[^4]: $\delta(q_x,\triangleright)=(q_y,\sigma,D) \Rightarrow \{\sigma=\triangleright,D=\Rrightarrow\}$
+
