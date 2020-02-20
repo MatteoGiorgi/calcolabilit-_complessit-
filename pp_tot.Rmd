@@ -27,6 +27,7 @@ header-includes:
     - \usepackage{fancyhdr}
     - \usepackage{titlesec}
     - \usepackage{fontawesome}
+    - \theoremstyle{definition}\newtheorem*{definition}{Def}
 ---
 
 
