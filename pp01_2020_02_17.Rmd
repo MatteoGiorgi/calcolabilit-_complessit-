@@ -1,0 +1,60 @@
+# Lezione 01 \hfill `2020.02.17`
+
+
+
+
+## Idea intuitiva di algoritmo
+
+Il punto di partenza della teoria della calcolabilità è l'esigenza di formalizzare l'idea intuitiva di *funzione calcolabile* da un algoritmo, ovvero di *funzione algoritmica*[^1].
+
+Si può dire che un algoritmo sia un procedimento di calcolo che consenta di pervenire alla soluzione di un problema, numerico o simbolico, mediante una sequenza finita di operazioni, completamente e univocamente determinate: una serie di istruzioni la cui esecuzione consenta di trasformare l'insieme finito di dati simbolici che descrivono il problema, nella soluzione del problema stesso.
+
+### Caratteristiche distintive
+
+1. l'insieme delle istruzioni che definisce l'algoritmo è finito
+2. l'insieme delle informazioni (istruzioni) che rappresentano il problema
+    * ha cardinalità finita
+    * ha un effetto limitato su dati discreti
+    * è descritta da dati finiti
+3. esiste un agente di calcolo in grado di eseguire le istruzioni
+4. il procedimento di calcolo (o *computazione*) è suddiviso in passi discreti e non fa uso di dispositivi analogici
+5. la computazione è deterministica: la sequenza dei passi computazionali è determinata senza ambiguità
+
+In conclusione, una procedura algoritmica riceve in ingresso una descrizione finita dei dati del problema e restituisce, dopo un tempo finito, una descrizione finita del risultato. La sua natura deterministica fa sì che l'algoritmo fornisca sempre lo stesso risultato ogni volta che riceve in ingresso gli stessi dati: così facendo l'algoritmo stabilisce una relazione funzionale tra l'insieme dei dati e quello dei risultati.
+
+[^1]: la nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
+
+
+
+
+## Macchina di Turing
+
+Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli $\#$ e $\triangleright$ che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa:
+
+* la MdT opera tramite un \underline{cursore}, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$.
+
+* gli \underline{stati} $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano le configurazioni istante per istante della macchina (posizione cursore, carattere letto, informazioni memoria).
+
+>> $\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#$
+
+* il meccanismo che fa evolvere la computazione della macchina è detta \underline{funzione di transizione} $\delta$ e  permette, partendo dallo stato $q_x$ attuale e dal carattere $\sigma_x$ presente sulla cella puntata dala testina, di portare la macchina in un'altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\leftarrow$, $\rightarrow$, $\nleftrightarrow$).
+
+Supponiamo di avere un impiegato diligente ma stupido (che Turing chiamava *the computer*) che esegue a pedissequamente le istruzioni fornitegli: è la nostra \underline{Macchina di Turing} (MdT), che posso schematizzare con una quadrupla:
+
+$$
+    M = (Q, \Sigma, \delta, q_0)
+$$
+
+$Q$ è l'insieme finito degli stati
+
+$\Sigma$
+
+$\delta$
+
+$q_{0}$
+
+I razionali sono isomorfi ai naturali (ne esiste una corrispondenza biunivoca): verifica a coda di rondine che mi crea una funzione bigettiva $N^2 N$
+
+Ricorda la definizione di funzione: sottoinsieme del prodotto cartesiano $AxB$ tale che $f:A - B$
+
+
