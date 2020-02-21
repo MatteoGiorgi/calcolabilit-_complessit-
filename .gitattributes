@@ -1,4 +1,4 @@
-* linguist-language=Markdown
+* linguist-language=Rmd
 
 *.md linguist-detectable=true
 docs/* linguist-documentation
