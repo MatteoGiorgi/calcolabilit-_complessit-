@@ -1,5 +1,5 @@
 ---
-title: Elementi di calcolabilità e complesità
+title: Elementi di calcolabilità e complessità
 author: Matteo Giorgi
 date: a.a. 2020
 lang: it-IT

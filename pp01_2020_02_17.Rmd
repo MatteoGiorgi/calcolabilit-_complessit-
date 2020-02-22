@@ -23,22 +23,22 @@ Si può dire che un algoritmo sia un procedimento di calcolo che consenta di per
 In conclusione, una procedura algoritmica riceve in ingresso una descrizione finita dei dati del problema e restituisce, dopo un tempo finito, una descrizione finita del risultato. La sua natura deterministica fa sì che l'algoritmo fornisca sempre lo stesso risultato ogni volta che riceve in ingresso gli stessi dati: così facendo l'algoritmo stabilisce una relazione funzionale tra l'insieme dei dati e quello dei risultati.
 
 [^1]: la nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
-[^2]: è utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (una calcolatore)*
+[^2]: è utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
 
 
 
 
 ## Macchina di Turing
 
-Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli $\#$ e $\triangleright$ che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa:
+Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli $\#$ e $\triangleright$ che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa.
 
-* la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$.
+* la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
 
-* gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano le configurazioni istante per istante della macchina (posizione cursore, carattere letto, informazioni memoria).
+* gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano istante per istante le informazioni contenute nella computazione
 
->> $\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#$
+>> $\boxed{\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#}$
 
-* il meccanismo che fa evolvere la computazione della macchina è detta *funzione di transizione*[^3] $\delta$ e  permette, partendo dallo stato $q_x$ attuale e dal carattere $\sigma_x$ presente sulla cella puntata dala testina, di portare la macchina in un'altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\Lleftarrow$, $\Rrightarrow$, $\equiv$).
+* il meccanismo che fa evolvere la computazione della macchina è detta *funzione di transizione*[^3] $\delta$ e consente, partendo dallo stato $q_x$ e dal carattere $\sigma_x$ presente sulla cella puntata dalla testina, di portare la macchina in un'altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
 \begin{definition}
 una \underline{Macchina di Turing} è definita  formalmente come la quadrupla
@@ -55,5 +55,18 @@ $$
 \end{itemize}
 \end{definition}
 
-[^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto di una più generica relazione
+## Computazione, configurazione e transizione 
+
+Alla luce della definizione formale di MdT, è importante analizzare meglio la relazione di transizione $\delta$, definita come la quadrupla $((q_x,\sigma_x),q_y,\sigma_y,D)$, dove
+
+* $(q_x,\sigma_x)$ è la coppia stato di partenza, carattere puntato dal cursore
+* $q_y$ è lo stato di arrivo
+* $\sigma_y$ è il carattere scritto nella cella precedentemente occupata da $\sigma_x$
+* $D$ è lo spostamento del cursore ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
+
+Adesso è facilmete intuibile che, una macchina che si trova nella medesima configurazione di partenza e compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
+
+Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto ai suoi primi due argomenti, ovvero che $\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$.
+
+[^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto che una relazione come invece è specificato nella definizione formale
 
