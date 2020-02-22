@@ -1,4 +1,4 @@
-* linguist-language=Markdown
+* linguist-language=Rmd
 
 *.md linguist-detectable=true
 docs/* linguist-documentation
@@ -7,4 +7,3 @@ docs/* linguist-documentation
 
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
-
