@@ -4,10 +4,11 @@ Queste note sono state prese dal sottoscritto durante le lezioni del corso di *E
 
 Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, i seguenti testi:
 
-* Introduction to the theory of computation - Sipser
-* Computability, introduction to recursive function theory - Cutland
-* Introduzione alla complessità computazionale - Bernasconi, Codenotti
-* Linguaggi, modelli, complessità - Ausiello, d'Amore, Gambosi
+* *Introduction to the theory of computation* - M. Sipser
+* *Models of computation and formal languages* - R.G. Taylor
+* *Computability, introduction to recursive function theory* - N.J. Cutland
+* *Introduzione alla complessità computazionale* - A. Bernasconi, B. Codenotti
+* *Linguaggi, modelli, complessità* - G. Ausiello, F. D'Amore, G. Gambosi
 
 
 
@@ -28,9 +29,4 @@ Il materiale usato per la stesura, oltre alle note distribuite dal professore, c
 
 > \faHome\quad ufficio I-25, edificio B, CNR\
 > \faPaperPlaneO\quad `giulio.masetti@isti.cnr.it`\
-
-###### Matteo Giorgi (me)
-
-> \faGlobe\quad `matteogiorgi.github.io`\
-> \faPaperPlaneO\quad `matteo.giorgi@protonmail.com`\
 

@@ -9,7 +9,7 @@ Il punto di partenza della teoria della calcolabilità è l'esigenza di formaliz
 
 Si può dire che un algoritmo sia un procedimento di calcolo che consenta di pervenire alla soluzione di un problema, numerico o simbolico, mediante una sequenza finita di operazioni, completamente e univocamente determinate: una serie di istruzioni la cui esecuzione consenta di trasformare l'insieme finito di dati simbolici che descrivono il problema, nella soluzione del problema stesso.
 
-### Caratteristiche distintive
+### Caratteristiche distintive[^2]
 
 1. l'insieme delle istruzioni che definisce l'algoritmo è finito
 2. l'insieme delle informazioni che rappresentano il problema
@@ -18,12 +18,12 @@ Si può dire che un algoritmo sia un procedimento di calcolo che consenta di per
     * è descritta da dati finiti
 3. il procedimento di calcolo (o *computazione*) è suddiviso in passi discreti e non fa uso di dispositivi analogici
 4. ogni passo di computazione dipende solo dai precedenti e da una porzione finita dei dati in modo deterministico (è determinato senza ambiguità - non è soggetto ad alcuna distribuzione probabilistica non banale)
-5. non c'è limite al numero di passi necessari all'esecuzione di un algoritmo, nè alla memoria richiesta per contenere i dati iniziali, intermedi e finali[^2]
+5. non c'è limite al numero di passi necessari all'esecuzione di un algoritmo, nè alla memoria richiesta per contenere i dati iniziali, intermedi e finali
 
 In conclusione, una procedura algoritmica riceve in ingresso una descrizione finita dei dati del problema e restituisce, dopo un tempo finito, una descrizione finita del risultato. La sua natura deterministica fa sì che l'algoritmo fornisca sempre lo stesso risultato ogni volta che riceve in ingresso gli stessi dati: così facendo l'algoritmo stabilisce una relazione funzionale tra l'insieme dei dati e quello dei risultati.
 
 [^1]: la nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
-[^2]: è utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
+[^2]: può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
 
 
 
@@ -42,31 +42,69 @@ Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turi
 
 \begin{definition}
 una \underline{Macchina di Turing} è definita  formalmente come la quadrupla
-$$
-M = (Q, \Sigma, \delta, q_0)
-$$
-\textit{potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla togliendo gli stati di accettazione e rifiuto dall'insieme $Q$, aggiungendoli in un insieme a parte: $M = (Q\backslash \{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$. Così facendo evito che la macchina vada in stallo.}
+$$M = (Q, \Sigma, \delta, q_0)$$
 
 \begin{itemize}[itemsep=-7pt]
-    \item $Q$ è l'insieme finito degli stati $q_i$ che non contiene lo stato di accettazione $h$
-    \item $\Sigma$ è l'insieme finito dei simboli (alfabeto della macchina) al quale non appartengono i simboli di spostamento $\Lleftarrow$, $\Rrightarrow$, $\equiv$
-    \item $\delta\subseteq (Q \times \Sigma)\times (Q \cup {h}) \times \Sigma \times \{\Lleftarrow,\Rrightarrow,\equiv\}$ è la relazione di transizione, tale che il carattere puntato dal cursore non possa mai trovarsi a sinistra di $\triangleright$ 
-    \item $q_0 \in Q$ è lo stato iniziale
+\item $Q$ è l'insieme finito degli stati $q_i$ che non contiene lo stato di accettazione $h$
+\item $\Sigma$ è l'insieme finito dei simboli (alfabeto della macchina) al quale non appartengono i simboli di spostamento $\Lleftarrow$, $\Rrightarrow$, $\equiv$
+\item $\delta\subseteq (Q \times \Sigma)\times (Q \cup {h}) \times \Sigma \times \{\Lleftarrow,\Rrightarrow,\equiv\}$ è la relazione di transizione, tale che il carattere puntato dal cursore non possa mai trovarsi a sinistra di $\triangleright$ 
+\item $q_0 \in Q$ è lo stato iniziale
 \end{itemize}
 \end{definition}
 
-## Computazione, configurazione e transizione 
+*Potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla togliendo gli stati di accettazione e rifiuto dall'insieme $Q$, aggiungendoli in un insieme a parte: $M = (Q\backslash \{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$.*
 
-Alla luce della definizione formale di MdT, è importante analizzare meglio la relazione di transizione $\delta$, definita come la quadrupla $((q_x,\sigma_x),q_y,\sigma_y,D)$, dove
+## Configurazione, transizione e computazione
+
+\begin{definition}
+Una \underline{configurazione} (istantanea) $C$ di una MdT è definita dalla quadrupla
+$$(q,u,\sigma,v) \in (Q \cup \{h\}) \times \Sigma^* \times \Sigma \times \Sigma^F$$
+$$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
+
+\begin{itemize}[itemsep=-7pt]
+\item $q$ è lo stato corrente
+\item $\sigma$ è il simbolo corrente
+\item $u$ è la stringa di caratteri a sinistra del simbolo corrente
+\item $v$ è la stringa di caratteri a destra del simbolo corrente
+\end{itemize}
+\end{definition}
+
+Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^* \circ (\Sigma\backslash \{\#\})\cup\{\epsilon\}$[^5].
+
+*In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^4] rappresentante la situazione sul nastro.*
+
+### $\delta$ come funzione
+
+Alla luce delle definizioni di MdT e configurazione, è importante analizzare meglio la relazione di transizione $\delta$, definita prima come la quadrupla
+$$((q_x,\sigma_x),q_y,\sigma_y,D)$$
 
 * $(q_x,\sigma_x)$ è la coppia stato di partenza, carattere puntato dal cursore
 * $q_y$ è lo stato di arrivo
 * $\sigma_y$ è il carattere scritto nella cella precedentemente occupata da $\sigma_x$
 * $D$ è lo spostamento del cursore ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
-Adesso è facilmete intuibile che, una macchina che si trova nella medesima configurazione di partenza e compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
+Adesso è facilmete intuibile che, una macchina che si trova nella medesima configurazione di partenza e compie il medesimo spostamento del cursore, si cascherà nella medesima configurazione di arrivo.
 
-Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto ai suoi primi due argomenti, ovvero che $\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$.
+Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (la coppia stato corrente, carattere letto):
+$$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
+
+### Passo di computazione e computazione
+
+Lorem. Nunc non mauris. Nam accumsan tortor gravida elit. Cras porttitor.
+Praesent vel enim sed eros luctus imperdiet. Mauris neque ante, placerat at,
+mollis vitae, faucibus quis, leo. Ut feugiat. Vivamus urna quam, congue
+vulputate, convallis non, cursus cursus, risus. Quisque aliquet. Donec
+vulputate egestas elit. Morbi dictum, sem sit amet aliquam euismod, odio tortor
+pellentesque odio, ac ultrices enim nibh sed quam. Integer tortor velit,
+condimentum a, vestibulum eget, sagittis nec, neque. Aenean est urna, bibendum
+et, imperdiet at, rhoncus in, arcu. In hac habitasse platea dictumst.
+Vestibulum blandit dignissim dui. Maecenas vitae magna non felis ornare
+consectetuer. Sed lorem. Nam.
+
+\begin{definition}
+Una \underline{computazione} di una MdT è una successione di configurazioni, ogniuna ottenuta dalla precedente in accordo con a definizione di funzione di transizione $\delta$
+\end{definition}
 
 [^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto che una relazione come invece è specificato nella definizione formale
-
+[^4]: quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
+[^5]: più informazioni su come costruire insiemi di stringhe quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti)

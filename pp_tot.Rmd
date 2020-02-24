@@ -1,6 +1,6 @@
 ---
 title: Elementi di calcolabilità e complessità
-author: Matteo Giorgi
+author: \faGithub\hspace{1pt} `matteogiorgi.github.io`
 date: a.a. 2020
 lang: it-IT
 output:
