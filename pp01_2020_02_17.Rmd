@@ -7,7 +7,7 @@
 
 Il punto di partenza della teoria della calcolabilità è l'esigenza di formalizzare l'idea intuitiva di *funzione calcolabile* da un algoritmo, ovvero di *funzione algoritmica*[^1].
 
-Si può dire che un algoritmo sia un procedimento di calcolo che consenta di pervenire alla soluzione di un problema, numerico o simbolico, mediante una sequenza finita di operazioni, completamente e univocamente determinate: una serie di istruzioni la cui esecuzione consenta di trasformare l'insieme finito di dati simbolici che descrivono il problema, nella soluzione del problema stesso.
+Si può dire che un algoritmo sia un procedimento di calcolo che consente di pervenire alla soluzione di un problema, numerico o simbolico, mediante una sequenza finita di operazioni, completamente e univocamente determinate: una serie di istruzioni la cui esecuzione consente di trasformare l'insieme finito di dati simbolici che descrivono il problema, nella soluzione del problema stesso.
 
 ### Caratteristiche distintive[^2]
 
@@ -38,7 +38,7 @@ Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turi
 
 >> $\boxed{\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#}$
 
-* il meccanismo che fa evolvere la computazione della macchina è detta *funzione di transizione*[^3] $\delta$ e consente, partendo dallo stato $q_x$ e dal carattere $\sigma_x$ presente sulla cella puntata dalla testina, di portare la macchina in un'altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
+* il meccanismo che fa evolvere la computazione della macchina è detta *funzione di transizione*[^3] $\delta$ e consente, partendo dallo stato $q_x$ e dal carattere $\sigma_x$ presente sulla cella puntata dalla testina, di portare la macchina in un altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
 \begin{definition}
 una \underline{Macchina di Turing} è definita  formalmente come la quadrupla
@@ -83,7 +83,7 @@ $$((q_x,\sigma_x),q_y,\sigma_y,D)$$
 * $\sigma_y$ è il carattere scritto nella cella precedentemente occupata da $\sigma_x$
 * $D$ è lo spostamento del cursore ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
-Adesso è facilmete intuibile che, una macchina che si trova nella medesima configurazione di partenza e compie il medesimo spostamento del cursore, si cascherà nella medesima configurazione di arrivo.
+Adesso è facilmete intuibile che, una macchina nella medesima configurazione di partenza che compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
 
 Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (la coppia stato corrente, carattere letto):
 $$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
