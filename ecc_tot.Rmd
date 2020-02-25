@@ -1,0 +1,60 @@
+---
+title: Elementi di calcolabilità e complessità
+author: \faGithub\hspace{1pt} `matteogiorgi.github.io`
+date: a.a. 2020
+lang: it-IT
+output:
+    pdf_document:
+        highlight: tango
+        latex_engine: xelatex
+        toc: false
+        toc_depth: 2
+        number_sections: false
+        fig_caption: false
+urlcolor: black
+linkcolor: black
+documentclass: report
+monofont: mononoki Nerd Font
+fontsize: 12pt
+header-includes:
+    - \usepackage[a4paper, inner=3cm, outer=3cm]{geometry}
+    - \usepackage{lmodern}
+    - \usepackage{graphicx}
+    - \usepackage{mathtools}
+    - \usepackage{amsthm}
+    - \usepackage{amssymb}
+    - \usepackage{enumitem}
+    - \usepackage{fancyhdr}
+    - \usepackage{titlesec}
+    - \usepackage{fontawesome}
+    - \theoremstyle{definition}\newtheorem*{definition}{Def}
+---
+
+
+
+
+# Note \hfill `(._. )`
+
+Queste note sono state prese dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti durante l'anno accademico 2019-2020.
+
+Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, i seguenti testi:
+
+* M. Sipser - *Introduction to the theory of computation*
+* R.G. Taylor - *Models of computation and formal languages*
+* N.J. Cutland - *Computability, introduction to recursive function theory*
+* A. Bernasconi, B. Codenotti - *Introduzione alla complessità computazionale*
+* G. Ausiello, F. D'Amore, G. Gambosi - *Linguaggi, modelli, complessità*
+
+---
+
+```{r out.width="80%", fig.align="center", echo=FALSE}
+library(png)
+library(grid)
+
+mdt <- readPNG("mdt.png")
+grid.raster(mdt)
+```
+
+```{r child="ecc01_2020_02_17.Rmd"}
+```
+
