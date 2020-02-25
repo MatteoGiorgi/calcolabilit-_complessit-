@@ -1,4 +1,4 @@
-* linguist-language=Markdown
+* linguist-language=Bash
 
 *.md linguist-detectable=true
 docs/* linguist-documentation
