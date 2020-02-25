@@ -45,12 +45,12 @@ Il materiale usato per la stesura, oltre alle note distribuite dal professore, c
 * A. Bernasconi, B. Codenotti - *Introduzione alla complessità computazionale*
 * G. Ausiello, F. D'Amore, G. Gambosi - *Linguaggi, modelli, complessità*
 
-\vspace{30pt}
+\vspace{50pt}
 
-```{r out.width="90%", fig.align="center", echo=FALSE}
+```{r out.width="80%", fig.align="center", echo=FALSE}
 library(png)
 library(grid)
-grid.raster(readPNG("candy_button_paper.png"))
+grid.raster(readPNG("machine.png"))
 ```
 
 ```{r child="ecc01_2020_02_17.Rmd"}
