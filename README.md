@@ -6,4 +6,4 @@ Queste note integrano il materiale del corso di *Elementi di calcolabilità e co
   <img width="600" src="assets/machine.png"/>
 </p>
 
-<b>[Have a look](https://nbviewer.jupyter.org/github/MatteoGiorgi/computability_and_complexity/blob/master/ecc_tot.pdf)</b>
+<b>[Have a look](https://nbviewer.jupyter.org/github/MatteoGiorgi/computability_and_complexity/blob/master/src/ecc_tot.pdf)</b>
