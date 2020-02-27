@@ -114,7 +114,7 @@ Consideriamo una MdT che calcoli la somma di due numeri naturali rappresentati i
 \end{multline*}
 rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\rightarrow^*_M}(h, \triangleright | | | \underline{\#})$, mentre la funzione $\delta$ può essere tabellata come segue:
 
-| $q$ | $\delta$ | $\sigma$ |
+| $q$ | $\sigma$ | $\delta$ |
 | --- | --- | --- |
 | $q_0$ | $\triangleright$ | $q_0$, $\triangleright$, $\Rrightarrow$ |
 | $q_0$ | $|$ | $q_0$, $|$, $\Rrightarrow$ |
