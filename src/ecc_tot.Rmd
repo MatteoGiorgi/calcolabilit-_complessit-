@@ -37,7 +37,7 @@ header-includes:
 
 
 
-# Intro \hfill \faCubes
+# Beep-boop \hfill \faCubes
 
 Queste note sono state redatte dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti per l'anno accademico 2019-2020.
 
