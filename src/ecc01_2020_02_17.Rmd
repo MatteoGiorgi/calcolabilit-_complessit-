@@ -1,4 +1,4 @@
-# Lezione 01 \hfill `2020.02.17`
+# Algoritmi \& MdT \hfill \faCube
 
 
 
@@ -41,7 +41,7 @@ Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turi
 * il meccanismo che fa evolvere la computazione della macchina è detta *funzione di transizione*[^3] $\delta$ e consente, partendo dallo stato $q_x$ e dal carattere $\sigma_x$ presente sulla cella puntata dalla testina, di portare la macchina in un altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
 \begin{definition}
-una \underline{Macchina di Turing} è definita  formalmente come la quadrupla
+Una \underline{Macchina di Turing} è definita  formalmente come la quadrupla
 $$M = (Q, \Sigma, \delta, q_0)$$
 
 \begin{itemize}[itemsep=-7pt]
@@ -52,7 +52,7 @@ $$M = (Q, \Sigma, \delta, q_0)$$
 \end{itemize}
 \end{definition}
 
-*Potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla togliendo gli stati di accettazione e rifiuto dall'insieme $Q$, aggiungendoli in un insieme a parte: $M = (Q\backslash \{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$.*
+Potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla togliendo gli stati di accettazione e rifiuto dall'insieme $Q$, aggiungendoli in un insieme a parte: $M = (Q\backslash \{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$.
 
 ## Configurazione, transizione e computazione
 
@@ -71,11 +71,11 @@ $$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
 
 Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^* \circ (\Sigma\backslash \{\#\})\cup\{\epsilon\}$[^4].
 
-*In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.*
+In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.
 
 ### $\delta$ come funzione
 
-Alla luce delle definizioni di MdT e configurazione, è importante analizzare meglio la relazione di transizione $\delta$, definita prima come la quadrupla
+Alla luce delle definizioni di MdT e configurazione, è importante analizzare meglio la relazione di transizione $\delta$, definita precedentemente come la quadrupla
 $$((q_x,\sigma_x),q_y,\sigma_y,D)$$
 
 * $(q_x,\sigma_x)$ è la coppia stato di partenza, carattere puntato dal cursore
@@ -85,25 +85,19 @@ $$((q_x,\sigma_x),q_y,\sigma_y,D)$$
 
 Adesso è facilmete intuibile che, una macchina nella medesima configurazione di partenza che compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
 
-Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (la coppia stato corrente, carattere letto):
+Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (coppia stato corrente, carattere letto):
 $$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
 
-### Passo di computazione e computazione
-
-Lorem. Nunc non mauris. Nam accumsan tortor gravida elit. Cras porttitor.
-Praesent vel enim sed eros luctus imperdiet. Mauris neque ante, placerat at,
-mollis vitae, faucibus quis, leo. Ut feugiat. Vivamus urna quam, congue
-vulputate, convallis non, cursus cursus, risus. Quisque aliquet. Donec
-vulputate egestas elit. Morbi dictum, sem sit amet aliquam euismod, odio tortor
-pellentesque odio, ac ultrices enim nibh sed quam. Integer tortor velit,
-condimentum a, vestibulum eget, sagittis nec, neque. Aenean est urna, bibendum
-et, imperdiet at, rhoncus in, arcu. In hac habitasse platea dictumst.
-Vestibulum blandit dignissim dui. Maecenas vitae magna non felis ornare
-consectetuer. Sed lorem. Nam.
+### Computazione e passo di computazione
 
 \begin{definition}
-Una \underline{computazione} di una MdT è una successione di configurazioni, ogniuna ottenuta dalla precedente in accordo con la definizione di funzione di transizione $\delta$
+Una \underline{computazione} di una MdT è costituita da una sequenza di configurazioni, tale che $C_0$ rappresenti la configurazione iniziale e $C_{i+1}$ il risultato dell'applicazione della funzione $\delta$ alla configurazione $C_i$ (ovvero il \underline{passo di computazione} $C_i\rightarrow C_{i+1}$). Si dirà inoltre che la computazione converge $\downarrow$ se, per $n \ge 1$ tale che
+$$C_0 \rightarrow C_1 \rightarrow ... \rightarrow C_n$$
+$C_n$ è una configurazione finale, in caso contrario si dirà che diverge $\uparrow$.
 \end{definition}
+
+Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva* di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
+$$C_0 \rightarrow_M^* C_n$$
 
 [^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto che una relazione come invece è specificato nella definizione formale
 [^4]: quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe

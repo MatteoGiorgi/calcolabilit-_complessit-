@@ -22,18 +22,22 @@ header-includes:
     - \usepackage{graphicx}
     - \usepackage{mathtools}
     - \usepackage{amsthm}
+    - \usepackage{hyperref}
     - \usepackage{amssymb}
     - \usepackage{enumitem}
     - \usepackage{fancyhdr}
     - \usepackage{titlesec}
     - \usepackage{fontawesome}
-    - \theoremstyle{definition}\newtheorem*{definition}{Def}
+    - \usepackage{xpatch}
+    - \newtheorem*{definition}{Def}
+    - \newtheorem*{theorem}{Thm}
+    - \makeatletter\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}\makeatother
 ---
 
 
 
 
-# Note \hfill `(._. )`
+# Intro \hfill \faCubes
 
 Queste note sono state prese dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti durante l'anno accademico 2019-2020.
 
@@ -54,5 +58,8 @@ grid.raster(readPNG("../assets/machine.png"))
 ```
 
 ```{r child="ecc01_2020_02_17.Rmd"}
+```
+
+```{r child="ecc02_2020_02_18.Rmd"}
 ```
 
