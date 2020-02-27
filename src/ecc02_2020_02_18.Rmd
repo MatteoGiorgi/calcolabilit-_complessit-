@@ -1,4 +1,4 @@
-# Automi \& linguaggi \hfill \faCodepen
+# Automi e linguaggi \hfill \faCodepen
 
 In hac habitasse platea dictumst. Maecenas in ligula. Duis tincidunt odio
 sollicitudin quam. Nullam non mauris. Phasellus lacinia, velit sit amet

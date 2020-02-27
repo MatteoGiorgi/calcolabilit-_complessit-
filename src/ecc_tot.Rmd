@@ -39,7 +39,7 @@ header-includes:
 
 # Intro \hfill \faCubes
 
-Queste note sono state prese dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti durante l'anno accademico 2019-2020.
+Queste note sono state redatte dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti per l'anno accademico 2019-2020.
 
 Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, i seguenti testi:
 
@@ -58,8 +58,5 @@ grid.raster(readPNG("../assets/machine.png"))
 ```
 
 ```{r child="ecc01_2020_02_17.Rmd"}
-```
-
-```{r child="ecc02_2020_02_18.Rmd"}
 ```
 
