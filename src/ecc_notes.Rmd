@@ -57,6 +57,6 @@ library(grid)
 grid.raster(readPNG("../assets/machine.png"))
 ```
 
-```{r child="ecc01_2020_02_17.Rmd"}
+```{r child="ecc_01.Rmd"}
 ```
 
