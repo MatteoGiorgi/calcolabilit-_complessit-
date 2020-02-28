@@ -99,9 +99,9 @@ $C_n$ è una configurazione finale, in caso contrario si dirà che diverge $\upa
 Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva*[^6] di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
 $$C_0 \rightarrow_M^* C_n$$
 
-### Macchima per l'addizione
+### Esempio di MdT
 
-Consideriamo una MdT che calcoli la somma di due numeri naturali rappresentati in notazione unaria con il simbolo $|$ e separati dal simbolo $+$. La successione
+Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali rappresentati in notazione unaria con il simbolo $|$ e separati dal simbolo $+$. La successione
 \begin{multline*}
 (q_0, \underline{\triangleright} | + | | \#)
 \rightarrow (q_0, \triangleright \underline{|} + | |)
