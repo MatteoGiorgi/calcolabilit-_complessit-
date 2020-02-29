@@ -1,15 +1,9 @@
 # Automi e linguaggi \hfill \faCodepen
 
-In hac habitasse platea dictumst. Maecenas in ligula. Duis tincidunt odio
-sollicitudin quam. Nullam non mauris. Phasellus lacinia, velit sit amet
-bibendum euismod, leo diam interdum ligula, eu scelerisque sem purus in tellus.
+In questo capitolo verranno richiamate alcune nozioni utili in seguito per studiare la *decidibilità*, *riducibilità* ed eventualmente l'insolubilità di problemi. Sarà utile avere ben chiaro cosa siano *automa*, *linguaggio regolare* e la sostanziale differenza tra un automa ed una MdT.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In sit amet nunc id
-quam porta varius. Ut aliquet facilisis turpis. Etiam pellentesque quam et
-erat. Praesent suscipit justo.
+\begin{definition}
+Un automa finito (determinastico) è definito dalla quintupla 
+\end{definition}
 
-Cras nec metus pulvinar sem tempor hendrerit. Class aptent taciti sociosqu ad
-litora torquent per conubia nostra, per inceptos himenaeos. Nullam in nulla.
-Mauris elementum. Curabitur tempor, quam ac rutrum placerat, nunc augue
-ullamcorper est, vitae molestie neque nunc a nunc. 
 

@@ -115,7 +115,7 @@ Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali rappre
 rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\rightarrow^*_M}(h, \triangleright | | | \underline{\#})$, mentre la funzione $\delta$ può essere tabellata come segue:
 
 | $q$ | $\sigma$ | $\delta$ |
-| --- | --- | --- |
+| :---: | :---: | :---: |
 | $q_0$ | $\triangleright$ | $q_0$, $\triangleright$, $\Rrightarrow$ |
 | $q_0$ | $|$ | $q_0$, $|$, $\Rrightarrow$ |
 | $q_0$ | $+$ | $q_1$, $|$, $\Rrightarrow$ |
