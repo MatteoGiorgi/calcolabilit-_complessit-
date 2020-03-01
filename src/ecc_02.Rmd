@@ -1,9 +1,35 @@
 # Automi e linguaggi \hfill \faCodepen
 
-In questo capitolo verranno richiamate alcune nozioni utili in seguito per studiare la *decidibilità*, *riducibilità* ed eventualmente l'insolubilità di problemi. Sarà utile avere ben chiaro cosa siano *automa*, *linguaggio regolare* e la sostanziale differenza tra un automa ed una MdT.
+In questo capitolo verranno richiamate alcune nozioni utili per studiare *decidibilità*, *riducibilità* ed eventualmente l'insolubilità di problemi. Sarà utile avere ben chiaro cosa siano automi, linguaggi regolari e la loro relazione con le MdT definite.
 
 \begin{definition}
-Un automa finito (determinastico) è definito dalla quintupla 
+Un \underline{automa finito determinastico} (DFA) è la quintupla
+$$(Q, \Sigma, \delta, q_0, F)$$
+
+\begin{itemize}[itemsep=-7pt]
+\item $Q$ è l'insieme finito degli stati
+\item $\Sigma$ è l'insieme finito dei simboli (alfabeto)
+\item $\delta{:}Q{\times}\Sigma{\rightarrow}Q$ è la funzione di transizione
+\item $q_0{\in}Q$ è lo stato iniziale
+\item $F{\subseteq}Q$ è l'insieme degli stati di accettazione
+\end{itemize}
 \end{definition}
 
+La funzione di transizione $\delta$ definisce le regole per il cambiamento di stato: specifica esattamente uno stato successivo per ogni possibile combinazione di stato e simbolo in input. Se ne deduce che, *da ogni stato esce esattamente un arco di transizione per ogni possibile simbolo di input* (ecco perchè automa determinastico o DFA).
 
+\begin{definition}
+Un \underline{automa finito non deterministico} (NFA) è la quintupla
+$$(Q, \Sigma, \Delta, q_0, F)$$
+
+\begin{itemize}[itemsep=-7pt]
+\item $Q$ è l'insieme finito degli stati
+\item $\Sigma$ è l'insieme finito dei simboli (alfabeto)
+\item $\Delta{:}Q{\times}\Sigma_\epsilon{\rightarrow}\mathcal{P}(Q)$ è la funzione di transizione
+\item $q_0{\in}Q$ è lo stato iniziale
+\item $F{\subseteq}Q$ è l'insieme degli stati di accettazione
+\end{itemize}
+\end{definition}
+
+Le due definizioni di automa differiscono nel tipo[^8] della funzione di transizione: $\Delta$ prende uno stato, un simbolo (compreso il simbolo nullo $\epsilon$) e produce l'insieme dei possibili stati successivi (sottoinsieme di $\mathcal{P}(Q)$, insieme delle parti di $Q$); contrariamente, $\delta$ produce un singolo stato successivo dalla coppia in input stato attuale, simbolo letto.
+
+[^8]: inteso come *arrow type*: il tipo di parametro in input ed output per i quali una funzione può essere assegnata

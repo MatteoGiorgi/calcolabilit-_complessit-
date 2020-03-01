@@ -11,6 +11,7 @@ output:
         toc_depth: 2
         number_sections: false
         fig_caption: false
+always_allow_html: true
 urlcolor: black
 linkcolor: black
 documentclass: report
@@ -51,9 +52,15 @@ Il materiale usato per la stesura, oltre alle note distribuite dal professore, c
 
 \vspace{50pt}
 
-```{r out.width="80%", fig.align="center", echo=FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, results='hide', message=FALSE, warning=FALSE)
 library(png)
 library(grid)
+# library(DiagrammeR)
+library(igraph)
+```
+
+```{r out.width="80%", fig.align="center", echo=FALSE}
 grid.raster(readPNG("../assets/machine.png"))
 ```
 

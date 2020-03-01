@@ -22,9 +22,6 @@ Si può dire che un algoritmo sia un procedimento di calcolo che consente di per
 
 In conclusione, una procedura algoritmica riceve in ingresso una descrizione finita dei dati del problema e restituisce, dopo un tempo finito, una descrizione finita del risultato. La sua natura deterministica fa sì che l'algoritmo fornisca sempre lo stesso risultato ogni volta che riceve in ingresso gli stessi dati: così facendo l'algoritmo stabilisce una relazione funzionale tra l'insieme dei dati e quello dei risultati.
 
-[^1]: la nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
-[^2]: può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
-
 
 
 
@@ -52,7 +49,8 @@ $$M = (Q, \Sigma, \delta, q_0)$$
 \end{itemize}
 \end{definition}
 
-Potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla togliendo gli stati di accettazione e rifiuto dall'insieme $Q$, aggiungendoli in un insieme a parte: $M{=}(Q{\backslash}\{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$.
+In seguito potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla[^4], togliendo gli stati di accettazione e rifiuto da $Q$:
+$$M = (Q \backslash \{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$$
 
 ## Configurazione, transizione e computazione
 
@@ -69,9 +67,9 @@ $$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
 \end{itemize}
 \end{definition}
 
-Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^4].
+Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^5].
 
-In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.
+In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^6] rappresentante la situazione sul nastro.
 
 ### $\delta$ come funzione
 
@@ -96,7 +94,7 @@ $$C_0 \rightarrow C_1 \rightarrow ... \rightarrow C_n$$
 $C_n$ è una configurazione finale, in caso contrario si dirà che diverge $\uparrow$.
 \end{definition}
 
-Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva*[^6] di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
+Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva*[^7] di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
 $$C_0 \rightarrow_M^* C_n$$
 
 ### Esempio di MdT
@@ -123,8 +121,11 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 | $q_1$ | $\#$ | $q_2$, $\#$, $\Lleftarrow$ |
 | $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
 
+[^1]: la nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
+[^2]: può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
 [^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto che una relazione come invece è specificato nella definizione formale
-[^4]: quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe
-[^5]: quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
-[^6]: la chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$
+[^4]: utile per confrontare il diverso effetto che MdT e automi hanno sulla classificazioni dei linguaggi
+[^5]: quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe
+[^6]: quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
+[^7]: la chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$
 
