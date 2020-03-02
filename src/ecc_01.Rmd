@@ -83,7 +83,7 @@ Adesso è facilmete intuibile che, una macchina nella medesima configurazione di
 Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (coppia stato corrente, carattere letto):
 $$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
 
-### Nuova definizione di MdT
+### Una nuova definizione di MdT
 
 Prima di procedere, è necessario utilizzare le considerazioni fatte fin'ora e ritoccare la nostra definizione di MdT estendendo la quadrupla ad una quintupla con l'introduzione di $\{q_A,q_R\}$; questo facilitarà il nostro percorso nell'utilizzo di macchine e linguagi regolari come strumento per trattare la classe dei *problemi decisionali*.
 
