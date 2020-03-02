@@ -31,7 +31,7 @@ Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turi
 
 * la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
 
-* gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano istante per istante le informazioni contenute nella computazione
+* gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano istante per istante le informazioni contenute nella macchina
 
 >> $\boxed{\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#}$
 
@@ -49,9 +49,6 @@ $$M = (Q, \Sigma, \delta, q_0)$$
 \end{itemize}
 \end{definition}
 
-In seguito potrebbe essere conveniente modificare la definizione di MdT estendendo la quadrupla ad una quintupla[^4], togliendo gli stati di accettazione e rifiuto da $Q$:
-$$M = (Q \backslash \{q_A,q_R\}, \Sigma, \delta, q_0, \{q_A,q_R\})$$
-
 ## Configurazione, transizione e computazione
 
 \begin{definition}
@@ -67,9 +64,9 @@ $$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
 \end{itemize}
 \end{definition}
 
-Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^5].
+Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^4].
 
-In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^6] rappresentante la situazione sul nastro.
+In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.
 
 ### $\delta$ come funzione
 
@@ -86,6 +83,23 @@ Adesso è facilmete intuibile che, una macchina nella medesima configurazione di
 Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (coppia stato corrente, carattere letto):
 $$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
 
+### Nuova definizione di MdT
+
+Prima di procedere, è necessario utilizzare le considerazioni fatte fin'ora e ritoccare la nostra definizione di MdT estendendo la quadrupla ad una quintupla con l'introduzione di $\{q_A,q_R\}$; questo facilitarà il nostro percorso nell'utilizzo di macchine e linguagi regolari come strumento per trattere la classe dei *problemi decisionali*.
+
+\begin{definition}
+Una \underline{Macchina di Turing deterministica} è definita come la quintupla
+$$M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})$$
+
+\begin{itemize}[itemsep=-7pt]
+\item $Q$ è l'insieme finito degli stati $q_i$ che non contiene gli stati terminali $q_A$ e $q_R$
+\item $\Sigma{\nsupseteq}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è sempre l'insieme finito dei simboli (alfabeto di macchina)
+\item $\delta{:}(Q{\times}\Sigma){\rightarrow}(Q{\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\})$ è la funzione di transizione
+\item $q_0{\in}Q$ è lo stato iniziale
+\item $\{q_A,q_R\}{\nsubseteq}Q$ è l'insieme formato dagli stati terminali di accettazione e rifiuto
+\end{itemize}
+\end{definition}
+
 ### Computazione e passo di computazione
 
 \begin{definition}
@@ -94,7 +108,7 @@ $$C_0 \rightarrow C_1 \rightarrow ... \rightarrow C_n$$
 $C_n$ è una configurazione finale, in caso contrario si dirà che diverge $\uparrow$.
 \end{definition}
 
-Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva*[^7] di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
+Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva*[^6] di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
 $$C_0 \rightarrow_M^* C_n$$
 
 ### Esempio di MdT
@@ -110,7 +124,7 @@ Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali rappre
 \rightarrow (q_2, \triangleright | | | \underline{|})
 \rightarrow (h, \triangleright | | | \underline{\#})
 \end{multline*}
-rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\rightarrow^*_M}(h, \triangleright | | | \underline{\#})$, mentre la funzione $\delta$ può essere tabellata come segue:
+rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\rightarrow^*_M}(h, \triangleright | | | \underline{\#})$, mentre la funzione $\delta$ può essere tabellata come segue
 
 | $q$ | $\sigma$ | $\delta$ |
 | :---: | :---: | :---: |
@@ -121,11 +135,10 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 | $q_1$ | $\#$ | $q_2$, $\#$, $\Lleftarrow$ |
 | $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
 
-[^1]: la nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
-[^2]: può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
-[^3]: fintanto che verranno trattare MdT deterministiche non è errato considerare $\delta$ una funzione piuttosto che una relazione come invece è specificato nella definizione formale
-[^4]: utile per confrontare il diverso effetto che MdT e automi hanno sulla classificazioni dei linguaggi
-[^5]: quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe
-[^6]: quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
-[^7]: la chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$
+[^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
+[^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
+[^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà qui introdotta come relazione
+[^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe
+[^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
+[^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$. Alternativamente ed in modo del tutto equivalente, può essere definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ è anch'essa una relazione riflessiva e transitiva (dimostrare l'equivalenza per esercizio).
 

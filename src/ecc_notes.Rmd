@@ -47,6 +47,7 @@ Il materiale usato per la stesura, oltre alle note distribuite dal professore, c
 * M. Sipser - *Introduction to the theory of computation*
 * R.G. Taylor - *Models of computation and formal languages*
 * N.J. Cutland - *Computability, introduction to recursive function theory*
+* S.B. Cooper - *Computability theory*
 * A. Bernasconi, B. Codenotti - *Introduzione alla complessità computazionale*
 * G. Ausiello, F. D'Amore, G. Gambosi - *Linguaggi, modelli, complessità*
 
