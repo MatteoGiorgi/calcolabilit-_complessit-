@@ -30,6 +30,6 @@ $$(Q, \Sigma, \Delta, q_0, F)$$
 \end{itemize}
 \end{definition}
 
-Le due definizioni di automa differiscono nel tipo[^8] della funzione di transizione: $\Delta$ prende uno stato, un simbolo (compreso il simbolo nullo $\epsilon$) e produce l'insieme dei possibili stati successivi (sottoinsieme di $\mathcal{P}(Q)$, insieme delle parti di $Q$); contrariamente, $\delta$ produce un singolo stato successivo dalla coppia in input stato attuale, simbolo letto.
+Le due definizioni di automa differiscono nel tipo[^7] della funzione di transizione: $\Delta$ prende uno stato, un simbolo (compreso il simbolo nullo $\epsilon$) e produce l'insieme dei possibili stati successivi (sottoinsieme di $\mathcal{P}(Q)$, insieme delle parti di $Q$); contrariamente, $\delta$ produce un singolo stato successivo dalla coppia in input stato attuale, simbolo letto.
 
-[^8]: inteso come *arrow type*: il tipo dei parametri in input-output per i quali una funzione può essere assegnata
+[^7]: inteso come *arrow type*: il tipo dei parametri in input-output per i quali una funzione può essere assegnata

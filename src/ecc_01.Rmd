@@ -17,10 +17,10 @@ Si può dire che un algoritmo sia un procedimento di calcolo che consente di per
     * ha un effetto limitato su dati discreti
     * è descritta da dati finiti
 3. il procedimento di calcolo (o *computazione*) è suddiviso in passi discreti e non fa uso di dispositivi analogici
-4. ogni passo di computazione dipende solo dai precedenti e da una porzione finita dei dati in modo deterministico (è determinato senza ambiguità - non è soggetto ad alcuna distribuzione probabilistica non banale)
+4. ogni passo di computazione dipende solo dai precedenti e da una porzione finita dei dati in modo deterministico (è determinato senza ambiguità ovvero non soggetto ad alcuna distribuzione probabilistica non banale)
 5. non c'è limite al numero di passi necessari all'esecuzione di un algoritmo, nè alla memoria richiesta per contenere i dati iniziali, intermedi e finali
 
-In conclusione, una procedura algoritmica riceve in ingresso una descrizione finita dei dati del problema e restituisce, dopo un tempo finito, una descrizione finita del risultato. La sua natura deterministica fa sì che l'algoritmo fornisca sempre lo stesso risultato ogni volta che riceve in ingresso gli stessi dati: così facendo l'algoritmo stabilisce una relazione funzionale tra l'insieme dei dati e quello dei risultati.
+In conclusione, una procedura algoritmica riceve in ingresso una descrizione finita dei dati del problema e restituisce, dopo un tempo finito, una descrizione finita del risultato. La sua natura deterministica fa sì che l'algoritmo fornisca sempre lo stesso risultato ogni volta che riceve in ingresso gli stessi dati: così facendo stabilisce una relazione funzionale tra l'insieme dei dati e quello dei risultati.
 
 
 
@@ -31,7 +31,7 @@ Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turi
 
 * la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
 
-* gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano istante per istante le informazioni contenute nella macchina
+* gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano istante per istante le informazioni contenute nella computazione
 
 >> $\boxed{\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#}$
 
@@ -85,15 +85,15 @@ $$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
 
 ### Nuova definizione di MdT
 
-Prima di procedere, è necessario utilizzare le considerazioni fatte fin'ora e ritoccare la nostra definizione di MdT estendendo la quadrupla ad una quintupla con l'introduzione di $\{q_A,q_R\}$; questo facilitarà il nostro percorso nell'utilizzo di macchine e linguagi regolari come strumento per trattere la classe dei *problemi decisionali*.
+Prima di procedere, è necessario utilizzare le considerazioni fatte fin'ora e ritoccare la nostra definizione di MdT estendendo la quadrupla ad una quintupla con l'introduzione di $\{q_A,q_R\}$; questo facilitarà il nostro percorso nell'utilizzo di macchine e linguagi regolari come strumento per trattare la classe dei *problemi decisionali*.
 
 \begin{definition}
 Una \underline{Macchina di Turing deterministica} è definita come la quintupla
 $$M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})$$
 
 \begin{itemize}[itemsep=-7pt]
-\item $Q$ è l'insieme finito degli stati $q_i$ che non contiene gli stati terminali $q_A$ e $q_R$
-\item $\Sigma{\nsupseteq}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è sempre l'insieme finito dei simboli (alfabeto di macchina)
+\item $Q$ è l'insieme finito degli stati $q_i$ che non contiene gli stati terminali
+\item $\Sigma{\nsupseteq}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è sempre l'insieme finito dei simboli (alfabeto della macchina)
 \item $\delta{:}(Q{\times}\Sigma){\rightarrow}(Q{\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\})$ è la funzione di transizione
 \item $q_0{\in}Q$ è lo stato iniziale
 \item $\{q_A,q_R\}{\nsubseteq}Q$ è l'insieme formato dagli stati terminali di accettazione e rifiuto
@@ -137,7 +137,7 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 
 [^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
 [^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
-[^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà qui introdotta come relazione
+[^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà poi introdotta come relazione
 [^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe
 [^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
 [^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$. Alternativamente ed in modo del tutto equivalente, può essere definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ è anch'essa una relazione riflessiva e transitiva (dimostrare l'equivalenza per esercizio).
