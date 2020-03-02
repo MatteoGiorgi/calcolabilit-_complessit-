@@ -135,10 +135,10 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 | $q_1$ | $\#$ | $q_2$, $\#$, $\Lleftarrow$ |
 | $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
 
-[^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*
-[^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (un calcolatore)*
-[^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà poi introdotta come relazione
-[^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe
-[^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina
+[^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*.
+[^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (calcolatore)*.
+[^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà poi introdotta come relazione.
+[^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe.
+[^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina.
 [^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$. Alternativamente ed in modo del tutto equivalente, può essere definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ è anch'essa una relazione riflessiva e transitiva (dimostrare l'equivalenza per esercizio).
 

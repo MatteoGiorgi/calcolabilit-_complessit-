@@ -1,6 +1,6 @@
-# Automi e linguaggi \hfill \faCodepen
+# Automi e linguaggi \hfill \faCubes
 
-In questo capitolo verranno richiamate alcune nozioni utili per studiare *decidibilità*, *riducibilità* ed eventualmente l'insolubilità di problemi. Sarà utile avere ben chiaro cosa siano automi, linguaggi regolari e la loro relazione con le MdT definite.
+In questo capitolo verranno richiamate alcune nozioni utili per studiare *decidibilità*, *riducibilità* ed eventualmente l'insolubilità di problemi. Sarà utile avere ben chiaro cosa siano automi, linguaggi regolari e la loro relazione con le MdT.
 
 \begin{definition}
 Un \underline{automa finito determinastico} (DFA) è la quintupla
@@ -32,4 +32,5 @@ $$(Q, \Sigma, \Delta, q_0, F)$$
 
 Le due definizioni di automa differiscono nel tipo[^7] della funzione di transizione: $\Delta$ prende uno stato, un simbolo (compreso il simbolo nullo $\epsilon$) e produce l'insieme dei possibili stati successivi (sottoinsieme di $\mathcal{P}(Q)$, insieme delle parti di $Q$); contrariamente, $\delta$ produce un singolo stato successivo dalla coppia in input stato attuale, simbolo letto.
 
-[^7]: inteso come *arrow type*: il tipo dei parametri in input-output per i quali una funzione può essere assegnata
+[^7]: Inteso come *arrow type*: il tipo dei parametri in input-output per i quali una funzione può essere assegnata.
+
