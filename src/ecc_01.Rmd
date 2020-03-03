@@ -138,6 +138,9 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 | $q_1$ | $\#$ | $q_2$, $\#$, $\Lleftarrow$ |
 | $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
 
+
+
+
 [^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*.
 [^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (il calcolatore)*.
 [^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà poi introdotta come relazione.

@@ -1,6 +1,6 @@
 ---
 title: Elementi di calcolabilità e complessità
-author: \faGlobe\hspace{1pt} `matteogiorgi.github.io`
+author: \faGithub\hspace{1pt} `matteogiorgi.github.io`
 date: a.a. 2020
 lang: it-IT
 output:
@@ -31,8 +31,8 @@ header-includes:
     - \usepackage{titlesec}
     - \usepackage{fontawesome}
     - \usepackage{xpatch}
-    - \newtheorem*{definition}{Def}
-    - \newtheorem*{theorem}{Thm}
+    - \newtheorem*{definition}{Definizione}
+    - \newtheorem*{theorem}{Teorema}
     - \makeatletter\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}\makeatother
 ---
 

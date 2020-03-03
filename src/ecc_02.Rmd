@@ -63,7 +63,7 @@ Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una st
 Si noti l'assonanza con la definizione di computazione: i tre passi precedenti sono infatti da considerarsi i tre stadi della computazione per un automa finito. La macchina accetta l'input (quindi parte), salta di stato in stato con una legge predefinita (funzione di transizione) e dopo un numero indefinito (ma finito) di salti, casca in uno degli stati di terminazione.
 
 \begin{definition}
-Il \underline{linguaggio della macchina} $M$ è l'insieme $A$ di tutte le stringhe accettate dalla macchina: $A{=}L(M)$.
+Il \underline{linguaggio} $A$ della macchina $M$ è l'insieme di tutte le stringhe accettate dalla macchina: $A{=}L(M)$.
 \end{definition}
 
 \begin{definition}
@@ -71,17 +71,47 @@ La macchina $M$ \underline{riconosce il linguaggio} $A$ se $A {=} \{w\, |\, w{\i
 \end{definition}
 
 \begin{definition}
-Un linguaggio è chiamato \underline{regolare} sse esiste un automa finito che lo riconosce.
+Un linguaggio $A$ è chiamato \underline{regolare} sse esiste un automa finito $M$ che lo riconosce.
 \end{definition}
 
-Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione, che però non dimostro per mancanza di spazio (prova per esercizio) \faMehO.
+Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione che però non dimostro per mancanza di spazio (prova per esercizio) \faMehO.
 $$\boxed{A\ \text{è regolare}} \Leftrightarrow \boxed{\exists\ M\ \text{che riconosce}\ A} \Leftrightarrow \boxed{M\ \text{accetta tutte le stringhe di}\ A}$$
 
-### Le operazioni regolari
+\begin{definition}
+Due macchine $M_1$ e $M_2$ si dicono \underline{equivalenti}  se riconoscono lo stesso linguaggio $A{=}L(M_1){=}L(M_2)$.
+\end{definition}
+
+### Le operazioni regolari[^10]
 
 Trattare i linguaggi regolari non è lo scopo di queste note ma, visto che li ho introdotti, è giusto spendere due parole su come manipolarne le stringhe.
 
-[^7]: Il tipo di una funzione (*arrow type*) è generato dal costruttore di tipo che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
+\begin{definition}
+Dati i linguaggi $A$ e $B$, sono definite \underline{operazioni regolari}
+
+\begin{enumerate}[itemsep=-7pt]
+\item \underline{Unione}: $A{\cup}B{=}\{w\, |\, w{\in}A \vee  w{\in}B\}$
+\item \underline{Concatenazione}: $A{\circ}B{=}\{wv\, |\, w{\in}A \wedge  v{\in}B\}$
+\item \underline{Star}: $A^*{=}\{w_0w_1...w_k\, |\, w_i{\in}A \wedge 0{\leq}i{\leq}k\}$
+\end{enumerate}
+\end{definition}
+
+### Equivalenza tra gli NFA e i DFA
+
+> *Gli automi finiti deterministici e quelli non deterministici riconoscono la stessa classe di linguaggi.*
+
+Questa affermazione appare sorprendente perchè gli $NFA$ sembrano avere maggior potere computazionale dei $DFA$, quindi sarebbe plausibile aspettarsi che i primi riconoscano più linguaggi dei secondi. Possiamo formalizzare con un teorema.
+
+\begin{theorem}
+Per ogni automa finito non deterministico, esiste un automa finito deterministico equivalente.
+\begin{proof}
+...
+\end{proof}
+\end{theorem}
+
+
+
+
+[^7]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
 [^8]: Come nella più comune biliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
 [^9]: Qui c'è effettivamente un abuso di notazione: con il termine *macchina* mi riferisco ad un automa perchè queste proprietà sono valide anche per una MdT.
-
+[^10]: Si può dimostrare (vedi Sipser cap.1) che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari.
