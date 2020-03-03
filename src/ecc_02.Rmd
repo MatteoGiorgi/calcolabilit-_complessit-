@@ -42,7 +42,11 @@ Le due definizioni di automa differiscono nel tipo[^7] della funzione di transiz
 
 ## Linguaggio della macchina[^9]
 
-Automa o MdT, incomincia a essere chiaro che la nostra macchina sia qualcosa che mangia stringhe e decide se appartengono a un dato insieme. Che succede allora quando una macchina prende un input? Esistono stringhe che la macchina non digerisce? Gli insiemi di stringhe che la macchina computa con successo hanno qualche proprietà particolare?
+Automa o MdT, incomincia a essere chiaro che la nostra macchina sia qualcosa che mangia stringhe e decide se appartengono a un dato insieme.
+
+* Esistono stringhe che una macchina $M$ non digerisce?
+* Che succede quando una macchina $M$ prende in input una stringa $w$?
+* Come distinguo gli insiemi di stringhe che la macchina elabora?
 
 Per rispondere devo prima piazzare qualche paletto e senza perdere tempo in pesanti formalismi, ecco qua sotto alcune definizioni fondamentali.
 
@@ -56,6 +60,8 @@ Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una st
 \end{enumerate}
 \end{definition}
 
+Si noti l'assonanza con la definizione di computazione: i tre passi precedenti sono infatti da considerarsi i tre stadi della computazione per un automa finito. La macchina accetta l'input (quindi parte), salta di stato in stato con una legge predefinita (funzione di transizione) e dopo un numero indefinito (ma finito) di salti, casca in uno degli stati di terminazione.
+
 \begin{definition}
 Il \underline{linguaggio della macchina} $M$ è l'insieme $A$ di tutte le stringhe accettate dalla macchina: $A{=}L(M)$.
 \end{definition}
@@ -68,14 +74,14 @@ La macchina $M$ \underline{riconosce il linguaggio} $A$ se $A {=} \{w\, |\, w{\i
 Un linguaggio è chiamato \underline{regolare} sse esiste un automa finito che lo riconosce.
 \end{definition}
 
-Dalle precedenti proposizioni, sono già facilmente intuibili le seguenti implicazioni, che non dimostrerò per mancanza di spazio \faMehO.
+Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione, che però non dimostro per mancanza di spazio (prova per esercizio) \faMehO.
 $$\boxed{A\ \text{è regolare}} \Leftrightarrow \boxed{\exists\ M\ \text{che riconosce}\ A} \Leftrightarrow \boxed{M\ \text{accetta tutte le stringhe di}\ A}$$
 
 ### Le operazioni regolari
 
 Trattare i linguaggi regolari non è lo scopo di queste note ma, visto che li ho introdotti, è giusto spendere due parole su come manipolarne le stringhe.
 
-[^7]: Inteso come *arrow type* e generato dal costruttore di tipo che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`fact :: Integer -> Integer`).
+[^7]: Il tipo di una funzione (*arrow type*) è generato dal costruttore di tipo che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
 [^8]: Come nella più comune biliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
 [^9]: Qui c'è effettivamente un abuso di notazione: con il termine *macchina* mi riferisco ad un automa perchè queste proprietà sono valide anche per una MdT.
 
