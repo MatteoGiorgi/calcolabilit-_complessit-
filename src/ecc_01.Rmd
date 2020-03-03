@@ -49,6 +49,9 @@ $$M = (Q, \Sigma, \delta, q_0)$$
 \end{itemize}
 \end{definition}
 
+
+
+
 ## Configurazione, transizione e computazione
 
 \begin{definition}
@@ -136,7 +139,7 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 | $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
 
 [^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*.
-[^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (calcolatore)*.
+[^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (il calcolatore)*.
 [^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà poi introdotta come relazione.
 [^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe.
 [^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina.

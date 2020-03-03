@@ -1,6 +1,6 @@
 ---
 title: Elementi di calcolabilità e complessità
-author: \faGithub\hspace{1pt} `matteogiorgi.github.io`
+author: \faGlobe\hspace{1pt} `matteogiorgi.github.io`
 date: a.a. 2020
 lang: it-IT
 output:
@@ -22,6 +22,7 @@ header-includes:
     - \usepackage{lmodern}
     - \usepackage{graphicx}
     - \usepackage{mathtools}
+    - \usepackage{amsmath}
     - \usepackage{amsthm}
     - \usepackage{hyperref}
     - \usepackage{amssymb}
