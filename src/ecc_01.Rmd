@@ -67,7 +67,7 @@ $$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
 \end{itemize}
 \end{definition}
 
-Ne viene intutitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^4].
+Ne viene intuitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^4].
 
 In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.
 
@@ -81,7 +81,7 @@ $$((q_x,\sigma_x),q_y,\sigma_y,D)$$
 * $\sigma_y$ è il carattere scritto nella cella precedentemente occupata da $\sigma_x$
 * $D$ è lo spostamento del cursore ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
-Adesso è facilmete intuibile che, una macchina nella medesima configurazione di partenza che compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
+Adesso è facilmente intuibile che, una macchina nella medesima configurazione di partenza che compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
 
 Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (coppia stato corrente, carattere letto):
 $$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$

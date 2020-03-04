@@ -8,7 +8,7 @@
 In questo capitolo verranno richiamate alcune nozioni utili per studiare *decidibilità*, *riducibilità* ed eventualmente l'insolubilità di problemi. Sarà utile avere ben chiaro cosa siano automi, linguaggi regolari e la loro relazione con le MdT.
 
 \begin{definition}
-Un \underline{automa finito determinastico} (DFA) è la quintupla
+Un \underline{automa finito deterministico} (DFA) è la quintupla
 $$(Q, \Sigma, \delta, q_0, F)$$
 
 \begin{itemize}[itemsep=-7pt]
@@ -20,7 +20,7 @@ $$(Q, \Sigma, \delta, q_0, F)$$
 \end{itemize}
 \end{definition}
 
-La funzione di transizione $\delta$ definisce le regole per il cambiamento di stato: specifica esattamente uno stato successivo per ogni possibile combinazione di stato e simbolo in input. Se ne deduce che, *da ogni stato esce esattamente un arco di transizione per ogni possibile simbolo di input* (ecco perchè automa determinastico o DFA).
+La funzione di transizione $\delta$ definisce le regole per il cambiamento di stato: specifica esattamente uno stato successivo per ogni possibile combinazione di stato e simbolo in input. Se ne deduce che *da ogni stato esce esattamente un arco di transizione per ogni possibile simbolo di input* (ecco perchè automa determinastico o DFA).
 
 \begin{definition}
 Un \underline{automa finito non deterministico} (NFA) è la quintupla
@@ -54,9 +54,9 @@ Per rispondere devo prima piazzare qualche paletto e senza perdere tempo in pesa
 Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che la macchina $M$ \underline{accetta la stringa} $w$ se esiste una sequenza di stati $[r_0,r_1,...,r_{n+1}]$ in $Q$, con tre condizioni
 
 \begin{enumerate}[itemsep=-7pt]
-\item $r_0{=}q_0$: la macchina è partita e si trova in $q_0$
-\item $\delta(r_i,w_{i+1}){=}r_{i+1}$, $0{\leq}i{\leq}n{-}1$: la macchina cambia stato con $\delta$
-\item $r_n{\in}F$: la macchina accetta l'input se termina in un $q_F{\in}F$
+\item $r_0{=}q_0$ \hfill La macchina è partita
+\item $\delta(r_i,w_{i+1}){=}r_{i+1}$, $0{\leq}i{\leq}n{-}1$ \hfill La macchina cambia stato con $\delta$
+\item $r_n{\in}F$ \hfill La macchina accetta l'input
 \end{enumerate}
 \end{definition}
 
@@ -81,7 +81,7 @@ $$\boxed{A\ \text{è regolare}} \Leftrightarrow \boxed{\exists\ M\ \text{che ric
 Due macchine $M_1$ e $M_2$ si dicono \underline{equivalenti}  se riconoscono lo stesso linguaggio $A{=}L(M_1){=}L(M_2)$.
 \end{definition}
 
-### Le operazioni regolari[^10]
+### Le operazioni regolari
 
 Trattare i linguaggi regolari non è lo scopo di queste note ma, visto che li ho introdotti, è giusto spendere due parole su come manipolarne le stringhe.
 
@@ -89,29 +89,63 @@ Trattare i linguaggi regolari non è lo scopo di queste note ma, visto che li ho
 Dati i linguaggi $A$ e $B$, sono definite \underline{operazioni regolari}
 
 \begin{enumerate}[itemsep=-7pt]
-\item \underline{Unione}: $A{\cup}B{=}\{w\, |\, w{\in}A \vee  w{\in}B\}$
-\item \underline{Concatenazione}: $A{\circ}B{=}\{wv\, |\, w{\in}A \wedge  v{\in}B\}$
-\item \underline{Star}: $A^*{=}\{w_0w_1...w_k\, |\, w_i{\in}A \wedge 0{\leq}i{\leq}k\}$
+\item $A{\cup}B{=}\{w\, |\, w{\in}A \vee  w{\in}B\}$ Unione
+\item $A{\circ}B{=}\{wv\, |\, w{\in}A \wedge  v{\in}B\}$ Concatenazione
+\item $A^*{=}\{w_0w_1...w_k\, |\, w_i{\in}A \wedge 0{\leq}i{\leq}k\}$ Star
 \end{enumerate}
 \end{definition}
 
-### Equivalenza tra gli NFA e i DFA
+L'unione fa esattamente quello che ci si aspetti faccia l'unione tra insiemi: raggruppa tutte le stringhe di $A$ e $B$; la concatenazione antepone una stringa di $A$ ad una di $B$ in tutti i modi possibili; star concatena un numero qualsiasi di stringhe di $A$.
 
-> *Gli automi finiti deterministici e quelli non deterministici riconoscono la stessa classe di linguaggi.*
+In ultimo è possibile dimostrare che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari (vedi Sipser cap.1).
 
-Questa affermazione appare sorprendente perchè gli $NFA$ sembrano avere maggior potere computazionale dei $DFA$, quindi sarebbe plausibile aspettarsi che i primi riconoscano più linguaggi dei secondi. Possiamo formalizzare con un teorema.
+### Equivalenza tra i DFA e gli NFA
+
+Erroneamente si potrebbe pensare che gli NFA abbiano maggior potere computazionale dei DFA, e che quindi riconoscano più linguaggi; non è così perchè automi finiti deterministici e non deterministici riconoscono la stessa classe di linguaggi. Vediamo di formalizzare l'idea.
 
 \begin{theorem}
 Per ogni automa finito non deterministico, esiste un automa finito deterministico equivalente.
 \begin{proof}
-...
+L'idea è quella di procedere per costruzione e trasformare l'automa non deterministico in uno deterministico con $2^k$ stati, pari cioè alla cardinalità di $\mathcal{P}(Q_\text{NFA})$. Ricorda infatti che, se chiamiamo $k$ la cardinalità di $Q_\text{NFA}$, il numero dei sottoinsiemi corrispondenti ad una delle possibilità che il nuovo automa deve ricordare è $2^k$.
+
+Sia $N{=}(Q,\Sigma,\delta,q_0,F)$ l'NFA di partenza che riconosce un linguaggio $A$ e voglio costruire un DFA $M{=}(Q\prime,\Sigma\prime,\delta\prime,q_0^\prime,F\prime)$ equivalente. Inizialmente considero il caso più semplice in cui $N$ non ha $\epsilon$-archi
+
+\begin{enumerate}[itemsep=-7pt]
+\item Ogni stato di $M$ è un insieme di stati di $N$.
+$$Q\prime = \mathcal{P}(Q)$$
+
+\item Se $R$ è uno stato di $N$, esso è anche un insieme di stati di $N$. Quando $M$ legge un simbolo $w$ nello stato $R$, mostra dove $w$ porta ogni stato in $R$ e poichè da ogni stato si può andare in un insieme di stati, ne prendiamo l'unione.
+$$R{\in}Q,\, w{\in}\Sigma\, \Rightarrow\, \delta\prime(R,w) = \{q{\in}Q\, |\, \exists\, r{\in}R.\, q{\in}\delta(r,w)\}$$
+
+\item $M$ inizia nello stato corrispondente alla collezione che contiene solo lo stato iniziale di $N$.
+$$q_0^\prime = q_0$$
+
+\item $M$ accetta se uno dei possivili stati in cui $N$ potrebbe essere in quel punto è uno stato accettante.
+$$F\prime = \{R{\in}Q\prime\, |\, \text{$R$ contiene uno stato accetante di $N$}\}$$
+\end{enumerate}
+
+Adesso considero anche gli $\epsilon$-archi e, per ogni stato $R$ di $M$, definisco $E(R)$ come la collezione di stati che possono essere raggiunti dagli elementi di $R$ proseguendo solo con $\epsilon$-archi (includendo gli stessi elementi di $R$). Per $R{\subseteq}Q$, sarà
+$$E(R) = \{q\, |\, \text{$q$ può essere raggiunto da $R$ attraverso $0$ o più $\epsilon$-archi}\}$$
+
+Poi modifico $\delta\prime$ in modo che possa raggiungere tutti quegli stati esplorabili con $\epsilon$-archi dopo ogni passo. Sostituisco $\delta(r,w)$ con $E(\delta(r,w))$ e ottengo
+$$\delta\prime(R,w) = \{q{\in}Q\, |\, \exists r{\in}R.\, q{\in}E(\delta(r,w))\}$$
+
+In ultimo devo modificare lo stato iniziale di $M$ per potermi muovere inizialmente su tutti i possibili stati che possono essere raggiunti dallo stato inizile di $N$ attraverso gli $\epsilon$-archi. Per fare questo cambio $q_0^\prime$ in $E(q_0)$. Ho completato la costruzione di $M$.
+
+Da notare che $M$ funziona correttamente perchè ad ogni passo della computazione, entra in uno stato che corrisponde al sottoinsieme di stati nei quali $N$ potrebbe trovarsi.
 \end{proof}
 \end{theorem}
+
+\begin{corollary}
+(Dimostra per esercizio \faMehO)
+$$\boxed{\text{$\exists$ un NFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$\exists$ un DFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$L$ è regolare}}$$
+\end{corollary}
+
 
 
 
 
 [^7]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
-[^8]: Come nella più comune biliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
-[^9]: Qui c'è effettivamente un abuso di notazione: con il termine *macchina* mi riferisco ad un automa perchè queste proprietà sono valide anche per una MdT.
-[^10]: Si può dimostrare (vedi Sipser cap.1) che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari.
+[^8]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
+[^9]: Abuso di notazione: qui (ed in futuro) con il termine *macchina* mi riferisco ad un automa ma queste proprietà sono valide anche per una MdT.
+
