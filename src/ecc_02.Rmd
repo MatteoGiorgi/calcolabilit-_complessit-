@@ -74,7 +74,7 @@ $M$ \underline{riconosce il linguaggio} $A$ se $A {=} \{w\, |\, w{\in}A,\, M \te
 Un linguaggio $A$ è chiamato \underline{regolare} sse esiste un automa finito $M$ che lo riconosce.
 \end{definition}
 
-Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione che però non dimostro per mancanza di spazio (prova per esercizio) \faMehO.
+Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione che però non dimostro per mancanza di spazio \faMehO.
 $$\text{se }\boxed{A\ \text{è regolare}} \Leftrightarrow \boxed{\exists\ M\ \text{che riconosce}\ A} \Leftrightarrow \boxed{M\ \text{accetta tutte le stringhe di}\ A}$$
 
 \begin{definition}
@@ -97,7 +97,12 @@ Dati i linguaggi $A$ e $B$, sono definite \underline{operazioni regolari}
 
 L'unione fa esattamente quello che ci si aspetti faccia l'unione tra insiemi: raggruppa tutte le stringhe di $A$ e $B$; la concatenazione antepone una stringa di $A$ ad una di $B$ in tutti i modi possibili; star concatena un numero qualsiasi di stringhe di $A$.
 
-In ultimo è possibile dimostrare che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari (vedi Sipser cap1).
+\begin{theorem}
+La classe dei linguaggi regolari è chiusa rispetto alle operazioni regolari.
+\begin{proof}
+Troppo lunga, vedi Sipser \faMehO.
+\end{proof}
+\end{theorem}
 
 ## Equivalenza tra DFA e NFA
 
@@ -143,7 +148,7 @@ Da notare che $M$ funziona correttamente perchè ad ogni passo della computazion
 Dato un linguaggio $L$
 $$\text{se }\boxed{\text{$\exists$ un NFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$\exists$ un DFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$L$ è regolare}}$$
 \begin{proof}
-Banale, fallo per esercizio \faMehO.
+Banale, segue dal teorema \faMehO.
 \end{proof}
 \end{corollary}
 
