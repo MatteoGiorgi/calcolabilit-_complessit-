@@ -99,7 +99,7 @@ L'unione fa esattamente quello che ci si aspetti faccia l'unione tra insiemi: ra
 
 In ultimo è possibile dimostrare che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari (vedi Sipser cap1).
 
-### Equivalenza tra i DFA e gli NFA
+## Equivalenza tra DFA e NFA
 
 Erroneamente si potrebbe pensare che gli NFA abbiano maggior potere computazionale dei DFA, e che quindi riconoscano più linguaggi; non è così perchè automi finiti deterministici e non deterministici riconoscono la stessa classe di linguaggi. Vediamo di formalizzare l'idea.
 
@@ -128,7 +128,7 @@ Adesso considero anche gli $\epsilon$-archi. Per ogni stato $R$ di $M$, definisc
 $$E(R) = \{q\, |\, \text{$q$ può essere raggiunto da $R$ attraverso $0$ o più $\epsilon$-archi}\}$$
 
 Poi modifico $\delta\prime$ in modo che possa raggiungere tutti quegli stati esplorabili con $\epsilon$-archi dopo ogni passo. Sostituisco $\delta(r,w)$ con $E(\delta(r,w))$ e ottengo
-$$\delta\prime(R,w) = \{q{\in}Q\, |\, \exists r{\in}R.\, q{\in}E(\delta(r,w))\}$$
+$$\delta\prime(R,w) = \{q{\in}Q\, |\, \exists\, r{\in}R.\, q{\in}E(\delta(r,w))\}$$
 
 In ultimo devo modificare lo stato iniziale di $M$ per potermi muovere inizialmente su tutti i possibili stati che possono essere raggiunti dallo stato inizile di $N$ attraverso gli $\epsilon$-archi. Per fare questo cambio $q_0^\prime$ in $E(q_0)$. Ho completato la costruzione di $M$.
 
