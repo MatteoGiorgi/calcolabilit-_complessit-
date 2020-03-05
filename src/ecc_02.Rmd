@@ -108,20 +108,23 @@ Per ogni automa finito non deterministico, esiste un automa finito deterministic
 \begin{proof}
 L'idea è quella di procedere per costruzione e trasformare l'automa non deterministico in uno deterministico con $2^k$ stati, pari cioè alla cardinalità di $\mathcal{P}(Q_\text{NFA})$. Ricorda infatti che, se chiamiamo $k$ la cardinalità di $Q_\text{NFA}$, il numero dei sottoinsiemi corrispondenti ad una delle possibilità che il nuovo automa deve ricordare è $2^k$.
 
-Sia $N{=}(Q,\Sigma,\delta,q_0,F)$ l'NFA di partenza che riconosce un linguaggio $A$ e voglio costruire un DFA $M{=}(Q\prime,\Sigma\prime,\delta\prime,q_0^\prime,F\prime)$ equivalente. Inizialmente considero il caso più semplice in cui $N$ non ha $\epsilon$-archi.
+Sia $N{=}(Q,\Sigma,\delta,q_0,F)$ l'NFA di partenza che riconosce un linguaggio $A$, voglio costruire un DFA $M{=}(Q\prime,\Sigma\prime,\delta\prime,q_0^\prime,F\prime)$ equivalente. Inizialmente considero il caso più semplice in cui $N$ non ha $\epsilon$-archi.
 
 \begin{enumerate}[itemsep=-7pt]
 \item Ogni stato di $M$ è un insieme di stati di $N$
 $$Q\prime = \mathcal{P}(Q)$$
 
-\item Se $R$ è uno stato di $N$, esso è anche un insieme di stati di $N$. Quando $M$ legge un simbolo $w$ nello stato $R$, mostra dove $w$ porta ogni stato in $R$ e poichè da ogni stato si può andare in un insieme di stati, ne prendiamo l'unione
-$$R{\in}Q,\, w{\in}\Sigma\, \Rightarrow\, \delta\prime(R,w) = \{q{\in}Q\, |\, \exists\, r{\in}R.\, q{\in}\delta(r,w)\}$$
+\item Se $R$ è uno stato di $M$, esso è anche un insieme di stati di $N$. Quando $M$ legge un simbolo $w$ nello stato $R$, ci mostra gli stati successivi a quelli in $R$ e, poichè da ogni stato si può andare in un insieme di stati, ne prendiamo l'unione
+\begin{align*}
+R{\in}Q,\, w{\in}\Sigma\, \Rightarrow\, \delta\prime(R,w) &= \{q{\in}Q\, |\, \exists\, r{\in}R.\, q{\in}\delta(r,w)\}\\
+                                                          &= \bigcup_{r \in R}\delta(r,w)
+\end{align*}
 
-\item $M$ inizia nello stato corrispondente alla collezione che contiene solo lo stato iniziale di $N$
+\item Lo stato iniziale di $M$ è quello corrispondente alla collezione che contiene solamente lo stato iniziale di $N$
 $$q_0^\prime = q_0$$
 
-\item $M$ accetta se uno dei possivili stati in cui $N$ potrebbe essere in quel punto è uno stato accettante
-$$F\prime = \{R{\in}Q\prime\, |\, \text{$R$ contiene uno stato accetante di $N$}\}$$
+\item $M$ accetta se $N$ è in uno stato accettante in quel momento
+$$F\prime = \{R{\in}Q\prime\, |\, \text{$R$ contiene uno stato accettante di $N$}\}$$
 \end{enumerate}
 
 Adesso considero anche gli $\epsilon$-archi. Per ogni stato $R$ di $M$, definisco $E(R)$ come la collezione di stati che possono essere raggiunti dagli elementi di $R$ proseguendo solo con $\epsilon$-archi (includendo gli stessi elementi di $R$). Per $R{\subseteq}Q$, sarà
