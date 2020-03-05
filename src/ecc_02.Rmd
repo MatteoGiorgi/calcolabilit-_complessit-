@@ -67,7 +67,7 @@ Il \underline{linguaggio} $A$ della macchina $M$ è l'insieme di tutte le string
 \end{definition}
 
 \begin{definition}
-La macchina $M$ \underline{riconosce il linguaggio} $A$ se $A {=} \{w\, |\, w{\in}A,\, M \text{accetta}\, w\}$.
+$M$ \underline{riconosce il linguaggio} $A$ se $A {=} \{w\, |\, w{\in}A,\, M \text{accetta}\, w\}$.
 \end{definition}
 
 \begin{definition}
