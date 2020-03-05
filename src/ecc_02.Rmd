@@ -75,7 +75,7 @@ Un linguaggio $A$ è chiamato \underline{regolare} sse esiste un automa finito $
 \end{definition}
 
 Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione che però non dimostro per mancanza di spazio (prova per esercizio) \faMehO.
-$$\boxed{A\ \text{è regolare}} \Leftrightarrow \boxed{\exists\ M\ \text{che riconosce}\ A} \Leftrightarrow \boxed{M\ \text{accetta tutte le stringhe di}\ A}$$
+$$\text{se }\boxed{A\ \text{è regolare}} \Leftrightarrow \boxed{\exists\ M\ \text{che riconosce}\ A} \Leftrightarrow \boxed{M\ \text{accetta tutte le stringhe di}\ A}$$
 
 \begin{definition}
 Due macchine $M_1$ e $M_2$ si dicono \underline{equivalenti}  se riconoscono lo stesso linguaggio $A{=}L(M_1){=}L(M_2)$.
@@ -140,8 +140,11 @@ Da notare che $M$ funziona correttamente perchè ad ogni passo della computazion
 \end{theorem}
 
 \begin{corollary}
-(Dimostra per esercizio \faMehO)
-$$\boxed{\text{$\exists$ un NFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$\exists$ un DFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$L$ è regolare}}$$
+Dato un linguaggio $L$
+$$\text{se }\boxed{\text{$\exists$ un NFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$\exists$ un DFA che riconosce $L$}} \Leftrightarrow \boxed{\text{$L$ è regolare}}$$
+\begin{proof}
+Banale, fallo per esercizio \faMehO.
+\end{proof}
 \end{corollary}
 
 
