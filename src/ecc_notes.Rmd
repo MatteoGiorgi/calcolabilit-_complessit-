@@ -44,7 +44,7 @@ header-includes:
 
 Queste note sono state redatte dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti per l'anno accademico 2019-2020.
 
-Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, riferimanti ai seguenti testi:
+Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
 
 * M. Sipser - *Introduction to the theory of computation*
 * R.G. Taylor - *Models of computation and formal languages*
