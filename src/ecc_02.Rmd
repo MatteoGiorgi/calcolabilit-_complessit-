@@ -97,7 +97,7 @@ Dati i linguaggi $A$ e $B$, sono definite \underline{operazioni regolari}
 
 L'unione fa esattamente quello che ci si aspetti faccia l'unione tra insiemi: raggruppa tutte le stringhe di $A$ e $B$; la concatenazione antepone una stringa di $A$ ad una di $B$ in tutti i modi possibili; star concatena un numero qualsiasi di stringhe di $A$.
 
-In ultimo è possibile dimostrare che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari (vedi Sipser cap.1).
+In ultimo è possibile dimostrare che la classe dei linguaggi regolari è chiusa rispetto alle tre operazioni regolari (vedi Sipser cap1).
 
 ### Equivalenza tra i DFA e gli NFA
 
@@ -108,23 +108,23 @@ Per ogni automa finito non deterministico, esiste un automa finito deterministic
 \begin{proof}
 L'idea è quella di procedere per costruzione e trasformare l'automa non deterministico in uno deterministico con $2^k$ stati, pari cioè alla cardinalità di $\mathcal{P}(Q_\text{NFA})$. Ricorda infatti che, se chiamiamo $k$ la cardinalità di $Q_\text{NFA}$, il numero dei sottoinsiemi corrispondenti ad una delle possibilità che il nuovo automa deve ricordare è $2^k$.
 
-Sia $N{=}(Q,\Sigma,\delta,q_0,F)$ l'NFA di partenza che riconosce un linguaggio $A$ e voglio costruire un DFA $M{=}(Q\prime,\Sigma\prime,\delta\prime,q_0^\prime,F\prime)$ equivalente. Inizialmente considero il caso più semplice in cui $N$ non ha $\epsilon$-archi
+Sia $N{=}(Q,\Sigma,\delta,q_0,F)$ l'NFA di partenza che riconosce un linguaggio $A$ e voglio costruire un DFA $M{=}(Q\prime,\Sigma\prime,\delta\prime,q_0^\prime,F\prime)$ equivalente. Inizialmente considero il caso più semplice in cui $N$ non ha $\epsilon$-archi.
 
 \begin{enumerate}[itemsep=-7pt]
-\item Ogni stato di $M$ è un insieme di stati di $N$.
+\item Ogni stato di $M$ è un insieme di stati di $N$
 $$Q\prime = \mathcal{P}(Q)$$
 
-\item Se $R$ è uno stato di $N$, esso è anche un insieme di stati di $N$. Quando $M$ legge un simbolo $w$ nello stato $R$, mostra dove $w$ porta ogni stato in $R$ e poichè da ogni stato si può andare in un insieme di stati, ne prendiamo l'unione.
+\item Se $R$ è uno stato di $N$, esso è anche un insieme di stati di $N$. Quando $M$ legge un simbolo $w$ nello stato $R$, mostra dove $w$ porta ogni stato in $R$ e poichè da ogni stato si può andare in un insieme di stati, ne prendiamo l'unione
 $$R{\in}Q,\, w{\in}\Sigma\, \Rightarrow\, \delta\prime(R,w) = \{q{\in}Q\, |\, \exists\, r{\in}R.\, q{\in}\delta(r,w)\}$$
 
-\item $M$ inizia nello stato corrispondente alla collezione che contiene solo lo stato iniziale di $N$.
+\item $M$ inizia nello stato corrispondente alla collezione che contiene solo lo stato iniziale di $N$
 $$q_0^\prime = q_0$$
 
-\item $M$ accetta se uno dei possivili stati in cui $N$ potrebbe essere in quel punto è uno stato accettante.
+\item $M$ accetta se uno dei possivili stati in cui $N$ potrebbe essere in quel punto è uno stato accettante
 $$F\prime = \{R{\in}Q\prime\, |\, \text{$R$ contiene uno stato accetante di $N$}\}$$
 \end{enumerate}
 
-Adesso considero anche gli $\epsilon$-archi e, per ogni stato $R$ di $M$, definisco $E(R)$ come la collezione di stati che possono essere raggiunti dagli elementi di $R$ proseguendo solo con $\epsilon$-archi (includendo gli stessi elementi di $R$). Per $R{\subseteq}Q$, sarà
+Adesso considero anche gli $\epsilon$-archi. Per ogni stato $R$ di $M$, definisco $E(R)$ come la collezione di stati che possono essere raggiunti dagli elementi di $R$ proseguendo solo con $\epsilon$-archi (includendo gli stessi elementi di $R$). Per $R{\subseteq}Q$, sarà
 $$E(R) = \{q\, |\, \text{$q$ può essere raggiunto da $R$ attraverso $0$ o più $\epsilon$-archi}\}$$
 
 Poi modifico $\delta\prime$ in modo che possa raggiungere tutti quegli stati esplorabili con $\epsilon$-archi dopo ogni passo. Sostituisco $\delta(r,w)$ con $E(\delta(r,w))$ e ottengo
