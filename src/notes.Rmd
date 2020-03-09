@@ -67,9 +67,9 @@ library(igraph)
 grid.raster(readPNG("../assets/machine.png"))
 ```
 
-```{r child="ecc_01.Rmd"}
+```{r child="01.Rmd"}
 ```
 
-```{r child="ecc_02.Rmd"}
+```{r child="02.Rmd"}
 ```
 
