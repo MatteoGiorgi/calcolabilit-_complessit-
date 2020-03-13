@@ -74,3 +74,6 @@ grid.raster(readPNG("../assets/machine.png"))
 ```{r child="02.Rmd"}
 ```
 
+```{r child="03.Rmd"}
+```
+
