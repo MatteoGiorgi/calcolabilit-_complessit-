@@ -138,6 +138,42 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 | $q_1$ | $\#$ | $q_2$, $\#$, $\Lleftarrow$ |
 | $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
 
+Qui invece gli stati[^7] della macchina
+
+\vspace{10pt}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (20.6,-29.6) circle (3);
+\draw (20.6,-29.6) node {$q_0$};
+\draw [black] (34.9,-29.6) circle (3);
+\draw (34.9,-29.6) node {$q_1$};
+\draw [black] (48.9,-29.6) circle (3);
+\draw (48.9,-29.6) node {$q_2$};
+\draw [black] (62.9,-29.6) circle (3);
+\draw (62.9,-29.6) node {$h$};
+\draw [black] (62.9,-29.6) circle (2.4);
+\draw [black] (13.4,-29.6) -- (17.6,-29.6);
+\fill [black] (17.6,-29.6) -- (16.8,-29.1) -- (16.8,-30.1);
+\draw [black] (23.6,-29.6) -- (31.9,-29.6);
+\fill [black] (31.9,-29.6) -- (31.1,-29.1) -- (31.1,-30.1);
+\draw (27.75,-29.1) node [above] {$+$};
+\draw [black] (37.9,-29.6) -- (45.9,-29.6);
+\fill [black] (45.9,-29.6) -- (45.1,-29.1) -- (45.1,-30.1);
+\draw (41.9,-29.1) node [above] {$\#$};
+\draw [black] (51.9,-29.6) -- (59.9,-29.6);
+\fill [black] (59.9,-29.6) -- (59.1,-29.1) -- (59.1,-30.1);
+\draw (55.9,-29.1) node [above] {$|$};
+\draw [black] (21.923,-32.28) arc (54:-234:2.25);
+\draw (20.6,-36.85) node [below] {$\triangleright,|$};
+\fill [black] (19.28,-32.28) -- (18.4,-32.63) -- (19.21,-33.22);
+\draw [black] (36.223,-32.28) arc (54:-234:2.25);
+\draw (34.9,-36.85) node [below] {$|$};
+\fill [black] (33.58,-32.28) -- (32.7,-32.63) -- (33.51,-33.22);
+\end{tikzpicture}
+\end{center}
+
 
 
 
@@ -147,4 +183,5 @@ rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\ri
 [^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe.
 [^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina.
 [^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$. Alternativamente ed in modo del tutto equivalente, può essere definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ è anch'essa una relazione riflessiva e transitiva (dimostrare l'equivalenza per esercizio).
+[^7]: Ho rappresentato gli stati della MdT come un automa finito non deterministico solo per praticità, questo non implica nessuna equivalenza tra macchine e automi.
 

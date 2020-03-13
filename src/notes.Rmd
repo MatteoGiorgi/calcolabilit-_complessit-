@@ -1,7 +1,6 @@
 ---
 title: Note di calcolabilità
 author: \faGithub\hspace{1pt} `matteogiorgi.github.io`
-# date: 2020
 lang: it-IT
 output:
     pdf_document:
@@ -31,6 +30,8 @@ header-includes:
     - \usepackage{titlesec}
     - \usepackage{fontawesome}
     - \usepackage{xpatch}
+    - \usepackage{tikz}
+    - \usetikzlibrary{automata,positioning}
     - \newtheorem*{definition}{Definizione}
     - \newtheorem*{theorem}{Teorema}
     - \newtheorem*{corollary}{Corollario}
@@ -46,12 +47,12 @@ Queste note sono state redatte dal sottoscritto durante le lezioni del corso di 
 
 Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
 
-* M. Sipser - *Introduction to the theory of computation*
-* R.G. Taylor - *Models of computation and formal languages*
-* N.J. Cutland - *Computability, introduction to recursive function theory*
-* S.B. Cooper - *Computability theory*
-* A. Bernasconi, B. Codenotti - *Introduzione alla complessità computazionale*
-* G. Ausiello, F. D'Amore, G. Gambosi - *Linguaggi, modelli, complessità*
+* *M. Sipser - Introduction to the theory of computation*
+* *R.G. Taylor - Models of computation and formal languages*
+* *N.J. Cutland - Computability, introduction to recursive function theory*
+* *S.B. Cooper - Computability theory*
+* *A. Bernasconi, B. Codenotti - Introduzione alla complessità computazionale*
+* *G. Ausiello, F. D'Amore, G. Gambosi - Linguaggi, modelli, complessità*
 
 \vfill
 

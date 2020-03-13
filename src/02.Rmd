@@ -35,14 +35,14 @@ $$(Q, \Sigma, \Delta, q_0, F)$$
 \end{itemize}
 \end{definition}
 
-Le due definizioni di automa differiscono nel tipo[^7] della funzione di transizione. $\Delta$ prende uno stato dall'insieme degli stati $Q$, un simbolo dall'alfabeto $\Sigma_\epsilon{=}\Sigma{+}\{\epsilon\}$ e produce l'insieme dei possibili stati successivi (${\subseteq}\mathcal{P}(Q)$); $\delta$ invece, prende in input la coppia stato attuale, simbolo letto e produce un singolo stato successivo[^8].
+Le due definizioni di automa differiscono nel tipo[^8] della funzione di transizione. $\Delta$ prende uno stato dall'insieme degli stati $Q$, un simbolo dall'alfabeto $\Sigma_\epsilon{=}\Sigma{+}\{\epsilon\}$ e produce l'insieme dei possibili stati successivi (${\subseteq}\mathcal{P}(Q)$); $\delta$ invece, prende in input la coppia stato attuale, simbolo letto e produce un singolo stato successivo[^9].
 
 
 
 
-## Linguaggio della macchina[^9]
+## Linguaggio della macchina
 
-Automa o MdT, incomincia a essere chiaro che la nostra macchina sia qualcosa che mangia stringhe e decide se appartengono a un dato insieme.
+Automa o MdT, incomincia a essere chiaro che la nostra macchina[^10] sia qualcosa che mangia stringhe e decide se appartengono a un dato insieme.
 
 * Esistono stringhe che una macchina $M$ non digerisce?
 * Che succede quando una macchina $M$ prende in input una stringa $w$?
@@ -51,11 +51,11 @@ Automa o MdT, incomincia a essere chiaro che la nostra macchina sia qualcosa che
 Per rispondere devo prima piazzare qualche paletto e senza perdere tempo in pesanti formalismi, ecco qua sotto alcune definizioni fondamentali.
 
 \begin{definition}
-Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che la macchina $M$ \underline{accetta la stringa} $w$ se esiste una sequenza di stati $[r_0,r_1,...,r_{n+1}]$ in $Q$, con tre condizioni
+Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che la macchina $M$ \underline{accetta la stringa} $w$ se esiste una sequenza di stati $[r_0,r_1,...,r_n]$ in $Q$, con tre condizioni
 
 \begin{enumerate}[itemsep=-7pt]
-\item $r_0{=}q_0$ \hfill La macchina è partita
-\item $\delta(r_i,w_{i+1}){=}r_{i+1}$, $0{\leq}i{\leq}n{-}1$ \hfill La macchina cambia stato con $\delta$
+\item $r_0{=}q_0$ \hfill La macchina parte
+\item $\delta(r_i,w_{i+1}){=}r_{i+1}$, $0{\leq}i{\leq}n{-}1$ \hfill La macchina salta tra gli stati
 \item $r_n{\in}F$ \hfill La macchina accetta l'input
 \end{enumerate}
 \end{definition}
@@ -89,9 +89,9 @@ Trattare i linguaggi regolari non è lo scopo di queste note ma, visto che li ho
 Dati i linguaggi $A$ e $B$, sono definite \underline{operazioni regolari}
 
 \begin{enumerate}[itemsep=-7pt]
-\item $A{\cup}B{=}\{w\, |\, w{\in}A \vee  w{\in}B\}$ Unione
-\item $A{\circ}B{=}\{wv\, |\, w{\in}A \wedge  v{\in}B\}$ Concatenazione
-\item $A^*{=}\{w_0w_1...w_k\, |\, w_i{\in}A \wedge 0{\leq}i{\leq}k\}$ Star
+\item $A{\cup}B{=}\{w\, |\, w{\in}A \vee  w{\in}B\}$ \hfill Unione
+\item $A{\circ}B{=}\{wv\, |\, w{\in}A \wedge  v{\in}B\}$ \hfill Concatenazione
+\item $A^*{=}\{w_0w_1...w_k\, |\, w_i{\in}A \wedge 0{\leq}i{\leq}k\}$ \hfill Star
 \end{enumerate}
 \end{definition}
 
@@ -138,7 +138,7 @@ $$E(R) = \{q\, |\, \text{$q$ può essere raggiunto da $R$ attraverso $0$ o più 
 Poi modifico $\delta\prime$ in modo che possa raggiungere tutti quegli stati esplorabili con $\epsilon$-archi dopo ogni passo. Sostituisco $\delta(r,w)$ con $E(\delta(r,w))$ e ottengo
 $$\delta\prime(R,w) = \{q{\in}Q\, |\, \exists\, r{\in}R.\, q{\in}E(\delta(r,w))\}$$
 
-In ultimo devo modificare lo stato iniziale di $M$ per potermi muovere inizialmente su tutti i possibili stati che possono essere raggiunti dallo stato inizile di $N$ attraverso gli $\epsilon$-archi. Per fare questo cambio $q_0^\prime$ in $E(q_0)$. Ho completato la costruzione di $M$.
+In ultimo devo modificare lo stato iniziale di $M$ per potermi muovere inizialmente su tutti i possibili stati che possono essere raggiunti dallo stato iniziale di $N$ attraverso gli $\epsilon$-archi. Per fare questo cambio $q_0^\prime$ in $E(q_0)$. Ho completato la costruzione di $M$.
 
 Da notare che $M$ funziona correttamente perchè ad ogni passo della computazione, entra in uno stato che corrisponde al sottoinsieme di stati nei quali $N$ potrebbe trovarsi.
 \end{proof}
@@ -152,11 +152,164 @@ Banale, segue dal teorema \faMehO.
 \end{proof}
 \end{corollary}
 
+### Esempio di automi equivalenti
+
+Sia $A$ il linguaggio che consiste di tutte le stringhe su $\{0,1\}$ contenenti un $1$ nella terza posizione dalla fine (dove per esempio $000100{\in}A$, mentre $0011{\notin}A$).
+
+Ecco qua sotto due automi finiti equivalenti che riconoscono $A$: il primo non deterministico, il secondo deterministico. Controlla il DFA costruito usando il teorema di equivalenza precedente \faMehO.
+
+\vspace{10pt}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (11.6,-27.1) circle (3);
+\draw (11.6,-27.1) node {$q_0$};
+\draw [black] (26.7,-27.1) circle (3);
+\draw (26.7,-27.1) node {$q_1$};
+\draw [black] (42.2,-27.1) circle (3);
+\draw (42.2,-27.1) node {$q_2$};
+\draw [black] (57.7,-27.1) circle (3);
+\draw (57.7,-27.1) node {$q_3$};
+\draw [black] (57.7,-27.1) circle (2.4);
+\draw [black] (4.8,-27.1) -- (8.6,-27.1);
+\fill [black] (8.6,-27.1) -- (7.8,-26.6) -- (7.8,-27.6);
+\draw [black] (14.6,-27.1) -- (23.7,-27.1);
+\fill [black] (23.7,-27.1) -- (22.9,-26.6) -- (22.9,-27.6);
+\draw (19.15,-26.6) node [above] {$1$};
+\draw [black] (29.7,-27.1) -- (39.2,-27.1);
+\fill [black] (39.2,-27.1) -- (38.4,-26.6) -- (38.4,-27.6);
+\draw (34.45,-26.6) node [above] {$0,1$};
+\draw [black] (45.2,-27.1) -- (54.7,-27.1);
+\fill [black] (54.7,-27.1) -- (53.9,-26.6) -- (53.9,-27.6);
+\draw (49.95,-26.6) node [above] {$0,1$};
+\draw [black] (10.277,-24.42) arc (234:-54:2.25);
+\draw (11.6,-19.85) node [above] {$0,1$};
+\fill [black] (12.92,-24.42) -- (13.8,-24.07) -- (12.99,-23.48);
+\end{tikzpicture}
+\end{center}
+
+\vspace{30pt}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (11.6,-20.5) circle (3);
+\draw (11.6,-20.5) node {$q_0$};
+\draw [black] (25.4,-20.5) circle (3);
+\draw (25.4,-20.5) node {$q_1$};
+\draw [black] (25.4,-20.5) circle (2.4);
+\draw [black] (39.5,-20.5) circle (3);
+\draw (39.5,-20.5) node {$q_2$};
+\draw [black] (57.7,-20.5) circle (3);
+\draw (57.7,-20.5) node {$q_3$};
+\draw [black] (57.7,-20.5) circle (2.4);
+\draw [black] (11.6,-42.2) circle (3);
+\draw (11.6,-42.2) node {$q_4$};
+\draw [black] (30,-42.2) circle (3);
+\draw (30,-42.2) node {$q_5$};
+\draw [black] (44.1,-42.2) circle (3);
+\draw (44.1,-42.2) node {$q_6$};
+\draw [black] (57.7,-42.2) circle (3);
+\draw (57.7,-42.2) node {$q_7$};
+\draw [black] (4.8,-20.5) -- (8.6,-20.5);
+\fill [black] (8.6,-20.5) -- (7.8,-20) -- (7.8,-21);
+\draw [black] (10.277,-17.82) arc (234:-54:2.25);
+\draw (11.6,-13.25) node [above] {$0$};
+\fill [black] (12.92,-17.82) -- (13.8,-17.47) -- (12.99,-16.88);
+\draw [black] (22.4,-20.5) -- (14.6,-20.5);
+\fill [black] (14.6,-20.5) -- (15.4,-21) -- (15.4,-20);
+\draw (18.5,-20) node [above] {$0$};
+\draw [black] (36.5,-20.5) -- (28.4,-20.5);
+\fill [black] (28.4,-20.5) -- (29.2,-21) -- (29.2,-20);
+\draw (32.45,-20) node [above] {$0$};
+\draw [black] (27.568,-18.43) arc (129.75116:50.24884:21.866);
+\fill [black] (27.57,-18.43) -- (28.5,-18.3) -- (27.86,-17.53);
+\draw (41.55,-12.87) node [above] {$0$};
+\draw [black] (11.6,-23.5) -- (11.6,-39.2);
+\fill [black] (11.6,-39.2) -- (12.1,-38.4) -- (11.1,-38.4);
+\draw (11.1,-31.35) node [left] {$1$};
+\draw [black] (42.266,-44.57) arc (-42.15571:-137.84429:19.446);
+\fill [black] (42.27,-44.57) -- (41.36,-44.83) -- (42.1,-45.5);
+\draw (27.85,-51.47) node [below] {$1$};
+\draw [black] (33,-42.2) -- (41.1,-42.2);
+\fill [black] (41.1,-42.2) -- (40.3,-41.7) -- (40.3,-42.7);
+\draw (37.05,-42.7) node [below] {$1$};
+\draw [black] (47.1,-42.2) -- (54.7,-42.2);
+\fill [black] (54.7,-42.2) -- (53.9,-41.7) -- (53.9,-42.7);
+\draw (50.9,-42.7) node [below] {$1$};
+\draw [black] (57.7,-39.2) -- (57.7,-23.5);
+\fill [black] (57.7,-23.5) -- (57.2,-24.3) -- (58.2,-24.3);
+\draw (58.2,-31.35) node [right] {$0$};
+\draw [black] (45.69,-39.66) -- (56.11,-23.04);
+\fill [black] (56.11,-23.04) -- (55.26,-23.45) -- (56.11,-23.99);
+\draw (51.53,-32.64) node [right] {$0$};
+\draw [black] (55.34,-22.35) -- (32.36,-40.35);
+\fill [black] (32.36,-40.35) -- (33.3,-40.25) -- (32.68,-39.46);
+\draw (44.99,-31.85) node [below] {$1$};
+\draw [black] (39.02,-23.461) arc (-11.27351:-36.01294:41.73);
+\fill [black] (39.02,-23.46) -- (38.37,-24.15) -- (39.35,-24.34);
+\draw (37.05,-33.01) node [right] {$0$};
+\draw [black] (30.384,-39.225) arc (170.33051:142.38303:37.127);
+\fill [black] (30.38,-39.23) -- (31.01,-38.52) -- (30.03,-38.35);
+\draw (32.24,-29.6) node [left] {$1$};
+\draw [black] (13.97,-40.36) -- (37.13,-22.34);
+\fill [black] (37.13,-22.34) -- (36.19,-22.44) -- (36.81,-23.23);
+\draw (24.41,-30.85) node [above] {$0$};
+\draw [black] (23.79,-23.03) -- (13.21,-39.67);
+\fill [black] (13.21,-39.67) -- (14.06,-39.26) -- (13.22,-38.73);
+\draw (17.88,-30.05) node [left] {$1$};
+\end{tikzpicture}
+\end{center}
 
 
 
 
-[^7]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
-[^8]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
-[^9]: Abuso di notazione: qui (ed in futuro) con il termine *macchina* mi riferisco ad un automa ma queste proprietà sono valide anche per una MdT.
+## Linguaggi T-riconoscibili e T-decidibili
+
+Adesso, dopo la parentesi fatta su gli automi, assieme alla definizione di computazione, sono perfettamente in grado di precisare quanto definito qualche pagina fa riguardo le stringhe accettate da una *macchina*.
+
+\begin{definition}
+Sia $M{=}(Q,\Sigma,\delta,q_0,\{q_A,q_R\})$ una MdT e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che $M$ \underline{accetta} la stringa $w$ se esiste una sequenza di configurazioni $[C_0,C_1,...,C_n]$ tale che
+
+\begin{enumerate}[itemsep=-7pt]
+\item $C_0$ è la configurazione iniziale su input $w$ \hfill $\exists\, C_0$ inizio
+\item Ogni $C_i$ produce $C_{i+1}$ \hfill $C_i{\rightarrow}C_{i+1}$
+\item $C_n$ è una configurazione di accettazione \hfill $\exists\, C_n$ accett.
+\end{enumerate}
+
+Esattamente come detto prima $M$ \underline{riconosce} un linguaggio $A$ se ne accetta tutte le sue stringhe. Si scriverà $A{=}L(M)$.
+\end{definition}
+
+---
+
+Appare chiaro che sono tre i risultati possibili per una MdT: *accettare*, *rifiutare* oppure andare in *loop*[^11]. Quindi fai attenzione perchè una macchina $M$ può non accettare un input sia raggiungendo lo stato $q_R$ che andando in loop.
+
+A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input[^12]. Una tale macchina è detta **decisore** e diremo che **decide** un certo linguaggio se lo riconosce.
+
+\begin{definition}
+Un linguaggio si dice \underline{Turing-riconoscibile} se esiste una MdT che lo riconosce (accetta tutte le sue stringhe, ovvero valgono i tre punti della definizione precedente per ogni stringa in input).
+\end{definition}
+
+\begin{definition}
+Un linguaggio si dice \underline{Turing-decidibile} se esiste una MdT che lo decide (termina su tutte le sue stringhe, ovvero casca in $q_A$ o $q_R$ per ogni stringa in input).
+\end{definition}
+
+---
+
+\begin{theorem}
+Ogni linguaggio Turing-decidibile è Turing-riconoscibile.
+\begin{proof}
+Segue direttamente dalla definizione: se è decidibile significa che raggiunge uno stato di terminazione, quindi $\exists\, C_0$, $C_i{\rightarrow}C_{i+1}$ e $\exists\, C_n$.
+\end{proof}
+\end{theorem}
+
+
+
+
+[^8]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
+[^9]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
+[^10]: Ho volutamente abusato del termine *macchina*. Qui mi riferisco ad un automa ma queste definizioni sono utilizzabili anche con una MdT. Tra poco sarò più preciso.
+[^11]: Si intende una sequenza $\infty$ di configurazioni.
+[^12]: Anche fosse già chiaro, è bene ripetere che i tre punti menzionati nella definizione affermano che *devono esistere* gli stati di inizio e di terminazione ma non è implicito che vengano raggiunti drante la computazione.
 
