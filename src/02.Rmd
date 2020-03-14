@@ -54,9 +54,9 @@ Per rispondere devo prima piazzare qualche paletto e senza perdere tempo in pesa
 Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che la macchina $M$ \underline{accetta la stringa} $w$ se esiste una sequenza di stati $[r_0,r_1,...,r_n]$ in $Q$, con tre condizioni
 
 \begin{enumerate}[itemsep=-7pt]
-\item $r_0{=}q_0$ \hfill La macchina parte
-\item $\delta(r_i,w_{i+1}){=}r_{i+1}$, $0{\leq}i{\leq}n{-}1$ \hfill La macchina salta tra gli stati
-\item $r_n{\in}F$ \hfill La macchina accetta l'input
+\item $r_0{=}q_0$ \hfill $\exists\, r_0$ inizio
+\item $\delta(r_i,w_{i+1}){=}r_{i+1}$, $0{\leq}i{\leq}n{-}1$ \hfill $r_i{\rightarrow}r_{i+1}$
+\item $r_n{\in}F$ \hfill $\exists\, r_n$ accett.
 \end{enumerate}
 \end{definition}
 
@@ -285,14 +285,14 @@ Esattamente come detto prima $M$ \underline{riconosce} un linguaggio $A$ se ne a
 
 Appare chiaro che sono tre i risultati possibili per una MdT: *accettare*, *rifiutare* oppure andare in *loop*[^11]. Quindi fai attenzione perchè una macchina $M$ può non accettare un input sia raggiungendo lo stato $q_R$ che andando in loop.
 
-A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input[^12]. Una tale macchina è detta **decisore** e diremo che **decide** un certo linguaggio se lo riconosce.
+A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input. Una tale macchina è detta **decisore** e diremo che **decide** un certo linguaggio se lo riconosce.
 
 \begin{definition}
-Un linguaggio si dice \underline{Turing-riconoscibile} se esiste una MdT che lo riconosce (accetta tutte le sue stringhe, ovvero valgono i tre punti della definizione precedente per ogni stringa in input).
+Un linguaggio si dice \underline{Turing-riconoscibile} se esiste una MdT che lo riconosce (per ogni stringa del linguaggio termina nello stato di accettazione $q_A$).
 \end{definition}
 
 \begin{definition}
-Un linguaggio si dice \underline{Turing-decidibile} se esiste una MdT che lo decide (termina su tutte le sue stringhe, ovvero casca in $q_A$ o $q_R$ per ogni stringa in input).
+Un linguaggio si dice \underline{Turing-decidibile} se esiste una MdT che lo decide (per ogni stringa del linguaggio termina nello stato di accettazione $q_A$, per tutte le altre termina nello stato si rifiuto $q_R$).
 \end{definition}
 
 ---
@@ -300,7 +300,7 @@ Un linguaggio si dice \underline{Turing-decidibile} se esiste una MdT che lo dec
 \begin{theorem}
 Ogni linguaggio Turing-decidibile è Turing-riconoscibile.
 \begin{proof}
-Segue direttamente dalla definizione: se è decidibile significa che raggiunge uno stato di terminazione, quindi $\exists\, C_0$, $C_i{\rightarrow}C_{i+1}$ e $\exists\, C_n$.
+Segue direttamente dalle due definizioni: se è decidibile significa che raggiunge lo stato di accettazione per tutte le stringhe del linguaggio, quindi è Turing-riconoscibile.
 \end{proof}
 \end{theorem}
 
@@ -311,5 +311,4 @@ Segue direttamente dalla definizione: se è decidibile significa che raggiunge u
 [^9]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
 [^10]: Ho volutamente abusato del termine *macchina*. Qui mi riferisco ad un automa ma queste definizioni sono utilizzabili anche con una MdT. Tra poco sarò più preciso.
 [^11]: Si intende una sequenza $\infty$ di configurazioni.
-[^12]: Anche fosse già chiaro, è bene ripetere che i tre punti menzionati nella definizione affermano che *devono esistere* gli stati di inizio e di terminazione ma non è implicito che vengano raggiunti drante la computazione.
 
