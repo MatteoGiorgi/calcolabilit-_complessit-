@@ -1,4 +1,8 @@
-# Algoritmi e macchine \hfill \faCube
+# Algoritmi e macchine \hfill \faGear
+
+
+
+
 
 
 
@@ -8,6 +12,13 @@
 Il punto di partenza della teoria della calcolabilità è l'esigenza di formalizzare l'idea intuitiva di *funzione calcolabile* da un algoritmo, ovvero di *funzione algoritmica*[^1].
 
 Si può dire che un algoritmo sia un procedimento di calcolo che consente di pervenire alla soluzione di un problema, numerico o simbolico, mediante una sequenza finita di operazioni, completamente e univocamente determinate: una serie di istruzioni la cui esecuzione consente di trasformare l'insieme finito di dati simbolici che descrivono il problema, nella soluzione del problema stesso.
+
+
+
+
+
+
+
 
 ### Caratteristiche distintive[^2]
 
@@ -25,29 +36,40 @@ In conclusione, una procedura algoritmica riceve in ingresso una descrizione fin
 
 
 
+
+
+
+
 ## Macchina di Turing
 
-Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli $\#$ e $\triangleright$ che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa.
+Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli `#` e `>` che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa.
+\begin{equation*}
+\texttt{> a b ... a } \underset{\uparrow}{\texttt{a}} \texttt{ b \# \#}
+\end{equation*}
 
 * la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
 
 * gli *stati* $q_i$ della macchina appartengono all'insieme finito degli stati $Q$ e identificano istante per istante le informazioni contenute nella computazione
 
->> $\boxed{\triangleright\  a\ b\ ...\ a\ \underline{a}\ b\ \#\ \#}$
-
 * il meccanismo che fa evolvere la computazione della macchina è detta *funzione di transizione*[^3] $\delta$ e consente, partendo dallo stato $q_x$ e dal carattere $\sigma_x$ presente sulla cella puntata dalla testina, di portare la macchina in un altro stato $q_y$, scrivere un carattere $\sigma_y$ su tale cella precedentemente occupata da $\sigma_x$ ed eventualmente spostare la testina ($\Lleftarrow$, $\Rrightarrow$, $\equiv$)
 
 \begin{definition}
 Una \underline{Macchina di Turing} è definita  formalmente come la quadrupla
-$$M = (Q, \Sigma, \delta, q_0)$$
+\begin{equation*}
+M = (Q, \Sigma, \delta, q_0)
+\end{equation*}
 
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati $q_i$ che non contiene lo stato di accettazione $h$
 \item $\Sigma$ è l'insieme finito dei simboli (alfabeto della macchina) al quale non appartengono i simboli di spostamento $\Lleftarrow$, $\Rrightarrow$, $\equiv$
-\item $\delta{\subseteq}(Q{\times}\Sigma){\times}(Q{\cup}{h}){\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è la relazione di transizione, tale che il carattere puntato dal cursore non possa mai trovarsi a sinistra di $\triangleright$ 
+\item $\delta{\subseteq}(Q{\times}\Sigma){\times}(Q{\cup}{h}){\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è la relazione di transizione, tale che il carattere puntato dal cursore non possa mai trovarsi a sinistra di \textnormal{\ttfamily >}
 \item $q_0{\in}Q$ è lo stato iniziale
 \end{itemize}
 \end{definition}
+
+
+
+
 
 
 
@@ -56,8 +78,10 @@ $$M = (Q, \Sigma, \delta, q_0)$$
 
 \begin{definition}
 Una \underline{configurazione} (istantanea) $C$ di una MdT è definita dalla quadrupla
-$$(q,u,\sigma,v) \in (Q \cup \{h\}) \times \Sigma^* \times \Sigma \times \Sigma^F$$
-$$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
+\begin{gather*}
+(q,u,\sigma,v) \in (Q \cup \{h\}) \times \Sigma^* \times \Sigma \times \Sigma^F \\
+\boxed{\qquad u \qquad}\ \underset{\uparrow}{\sigma}\ \boxed{\qquad v \qquad}
+\end{gather*}
 
 \begin{itemize}[itemsep=-7pt]
 \item $q$ è lo stato corrente
@@ -67,14 +91,23 @@ $$\boxed{\boxed{\qquad u \qquad}\ \underline{\sigma}\ \boxed{\qquad v \qquad}}$$
 \end{itemize}
 \end{definition}
 
-Ne viene intuitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\#\}){\cup}\{\epsilon\}$[^4].
+Ne viene intuitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\textnormal{\texttt{\#}}\}){\cup}\{\epsilon\}$[^4].
 
 In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.
+
+
+
+
+
+
+
 
 ### $\delta$ come funzione
 
 Alla luce delle definizioni di MdT e configurazione, è importante analizzare meglio la relazione di transizione $\delta$, definita precedentemente come la quadrupla
-$$((q_x,\sigma_x),q_y,\sigma_y,D)$$
+\begin{equation*}
+\big((q_x,\sigma_x),q_y,\sigma_y,D\big)
+\end{equation*}
 
 * $(q_x,\sigma_x)$ è la coppia stato di partenza, carattere puntato dal cursore
 * $q_y$ è lo stato di arrivo
@@ -84,7 +117,16 @@ $$((q_x,\sigma_x),q_y,\sigma_y,D)$$
 Adesso è facilmente intuibile che, una macchina nella medesima configurazione di partenza che compie il medesimo spostamento del cursore, si troverà nella medesima configurazione di arrivo.
 
 Questa constatazione permette di restringere la relazione $\delta$ in modo che sia una funzione rispetto al suo primo argomento (coppia stato corrente, carattere letto):
-$$\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)$$
+\begin{equation*}
+\delta(q_x,\sigma_x)=(q_y,\sigma_y,D)
+\end{equation*}
+
+
+
+
+
+
+
 
 ### Una nuova definizione di MdT
 
@@ -92,7 +134,9 @@ Prima di procedere, è necessario utilizzare le considerazioni fatte fin'ora e r
 
 \begin{definition}
 Una \underline{Macchina di Turing deterministica} è definita come la quintupla
-$$M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})$$
+\begin{equation*}
+M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})
+\end{equation*}
 
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati $q_i$ che non contiene gli stati terminali
@@ -103,40 +147,58 @@ $$M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})$$
 \end{itemize}
 \end{definition}
 
+
+
+
+
+
+
+
 ### Computazione e passo di computazione
 
 \begin{definition}
 Una \underline{computazione} di una MdT è costituita da una sequenza di configurazioni, tale che $C_0$ rappresenti la configurazione iniziale e $C_{i+1}$ il risultato dell'applicazione della funzione $\delta$ alla configurazione $C_i$ (ovvero il \underline{passo di computazione} $C_i{\rightarrow}C_{i+1}$). Si dirà inoltre che la computazione converge $\downarrow$ se, per $n{\ge}1$ tale che
-$$C_0 \rightarrow C_1 \rightarrow ... \rightarrow C_n$$
+\begin{equation*}
+C_0 \rightarrow C_1 \rightarrow ... \rightarrow C_n
+\end{equation*}
 $C_n$ è una configurazione finale, in caso contrario si dirà che diverge $\uparrow$.
 \end{definition}
 
 Per completezza, dato che un passo di computazione di una macchina $M$ può essere visto come una relazione $\rightarrow_M$ tra $C_i$ e $C_{i+1}$, una computazione di $M$ è definibile come la *chiusura riflessiva e transitiva*[^6] di $\rightarrow_M$ che, in accordo con la notazione usata precedentemente, può essere scritta come
-$$C_0 \rightarrow_M^* C_n$$
+\begin{equation*}
+C_0 \rightarrow_M^* C_n
+\end{equation*}
+
+
+
+
+
+
+
 
 ### Esempio di MdT
 
-Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali rappresentati in notazione unaria con il simbolo $|$ e separati dal simbolo $+$. La successione
-\begin{multline*}
-(q_0, \underline{\triangleright} | + | | \#)
-\rightarrow (q_0, \triangleright \underline{|} + | |)
-\rightarrow (q_0, \triangleright | \underline{+} | |)
-\rightarrow (q_1, \triangleright | | \underline{|} |)\rightarrow\\
-\rightarrow (q_1, \triangleright | | | \underline{|})
-\rightarrow (q_1, \triangleright | | | | \underline{\#})
-\rightarrow (q_2, \triangleright | | | \underline{|})
-\rightarrow (h, \triangleright | | | \underline{\#})
-\end{multline*}
-rappresenterà la computazione $(q_0, \underline{\triangleright} | + | | \#){\rightarrow^*_M}(h, \triangleright | | | \underline{\#})$, mentre la funzione $\delta$ può essere tabellata come segue
+Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali rappresentati in notazione unaria con il simbolo `|` e separati dal simbolo `+`. La successione
+\begin{gather*}
+(q_0, \underset{\uparrow}{\texttt{>}} \texttt{|+||\#})
+\rightarrow (q_0, \texttt{>} \underset{\uparrow}{\texttt{|}} \texttt{+||})
+\rightarrow (q_0, \texttt{>} \texttt{|} \underset{\uparrow}{\texttt{+}} \texttt{||})
+\rightarrow (q_1, \texttt{>} \texttt{||} \underset{\uparrow}{\texttt{|}} \texttt{|})\rightarrow\\
+\rightarrow (q_1, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{|}})
+\rightarrow (q_1, \texttt{>} \texttt{||||} \underset{\uparrow}{\texttt{\#}})
+\rightarrow (q_2, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{|}})
+\rightarrow (h, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{\#}})
+\end{gather*}
+rappresenterà la computazione $(q_0, \underset{\uparrow}{\texttt{>}} \texttt{|+||\#}){\rightarrow^*_M}(h, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{\#}})$, mentre la funzione $\delta$ può essere tabellata come segue
 
 | $q$ | $\sigma$ | $\delta$ |
 | :---: | :---: | :---: |
-| $q_0$ | $\triangleright$ | $q_0$, $\triangleright$, $\Rrightarrow$ |
-| $q_0$ | $|$ | $q_0$, $|$, $\Rrightarrow$ |
-| $q_0$ | $+$ | $q_1$, $|$, $\Rrightarrow$ |
-| $q_1$ | $|$ | $q_1$, $|$, $\Rrightarrow$ |
-| $q_1$ | $\#$ | $q_2$, $\#$, $\Lleftarrow$ |
-| $q_2$ | $|$ | $h$, $\#$, $\equiv$ |
+| $q_0$ | `>` | $q_0$, `>`, $\Rrightarrow$ |
+| $q_0$ | `|` | $q_0$, `|`, $\Rrightarrow$ |
+| $q_0$ | `+` | $q_1$, `|`, $\Rrightarrow$ |
+| $q_1$ | `|` | $q_1$, `|`, $\Rrightarrow$ |
+| $q_1$ | `#` | $q_2$, `#`, $\Lleftarrow$ |
+| $q_2$ | `|` | $h$, `#`, $\equiv$ |
 
 Qui invece gli stati[^7] della macchina
 
@@ -158,21 +220,25 @@ Qui invece gli stati[^7] della macchina
 \fill [black] (17.6,-29.6) -- (16.8,-29.1) -- (16.8,-30.1);
 \draw [black] (23.6,-29.6) -- (31.9,-29.6);
 \fill [black] (31.9,-29.6) -- (31.1,-29.1) -- (31.1,-30.1);
-\draw (27.75,-29.1) node [above] {$+$};
+\draw (27.75,-29.1) node [above] {\texttt{+}};
 \draw [black] (37.9,-29.6) -- (45.9,-29.6);
 \fill [black] (45.9,-29.6) -- (45.1,-29.1) -- (45.1,-30.1);
-\draw (41.9,-29.1) node [above] {$\#$};
+\draw (41.9,-29.1) node [above] {\texttt{\#}};
 \draw [black] (51.9,-29.6) -- (59.9,-29.6);
 \fill [black] (59.9,-29.6) -- (59.1,-29.1) -- (59.1,-30.1);
-\draw (55.9,-29.1) node [above] {$|$};
+\draw (55.9,-29.1) node [above] {\texttt{|}};
 \draw [black] (21.923,-32.28) arc (54:-234:2.25);
-\draw (20.6,-36.85) node [below] {$\triangleright,|$};
+\draw (20.6,-36.85) node [below] {\texttt{>},\texttt{|}};
 \fill [black] (19.28,-32.28) -- (18.4,-32.63) -- (19.21,-33.22);
 \draw [black] (36.223,-32.28) arc (54:-234:2.25);
-\draw (34.9,-36.85) node [below] {$|$};
+\draw (34.9,-36.85) node [below] {\texttt{|}};
 \fill [black] (33.58,-32.28) -- (32.7,-32.63) -- (33.51,-33.22);
 \end{tikzpicture}
 \end{center}
+
+
+
+
 
 
 

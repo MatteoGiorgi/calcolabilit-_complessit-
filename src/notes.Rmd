@@ -1,6 +1,6 @@
 ---
 title: Note di calcolabilità
-author: \faGithub\hspace{1pt} `matteogiorgi.github.io`
+author: \faGlobe\hspace{1pt} `matteogiorgi.github.io`
 lang: it-IT
 output:
     pdf_document:
@@ -36,12 +36,13 @@ header-includes:
     - \newtheorem*{theorem}{Teorema}
     - \newtheorem*{corollary}{Corollario}
     - \makeatletter\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}\makeatother
+    - \newlength{\eqboxstorage}\newcommand{\eqbox}[1]{\setlength{\eqboxstorage}{\fboxsep}\setlength{\fboxsep}{6pt}\boxed{#1}\setlength{\fboxsep}{\eqboxstorage}}
 ---
 
 
 
 
-# Beep-boop \hfill \faCodepen
+# \faGear \hspace{5pt} \faCube \hspace{5pt} \faFlask
 
 Queste note sono state redatte dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti per l'anno accademico 2019-2020.
 
