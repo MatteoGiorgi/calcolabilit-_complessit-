@@ -20,7 +20,7 @@ Un \underline{automa finito deterministico} (DFA) è la quintupla
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati
 \item $\Sigma$ è l'insieme finito dei simboli (alfabeto)
-\item $\delta{:}Q{\times}\Sigma{\rightarrow}Q$ è la funzione di transizione
+\item $\delta{::}Q{\times}\Sigma{\rightarrow}Q$ è la funzione di transizione
 \item $q_0{\in}Q$ è lo stato iniziale
 \item $F{\subseteq}Q$ è l'insieme degli stati di accettazione
 \end{itemize}
@@ -37,13 +37,13 @@ Un \underline{automa finito non deterministico} (NFA) è la quintupla
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati
 \item $\Sigma$ è l'insieme finito dei simboli (alfabeto)
-\item $\Delta{:}Q{\times}\Sigma_\epsilon{\rightarrow}\mathcal{P}(Q)$ è la funzione di transizione
+\item $\Delta{::}Q{\times}\Sigma_\epsilon{\rightarrow}\mathcal{P}(Q)$ è la funzione di transizione
 \item $q_0{\in}Q$ è lo stato iniziale
 \item $F{\subseteq}Q$ è l'insieme degli stati di accettazione
 \end{itemize}
 \end{definition}
 
-Le due definizioni di automa differiscono nel tipo[^8] della funzione di transizione. $\Delta$ prende uno stato dall'insieme degli stati $Q$, un simbolo dall'alfabeto $\Sigma_\epsilon{=}\Sigma{+}\{\epsilon\}$ e produce l'insieme dei possibili stati successivi (${\subseteq}\mathcal{P}(Q)$); $\delta$ invece, prende in input la coppia stato attuale, simbolo letto e produce un singolo stato successivo[^9].
+Le due definizioni di automa differiscono nel tipo[^7] della funzione di transizione. $\Delta$ prende uno stato dall'insieme degli stati $Q$, un simbolo dall'alfabeto $\Sigma_\epsilon{=}\Sigma{+}\{\epsilon\}$ e produce l'insieme dei possibili stati successivi (${\subseteq}\mathcal{P}(Q)$); $\delta$ invece, prende in input la coppia stato attuale, simbolo letto e produce un singolo stato successivo[^8].
 
 
 
@@ -54,7 +54,7 @@ Le due definizioni di automa differiscono nel tipo[^8] della funzione di transiz
 
 ## Linguaggio della macchina
 
-Automa o MdT, incomincia a essere chiaro che la nostra macchina[^10] sia qualcosa che mangia stringhe e decide se appartengono a un dato insieme.
+Automa o MdT, incomincia a essere chiaro che la nostra macchina[^9] sia qualcosa che mangia stringhe e decide se appartengono a un dato insieme.
 
 * Esistono stringhe che una macchina $M$ non digerisce?
 * Che succede quando una macchina $M$ prende in input una stringa $w$?
@@ -88,7 +88,7 @@ Un linguaggio $A$ è chiamato \underline{regolare} sse esiste un automa finito $
 
 Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione che però non dimostro per mancanza di spazio \faMehO.
 \begin{center}
-se $A$ è regolare $\Leftrightarrow$ $\exists$ $M$ che riconosce $A$ $\Leftrightarrow$ $M$ accetta tutte le stringhe di $A$ es
+\texttt{se} $A$ è regolare $\Leftrightarrow$ $\exists$ $M$ che riconosce $A$ $\Leftrightarrow$ $M$ accetta tutte le stringhe di $A$ \texttt{es}
 \end{center}
 
 \begin{definition}
@@ -183,7 +183,7 @@ Da notare che $M$ funziona correttamente perchè ad ogni passo della computazion
 \begin{corollary}
 Dato un linguaggio $L$
 \begin{center}
-se $\exists$ un NFA che riconosce $L$ $\Leftrightarrow$ $\exists$ un DFA che riconosce $L$ $\Leftrightarrow$ $L$ è regolare es
+\texttt{se} $\exists$ un NFA che riconosce $L$ $\Leftrightarrow$ $\exists$ un DFA che riconosce $L$ $\Leftrightarrow$ $L$ è regolare \texttt{es}
 \end{center}
 \begin{proof}
 Banale, segue dal teorema \faMehO.
@@ -234,7 +234,7 @@ Ecco qua sotto due automi finiti equivalenti che riconoscono $A$: il primo non d
 \end{tikzpicture}
 \end{center}
 
-\vspace{60pt}
+\vspace{30pt}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -314,54 +314,7 @@ Ecco qua sotto due automi finiti equivalenti che riconoscono $A$: il primo non d
 
 
 
-## Linguaggi T-riconoscibili e T-decidibili
-
-Adesso, dopo la parentesi fatta su gli automi, assieme alla definizione di computazione, sono perfettamente in grado di precisare quanto definito qualche pagina fa riguardo le stringhe accettate da una macchina.
-
-\begin{definition}
-Sia $M{=}(Q,\Sigma,\delta,q_0,\{q_A,q_R\})$ una MdT e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che $M$ \underline{accetta} la stringa $w$ se esiste una sequenza di configurazioni $[C_0,C_1,...,C_n]$ tale che
-
-\begin{enumerate}[itemsep=-7pt]
-\item $C_0$ è la configurazione iniziale su input $w$ \hfill $\exists\, C_0$ inizio
-\item Ogni $C_i$ produce $C_{i+1}$ \hfill $C_i{\rightarrow}C_{i+1}$
-\item $C_n$ è una configurazione di accettazione \hfill $\exists\, C_n$ accett.
-\end{enumerate}
-
-Esattamente come detto prima $M$ \underline{riconosce} un linguaggio $A$ se ne accetta tutte le sue stringhe. Si scriverà $A{=}L(M)$.
-\end{definition}
-
-* * *
-
-Appare chiaro che sono tre i risultati possibili per una MdT: *accettare*, *rifiutare* oppure andare in *loop*[^11]. Quindi fai attenzione perchè una macchina $M$ può non accettare un input sia raggiungendo lo stato $q_R$ che andando in loop.
-
-A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input. Una tale macchina è detta **decisore** e diremo che **decide** un certo linguaggio se lo riconosce.
-
-\begin{definition}
-Un linguaggio si dice \underline{Turing-riconoscibile} sse esiste una MdT che lo riconosce (ovvero, per ogni stringa del linguaggio la machina termina nello stato di accettazione).
-\end{definition}
-
-\begin{definition}
-Un linguaggio si dice \underline{Turing-decidibile} sse esiste una MdT che lo decide (ovvero, per ogni stringa del linguaggio la macchina termina nello stato di accettazione, per tutte le altre termina nello stato si rifiuto).
-\end{definition}
-
-* * *
-
-\begin{theorem}
-Ogni linguaggio Turing-decidibile è Turing-riconoscibile.
-\begin{proof}
-Segue direttamente dalle due definizioni: se è decidibile significa che raggiunge lo stato di accettazione per tutte le stringhe del linguaggio, quindi è Turing-riconoscibile.
-\end{proof}
-\end{theorem}
-
-
-
-
-
-
-
-
-[^8]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
-[^9]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se in questo caso è più corretto riferirsi al carattere nullo.
-[^10]: Ho volutamente abusato del termine *macchina*. Qui mi riferisco ad un automa ma queste definizioni sono utilizzabili anche con una MdT. Tra poco sarò più preciso.
-[^11]: Si intende una sequenza $\infty$ di configurazioni.
+[^7]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f::a->b`).
+[^8]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se, in questo caso, è più corretto riferirsi al carattere nullo.
+[^9]: Ho volutamente abusato del termine *macchina*. Qui mi riferisco ad un automa ma queste definizioni sono utilizzabili anche con una MdT. Tra poco sarò più preciso.
 

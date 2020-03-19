@@ -7,9 +7,53 @@
 
 
 
-Questo capitolo servirà a dare alcuni esempi di linguaggi Turing-decidibili; si renderanno utili le precedenti pagine riguardo gli automi finiti e soprattutto le definizioni di linguaggi T-riconoscibili e T-decidibili.
+## Linguaggi T-riconoscibili e T-decidibili
 
-I problemi computazionali proposti, a partire da quello dell'*accettazione* qua sotto, verranno rappresentati mediante linguaggi; si tratterà quindi di scrivere il problema in questione come un insieme di stringhe e chiedersi se esiste una MdT che decide tale linguaggio[^12]. Mostrare dunque che il linguaggio è decidibile equivale a mostrare che il problema computazionale è decidibile.
+Dopo la parentesi fatta sugli automi, sono perfettamente in grado di puntualizzare quanto definito in precedenza riguardo le stringhe accettate da una macchina.
+
+\begin{definition}
+Sia $M{=}(Q,\Sigma,\delta,q_0,\{q_A,q_R\})$ una MdT e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che $M$ \underline{accetta} la stringa $w$ se esiste una sequenza di configurazioni $[C_0,C_1,...,C_n]$ tale che
+
+\begin{enumerate}[itemsep=-7pt]
+\item $C_0$ è la configurazione iniziale su input $w$ \hfill $\exists\, C_0$ inizio
+\item Ogni $C_i$ produce $C_{i+1}$ \hfill $C_i{\rightarrow}C_{i+1}$
+\item $C_n$ è una configurazione di accettazione \hfill $\exists\, C_n$ accett.
+\end{enumerate}
+
+Esattamente come detto prima $M$ \underline{riconosce} un linguaggio $A$ se ne accetta tutte le sue stringhe. Si scriverà $A{=}L(M)$.
+\end{definition}
+
+Appare chiaro che sono tre i risultati possibili per una MdT: *accettare*, *rifiutare* oppure andare in *loop*[^10]. Quindi fai attenzione perchè una macchina $M$ può non accettare un input sia raggiungendo lo stato $q_R$ che andando in loop.
+
+A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input. Una tale macchina è detta **decisore** e diremo che **decide** un certo linguaggio se lo riconosce.
+
+\begin{definition}
+Un linguaggio si dice \underline{Turing-riconoscibile} sse esiste una MdT che lo riconosce (ovvero, per ogni stringa del linguaggio la machina termina nello stato di accettazione).
+\end{definition}
+
+\begin{definition}
+Un linguaggio si dice \underline{Turing-decidibile} sse esiste una MdT che lo decide (ovvero, per ogni stringa del linguaggio la macchina termina nello stato di accettazione, per tutte le altre termina nello stato si rifiuto).
+\end{definition}
+
+\begin{theorem}
+Ogni linguaggio Turing-decidibile è Turing-riconoscibile.
+\begin{proof}
+Segue direttamente dalle due definizioni: se è decidibile significa che raggiunge lo stato di accettazione per tutte le stringhe del linguaggio, quindi è Turing-riconoscibile.
+\end{proof}
+\end{theorem}
+
+
+
+
+
+
+
+
+### Cosa posso decidere?
+
+Di seguito darò alcuni esempi di linguaggi Turing-decidibili; si renderanno utili le precedenti pagine sugli automi finiti e le definizioni di riconoscibilità e decidibilità.
+
+I problemi computazionali proposti, a partire da quello dell'*accettazione* qua sotto, verranno rappresentati mediante linguaggi; si tratterà quindi di scrivere il problema in questione come un insieme di stringhe e chiedersi se esiste una MdT che decide tale linguaggio[^11]. Mostrare dunque che il linguaggio è decidibile equivale a mostrare che il problema computazionale è decidibile.
 
 \begin{theorem}
 Sia $A_{DFA}$ il linguaggio contenente le coppie formate dalle codifiche di tutti i DFA con delle particolari stringhe che essi accettano
@@ -35,8 +79,6 @@ Presentiamo una MdT $N$ che decide $A_{NFA}$. $N$ converte l'NFA $B$ in un DFA $
 \end{proof}
 \end{theorem}
 
-* * *
-
 Con prossimo problema, chiamato *test del vuoto* per il linguaggio di un automa finito, si vuove determinare se un DFA accetta una qualche stringa.
 
 \begin{theorem}
@@ -59,7 +101,7 @@ EQ_{DFA} = \{\langle A,B\rangle\, |\, \text{$A$ e $B$ sono DFA tali che $L(A){=}
 \end{equation*}
 $EQ_{DFA}$ è un linguaggio decidibile.
 \begin{proof}
-A partire da $A$ e $B$ costriusco un nuovo DFS $C$ che accetta solo quella stringhe che sono accettate da $A$ o da $B$ ma non da entrambi. In particolare, se $A$ e $B$ riconoscono lo stesso linguaggio, $C$ non accetterà nulla
+A partire da $A$ e $B$ costruisco un nuovo DFS $C$ che accetta solo quella stringhe che sono accettate da $A$ o da $B$ ma non da entrambi. In particolare, se $A$ e $B$ riconoscono lo stesso linguaggio, $C$ non accetterà nulla
 \begin{equation*}
 L(C) = \big( L(A) \cap \overline{L(B)} \big) \cup \big( \overline{L(A)} \cap L(B) \big)
 \end{equation*}
@@ -74,5 +116,6 @@ Quindi $L(C){=}\emptyset \Leftrightarrow L(A){=}L(B)$.
 
 
 
-[^12]: Nella formalizzazione del linguaggio salta subito all'occhio che automi e MdT sono rappresentati come stringhe. Per fare questo è necessaria una corrispondenza biunivoca tra macchina e codifica della macchina di cui non ho ancora fatto menzione (sarà argomento dei prossimi capitoli). Per adesso è sufficiente sapere che ogni macchina può essere codificata con una stringa e viceversa.
+[^10]: Si intende una sequenza $\infty$ di configurazioni.
+[^11]: Nella formalizzazione del linguaggio salta subito all'occhio che automi e MdT sono rappresentati come stringhe. Per fare questo è necessaria una corrispondenza biunivoca tra macchina e codifica della macchina di cui non ho ancora fatto menzione (sarà argomento dei prossimi capitoli). Per adesso è sufficiente sapere che ogni macchina può essere codificata con una stringa e viceversa.
 

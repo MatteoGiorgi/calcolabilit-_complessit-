@@ -44,7 +44,7 @@ In conclusione, una procedura algoritmica riceve in ingresso una descrizione fin
 
 Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli `#` e `>` che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa.
 \begin{equation*}
-\texttt{> a b ... a } \underset{\uparrow}{\texttt{a}} \texttt{ b \# \#}
+\texttt{> a b ... a } \underset{\text{\faHandPointerO}}{\texttt{b}} \texttt{ b \# \#}
 \end{equation*}
 
 * la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
@@ -80,7 +80,7 @@ M = (Q, \Sigma, \delta, q_0)
 Una \underline{configurazione} (istantanea) $C$ di una MdT è definita dalla quadrupla
 \begin{gather*}
 (q,u,\sigma,v) \in (Q \cup \{h\}) \times \Sigma^* \times \Sigma \times \Sigma^F \\
-\boxed{\qquad u \qquad}\ \underset{\uparrow}{\sigma}\ \boxed{\qquad v \qquad}
+\boxed{\qquad u \qquad}\ \underset{\text{\faHandPointerO}}{\sigma}\ \boxed{\qquad v \qquad}
 \end{gather*}
 
 \begin{itemize}[itemsep=-7pt]
@@ -91,8 +91,10 @@ Una \underline{configurazione} (istantanea) $C$ di una MdT è definita dalla qua
 \end{itemize}
 \end{definition}
 
-Ne viene intuitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{giustapposizione} ($\circ$) dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi: $\Sigma^*{\circ}(\Sigma{\backslash}\{\textnormal{\texttt{\#}}\}){\cup}\{\epsilon\}$[^4].
-
+Ne viene intuitivo dedurre che $\Sigma^*$ rappresenti l'insieme di cardinalità infinita delle stringhe generabili dalla \textit{concatenazione}[^4] dei caratteri dell'alfabeto della macchina $\Sigma$, mentre $\Sigma^F$ è più facile a scriversi che a dirsi:
+\begin{equation*}
+\Sigma^F = \Sigma^* \circ \big(\Sigma{\backslash}\{\textnormal{\texttt{\#}}\}\big) \cup \{\epsilon\}
+\end{equation*}
 In generale una configurazione di una MdT non è altro che la coppia formata dallo stato corrente della macchina più la stringa[^5] rappresentante la situazione sul nastro.
 
 
@@ -141,7 +143,7 @@ M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati $q_i$ che non contiene gli stati terminali
 \item $\Sigma{\nsupseteq}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è sempre l'insieme finito dei simboli (alfabeto della macchina)
-\item $\delta{:}(Q{\times}\Sigma){\rightarrow}(Q{\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\})$ è la funzione di transizione
+\item $\delta{::}(Q{\times}\Sigma){\rightarrow}(Q{\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\})$ è la funzione di transizione
 \item $q_0{\in}Q$ è lo stato iniziale
 \item $\{q_A,q_R\}{\nsubseteq}Q$ è l'insieme formato dagli stati terminali di accettazione e rifiuto
 \end{itemize}
@@ -178,18 +180,19 @@ C_0 \rightarrow_M^* C_n
 
 ### Esempio di MdT
 
-Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali rappresentati in notazione unaria con il simbolo `|` e separati dal simbolo `+`. La successione
-\begin{gather*}
-(q_0, \underset{\uparrow}{\texttt{>}} \texttt{|+||\#})
-\rightarrow (q_0, \texttt{>} \underset{\uparrow}{\texttt{|}} \texttt{+||})
-\rightarrow (q_0, \texttt{>} \texttt{|} \underset{\uparrow}{\texttt{+}} \texttt{||})
-\rightarrow (q_1, \texttt{>} \texttt{||} \underset{\uparrow}{\texttt{|}} \texttt{|})\rightarrow\\
-\rightarrow (q_1, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{|}})
-\rightarrow (q_1, \texttt{>} \texttt{||||} \underset{\uparrow}{\texttt{\#}})
-\rightarrow (q_2, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{|}})
-\rightarrow (h, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{\#}})
-\end{gather*}
-rappresenterà la computazione $(q_0, \underset{\uparrow}{\texttt{>}} \texttt{|+||\#}){\rightarrow^*_M}(h, \texttt{>} \texttt{|||} \underset{\uparrow}{\texttt{\#}})$, mentre la funzione $\delta$ può essere tabellata come segue
+Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali scritti in notazione unaria usando il simbolo `|` e separati dal simbolo `+`. La seguente successione di configurazioni rappresenterà la computazione $(q_0, \underset{\text{\faHandPointerO}}{\texttt{>}} \texttt{|+||\#}){\rightarrow^*_M}(h, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{\#}})$
+\begin{align*}
+(q_0, \underset{\text{\faHandPointerO}}{\texttt{>}} \texttt{|+||\#}) &\rightarrow (q_0, \texttt{>} \underset{\text{\faHandPointerO}}{\texttt{|}} \texttt{+||})\\
+                                                                     &\rightarrow (q_0, \texttt{>} \texttt{|} \underset{\text{\faHandPointerO}}{\texttt{+}} \texttt{||})\\
+                                                                     &\rightarrow (q_1, \texttt{>} \texttt{||} \underset{\text{\faHandPointerO}}{\texttt{|}} \texttt{|})\\
+                                                                     &\rightarrow (q_1, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{|}})\\
+                                                                     &\rightarrow (q_1, \texttt{>} \texttt{||||} \underset{\text{\faHandPointerO}}{\texttt{\#}})\\
+                                                                     &\rightarrow (q_2, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{|}})\\
+                                                                     &\rightarrow (h, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{\#}})
+\end{align*}
+Dalla precedente posso facilmente tabulare la funzione $\delta$, mentre la successione degli stati esplorati dalla macchina sono rappresentabili con un automa finito.
+
+\vspace{30pt}
 
 | $q$ | $\sigma$ | $\delta$ |
 | :---: | :---: | :---: |
@@ -200,9 +203,7 @@ rappresenterà la computazione $(q_0, \underset{\uparrow}{\texttt{>}} \texttt{|+
 | $q_1$ | `#` | $q_2$, `#`, $\Lleftarrow$ |
 | $q_2$ | `|` | $h$, `#`, $\equiv$ |
 
-Qui invece gli stati[^7] della macchina
-
-\vspace{10pt}
+\vspace{30pt}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.2]
@@ -246,8 +247,7 @@ Qui invece gli stati[^7] della macchina
 [^1]: La nozione di funzione algoritmica sarà poi formalizzata dal concetto di *funzione ricorsiva*.
 [^2]: Può essere utile aggiungere una ulteriore caratteristica a quelle elencate dal prof: *esiste un agente di calcolo in grado di eseguire le istruzioni (il calcolatore)*.
 [^3]: Nel trattare MdT deterministiche (quelle definite in questo capitolo) non è errato considerare $\delta$ come una funzione. La definizione formale fa riferimento a MdT nastro singolo, comprese quelle non-deterministiche dove $\delta$ restituisce un insieme di possibili configurazioni successive: ecco perchè sarà poi introdotta come relazione.
-[^4]: Quando definiremo meglio cos'è un linguaggio accettato da una MdT (o da un automa a stati finiti) sarà più chiaro come costruire un insieme di stringhe.
+[^4]: Antepone due stringhe di $\Sigma$ in tutti i modi possibili ($\Sigma^*{=}\Sigma{\circ}\Sigma$). Vedi *operazioni regolari*.
 [^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina.
-[^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\boxed{\forall a{\in}A, \exists\bar{R}(a,a)}$, $\boxed{R(a,b){\Rightarrow}\bar{R}(a,b)}$, $\boxed{\bar{R}(a,b),\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)}$. Alternativamente ed in modo del tutto equivalente, può essere definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ è anch'essa una relazione riflessiva e transitiva (dimostrare l'equivalenza per esercizio).
-[^7]: Ho rappresentato gli stati della MdT come un automa finito non deterministico solo per praticità, questo non implica nessuna equivalenza tra macchine e automi.
+[^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è la più piccola relazione definita per induzione con le proposizioni: $\forall a{\in}A. \exists\bar{R}(a,a)$; $R(a,b){\Rightarrow}\bar{R}(a,b)$; $\bar{R}(a,b){\wedge}\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)$. Alternativamente ed in modo del tutto equivalente, può essere definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ è anch'essa una relazione riflessiva e transitiva (dimostrare l'equivalenza per esercizio).
 

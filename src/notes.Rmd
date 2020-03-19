@@ -37,6 +37,7 @@ header-includes:
     - \newtheorem*{corollary}{Corollario}
     - \makeatletter\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}\makeatother
     - \newlength{\eqboxstorage}\newcommand{\eqbox}[1]{\setlength{\eqboxstorage}{\fboxsep}\setlength{\fboxsep}{6pt}\boxed{#1}\setlength{\fboxsep}{\eqboxstorage}}
+    - \newcommand{\cursor}{\rotatebox[origin=c]{90}{$\dashv$}}
 ---
 
 
