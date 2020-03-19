@@ -1,4 +1,4 @@
-# Decidibilità \hfill \faFlask
+# Decidibilità \hfill \textcolor{gray75}{\faFlask}
 
 
 
@@ -55,7 +55,7 @@ Di seguito darò alcuni esempi di linguaggi Turing-decidibili; si renderanno uti
 
 I problemi computazionali proposti, a partire da quello dell'*accettazione* qua sotto, verranno rappresentati mediante linguaggi; si tratterà quindi di scrivere il problema in questione come un insieme di stringhe e chiedersi se esiste una MdT che decide tale linguaggio[^11]. Mostrare dunque che il linguaggio è decidibile equivale a mostrare che il problema computazionale è decidibile.
 
-\begin{theorem}
+\begin{lemma}
 Sia $A_{DFA}$ il linguaggio contenente le coppie formate dalle codifiche di tutti i DFA con delle particolari stringhe che essi accettano
 \begin{equation*}
 A_{DFA} = \{\langle B,w\rangle\ |\ \text{$B$ è un DFA che accetta la stringa di input $w$}\}
@@ -66,9 +66,9 @@ L'idea è quella di presentare una MdT $M$ che decide $A_{DFA}$. $M$ deve prende
 
 Quindi, dopo aver controllato la validità della coppia in input, $M$ esegue la simulazione: tiene traccia dello stato corrente di $B$ e della sua posizione corrente nell'input $w$ scrivendo queste informazioni sul nastro, usa la funzione di transizione per aggiornare stati e posizioni fin quando non termina l'elaborazione dell'ultimo simbolo di $w$. $M$ accetta l'input se $B$ si trova in uno stato di accettazione, rifiuta altrimenti.
 \end{proof}
-\end{theorem}
+\end{lemma}
 
-\begin{theorem}
+\begin{lemma}
 Sia $A_{NFA}$ il linguaggio contenente le coppie formate dalle codifiche di tutti gli NFA con delle particolari stringhe che essi accettano
 \begin{equation*}
 A_{NFA} = \{\langle B,w\rangle\ |\ \text{$B$ è un NFA che accetta la stringa di input $w$}\}
@@ -77,11 +77,11 @@ $A_{NFA}$ è un linguaggio decidibile.
 \begin{proof}
 Presentiamo una MdT $N$ che decide $A_{NFA}$. $N$ converte l'NFA $B$ in un DFA $C$ equivalente, esegue $M$ come una sottoprocedura che decide $A_{DFA}$ su input $\langle C,w\rangle$ e accetta se $M$ accetta, altrimenti rifiuta.
 \end{proof}
-\end{theorem}
+\end{lemma}
 
 Con prossimo problema, chiamato *test del vuoto* per il linguaggio di un automa finito, si vuove determinare se un DFA accetta una qualche stringa.
 
-\begin{theorem}
+\begin{lemma}
 Sia $E_{DFA}$ il linguaggio contenente le codifiche di tutti i DFA che non accettano alcuna stringa
 \begin{equation*}
 E_{DFA} = \{\langle A\rangle\ |\ \text{$A$ è un DFA e $L(A){=}\emptyset$}\}
@@ -92,9 +92,9 @@ Ciascun DFA accetta almeno una stringa sse dallo stato iniziale è possibile rag
 
 $T$ marca lo stato iniziale e, successivamente, marca tutti gli stati che hanno una transizione proveniente da uno stato già marcato finchè non si esauriscono gli stati inesplorati. Se nessuno stato di accettazione è marcato accetta, altrimenti rifiuta.
 \end{proof}
-\end{theorem}
+\end{lemma}
 
-\begin{theorem}
+\begin{lemma}
 Sia $EQ_{DFA}$ il linguaggio contenente tutte le coppie formate dalle codifiche di due DFA che riconoscono lo stesso linguaggio
 \begin{equation*}
 EQ_{DFA} = \{\langle A,B\rangle\, |\, \text{$A$ e $B$ sono DFA tali che $L(A){=}L(B)$}\}
@@ -107,7 +107,12 @@ L(C) = \big( L(A) \cap \overline{L(B)} \big) \cup \big( \overline{L(A)} \cap L(B
 \end{equation*}
 Quindi $L(C){=}\emptyset \Leftrightarrow L(A){=}L(B)$.
 \end{proof}
-\end{theorem}
+\end{lemma}
+
+```
+matteogiorgi.github.io
+```
+\texttt{matteogiorgi.github.io}
 
 
 

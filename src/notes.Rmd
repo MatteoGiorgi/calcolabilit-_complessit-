@@ -1,6 +1,4 @@
 ---
-title: Note di calcolabilità
-author: \faGlobe\hspace{1pt} `matteogiorgi.github.io`
 lang: it-IT
 output:
     pdf_document:
@@ -8,66 +6,23 @@ output:
         latex_engine: xelatex
         toc: false
         toc_depth: 2
-        number_sections: false
+        number_sections: true
         fig_caption: false
+        includes:
+            in_header: preamble.tex
+            before_body: prebody.tex
+
 always_allow_html: true
 urlcolor: black
 linkcolor: black
 documentclass: report
-monofont: mononoki Nerd Font
 fontsize: 12pt
-header-includes:
-    - \usepackage[a4paper, inner=3cm, outer=3cm]{geometry}
-    - \usepackage{lmodern}
-    - \usepackage{graphicx}
-    - \usepackage{mathtools}
-    - \usepackage{amsmath}
-    - \usepackage{amsthm}
-    - \usepackage{hyperref}
-    - \usepackage{amssymb}
-    - \usepackage{enumitem}
-    - \usepackage{fancyhdr}
-    - \usepackage{titlesec}
-    - \usepackage{fontawesome}
-    - \usepackage{xpatch}
-    - \usepackage{tikz}
-    - \usetikzlibrary{automata,positioning}
-    - \newtheorem*{definition}{Definizione}
-    - \newtheorem*{theorem}{Teorema}
-    - \newtheorem*{corollary}{Corollario}
-    - \makeatletter\xpatchcmd{\@thm}{\thm@headpunct{.}}{\thm@headpunct{}}{}{}\makeatother
-    - \newlength{\eqboxstorage}\newcommand{\eqbox}[1]{\setlength{\eqboxstorage}{\fboxsep}\setlength{\fboxsep}{6pt}\boxed{#1}\setlength{\fboxsep}{\eqboxstorage}}
-    - \newcommand{\cursor}{\rotatebox[origin=c]{90}{$\dashv$}}
 ---
-
-
-
-
-# \faGear \hspace{5pt} \faCube \hspace{5pt} \faFlask
-
-Queste note sono state redatte dal sottoscritto durante le lezioni del corso di *Elementi di calcolabilità e complessità* tenuto dal prof. Pierpaolo Degano con l'ausilio del dott. Giulio Masetti per l'anno accademico 2019-2020.
-
-Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
-
-* *M. Sipser - Introduction to the theory of computation*
-* *R.G. Taylor - Models of computation and formal languages*
-* *N.J. Cutland - Computability, introduction to recursive function theory*
-* *S.B. Cooper - Computability theory*
-* *A. Bernasconi, B. Codenotti - Introduzione alla complessità computazionale*
-* *G. Ausiello, F. D'Amore, G. Gambosi - Linguaggi, modelli, complessità*
-
-\vfill
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=FALSE, results='hide', message=FALSE, warning=FALSE)
 library(png)
 library(grid)
-# library(DiagrammeR)
-library(igraph)
-```
-
-```{r out.width="80%", fig.align="center", echo=FALSE}
-grid.raster(readPNG("../assets/machine.png"))
 ```
 
 ```{r child="01.Rmd"}
