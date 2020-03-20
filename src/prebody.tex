@@ -1,3 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  FrontPage                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \pagenumbering{gobble}
 \newgeometry{top=7cm, bottom=7cm}
 
@@ -7,7 +11,23 @@
 \large{\faGlobe\hspace{5pt}\texttt{matteogiorgi.github.io}}\\
 \vspace{5\baselineskip}
 \includegraphics[width=0.8\textwidth]{../assets/machine.png}\\
+\vfill
+\begin{equation*}
+\large{\texttt{> UniPi 20} \underset{\text{\faHandPointerO}}{\texttt{2}}
+\texttt{0 \#\#}}
+\end{equation*}
 \end{center}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                  Abstract                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \restoregeometry
@@ -15,22 +35,62 @@
 \renewcommand{\abstractname}{Info\hspace{5pt}\faPencil}
 
 \begin{abstract}
-Queste note sono state redatte dal sottoscritto durante le lezioni del corso di \textit{Elementi di calcolabilità e complessità} tenute dal prof. Pierpaolo Degano per il Corso di Laurea in Informatica presso l'Università di Pisa, anno accademico 2019-2020.
+Queste note sono state redatte dal sottoscritto durante le lezioni del corso
+di \textit{Elementi di calcolabilità e complessità} tenute dal prof. Pierpaolo
+Degano, con l'ausilio del dott. Giulio Masetti, per il Corso di Laurea in
+Informatica.
 
-Il materiale usato per la stesura, oltre alle note distribuite dal professore, comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
+Il materiale usato per la stesura, oltre alle note distribuite dal professore,
+comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
 
 \begin{itemize}[itemsep=-7pt]
-\item \textit{M. Sipser - Introduction to the theory of computation}
-\item \textit{R.G. Taylor - Models of computation and formal languages}
-\item \textit{N.J. Cutland - Computability, introduction to recursive function theory}
-\item \textit{S.B. Cooper - Computability theory}
-\item \textit{A. Bernasconi, B. Codenotti - Introduzione alla complessità computazionale}
-\item \textit{G. Ausiello, F. D'Amore, G. Gambosi - Linguaggi, modelli, complessità}
+\item \textit{Sipser - Introduction to the theory of computation}
+\item \textit{Taylor - Models of computation and formal languages}
+\item \textit{Cutland - Computability, introduction to recursive
+    function theory}
+\item \textit{Cooper - Computability theory}
+\item \textit{Bernasconi, Codenotti - Introduzione alla complessità
+    computazionale}
+\item \textit{Ausiello, D'Amore, Gambosi - Linguaggi, modelli, complessità}
 \end{itemize}
 \end{abstract}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               Table of Contents                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \tableofcontents
 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Page Numbering                               %
+%                                 Page Style                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newpage
 \pagenumbering{arabic}
+\setcounter{page}{0}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\nouppercase\rightmark\quad $\subseteq$\quad \leftmark}
+\fancyfoot[C]{\thepage}
+
+\renewcommand\chaptermark[1]{\markboth{#1}{}}
+\renewcommand\sectionmark[1]{\markright{#1}}
+\renewcommand{\headrulewidth}{.5pt}
+

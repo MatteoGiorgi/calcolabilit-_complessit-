@@ -1,3 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               LaTeX packages                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[a4paper, inner=3cm, outer=3cm]{geometry}
 \usepackage{lmodern}
 \usepackage{graphicx}
@@ -15,16 +19,39 @@
 \usepackage{fontspec}
 \usepackage{xpatch}
 \usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                Titleformat                                   %
+%                                Color                                         %
+%                                Tkz Automata                                  %
+%                                Theorems                                      %
+%                                List Margins                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\hsp}{\hspace{20pt}}
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp}{0pt}{\Huge\bfseries}
 
+\definecolor{gray50}{gray}{0.50}
+\definecolor{gray60}{gray}{0.60}
+\definecolor{gray70}{gray}{0.70}
 \definecolor{gray75}{gray}{0.75}
+\definecolor{gray80}{gray}{0.80}
+\definecolor{gray90}{gray}{0.90}
 \usetikzlibrary{automata,positioning}
-\newcommand{\cursor}{\rotatebox[origin=c]{90}{$\dashv$}}
 
 \newtheorem*{definition}{Definizione}
 \newtheorem*{theorem}{Teorema}
 \newtheorem*{corollary}{Corollario}
 \newtheorem*{lemma}{Lemma}
+
+\setlist{rightmargin=\leftmargin}
 

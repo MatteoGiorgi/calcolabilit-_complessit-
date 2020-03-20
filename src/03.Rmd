@@ -1,4 +1,4 @@
-# Decidibilità \hfill \textcolor{gray75}{\faFlask}
+# Decidibilità
 
 
 
@@ -108,11 +108,6 @@ L(C) = \big( L(A) \cap \overline{L(B)} \big) \cup \big( \overline{L(A)} \cap L(B
 Quindi $L(C){=}\emptyset \Leftrightarrow L(A){=}L(B)$.
 \end{proof}
 \end{lemma}
-
-```
-matteogiorgi.github.io
-```
-\texttt{matteogiorgi.github.io}
 
 
 

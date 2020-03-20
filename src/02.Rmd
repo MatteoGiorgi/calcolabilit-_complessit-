@@ -1,4 +1,4 @@
-# Automi e linguaggi \hfill \textcolor{gray75}{\faCube}
+# Automi e linguaggi
 
 
 

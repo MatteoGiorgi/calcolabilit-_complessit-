@@ -1,4 +1,4 @@
-# Algoritmi e macchine \hfill \textcolor{gray75}{\faGear}
+# Algoritmi e macchine
 
 
 

@@ -3,6 +3,7 @@ lang: it-IT
 output:
     pdf_document:
         highlight: tango
+        keep_tex: no
         latex_engine: xelatex
         toc: false
         toc_depth: 2
@@ -24,6 +25,8 @@ knitr::opts_chunk$set(echo=FALSE, results='hide', message=FALSE, warning=FALSE)
 library(png)
 library(grid)
 ```
+
+\setcounter{chapter}{-1}
 
 ```{r child="01.Rmd"}
 ```
