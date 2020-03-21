@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.3.9)  21 MAR 2020 00:40
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.3.9)  21 MAR 2020 01:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1603,6 +1603,8 @@ LaTeX Font Info:    Font shape `TU/FontAwesome(0)/m/n' will be
 [1
 
 ] (./notes.toc
+LaTeX Font Info:    Font shape `TU/FontAwesome(0)/bx/n' will be
+(Font)              scaled to size 12.06793pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 8.4pt on input line 3.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -1627,18 +1629,20 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 
 ]
 Capitolo 0.
+LaTeX Font Info:    Font shape `TU/FontAwesome(0)/bx/n' will be
+(Font)              scaled to size 25.02084pt on input line 263.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 272.
+(Font)              scaled to size 5.0pt on input line 273.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 272.
+(Font)              scaled to size 5.00053pt on input line 273.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 272.
+(Font)              scaled to size 4.99947pt on input line 273.
 [0
 
 ]
 
 LaTeX Font Warning: Font shape `TU/FontAwesome(0)/m/it' undefined
-(Font)              using `TU/FontAwesome(0)/m/n' instead on input line 388.
+(Font)              using `TU/FontAwesome(0)/m/n' instead on input line 389.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1654,7 +1658,14 @@ Capitolo 1.
 Capitolo 2.
 [10
 
-] [11]
+]
+
+Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
+Make it at least 14.69398pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
+
+[11]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1688,21 +1699,21 @@ braces):
 >  {italian/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {italian/Localnumeral}  =>  {polyglossia@C@localnumeral}.
 [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1039.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1039.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1047.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1047.
 (./notes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1039.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1039.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1047.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1047.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 43141 strings out of 492483
- 820046 string characters out of 6134980
- 1079535 words of memory out of 5000000
- 47011 multiletter control sequences out of 15000+600000
- 541772 words of font info for 113 fonts, out of 8000000 for 9000
+ 43145 strings out of 492483
+ 820159 string characters out of 6134980
+ 1078664 words of memory out of 5000000
+ 47014 multiletter control sequences out of 15000+600000
+ 541780 words of font info for 114 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,13n,119p,1194b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 
