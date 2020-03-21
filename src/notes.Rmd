@@ -26,8 +26,6 @@ library(png)
 library(grid)
 ```
 
-\setcounter{chapter}{-1}
-
 ```{r child="01.Rmd"}
 ```
 

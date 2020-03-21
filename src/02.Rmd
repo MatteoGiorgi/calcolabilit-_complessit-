@@ -1,4 +1,6 @@
-# Automi e linguaggi \hfill \faCube
+# Automi e linguaggi
+
+\thispagestyle{empty}
 
 
 
@@ -20,9 +22,9 @@ Un \underline{automa finito deterministico} (DFA) è la quintupla
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati
 \item $\Sigma$ è l'insieme finito dei simboli (alfabeto)
-\item $\delta{::}Q{\times}\Sigma{\rightarrow}Q$ è la funzione di transizione
-\item $q_0{\in}Q$ è lo stato iniziale
-\item $F{\subseteq}Q$ è l'insieme degli stati di accettazione
+\item $\delta\,{:}\,Q\,{\times}\,\Sigma\,{\rightarrow}\,Q$ è la funzione di transizione
+\item $q_0\, {\in}\, Q$ è lo stato iniziale
+\item $F\, {\subseteq}\, Q$ è l'insieme degli stati di accettazione
 \end{itemize}
 \end{definition}
 
@@ -37,9 +39,9 @@ Un \underline{automa finito non deterministico} (NFA) è la quintupla
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati
 \item $\Sigma$ è l'insieme finito dei simboli (alfabeto)
-\item $\Delta{::}Q{\times}\Sigma_\epsilon{\rightarrow}\mathcal{P}(Q)$ è la funzione di transizione
-\item $q_0{\in}Q$ è lo stato iniziale
-\item $F{\subseteq}Q$ è l'insieme degli stati di accettazione
+\item $\Delta\,{:}\,Q\,{\times}\,\Sigma_\epsilon\,{\rightarrow}\,\mathcal{P}(Q)$ è la funzione di transizione
+\item $q_0\,{\in}\,Q$ è lo stato iniziale
+\item $F\,{\subseteq}\,Q$ è l'insieme degli stati di accettazione
 \end{itemize}
 \end{definition}
 
@@ -66,33 +68,31 @@ Per rispondere devo prima piazzare qualche paletto e senza perdere tempo in pesa
 Sia $M{=}\{Q,\Sigma,\delta,q_0,F\}$ un automa finito e $w{=}w_0w_1...w_n$ una stringa composta da caratteri $w_i{\in}\Sigma$. Si dice che la macchina $M$ \underline{accetta la stringa} $w$ se esiste una sequenza di stati $[r_0,r_1,...,r_n]$ in $Q$, con tre condizioni
 
 \begin{enumerate}[itemsep=-7pt]
-\item $r_0 = q_0$ \hfill $\exists\, r_0$ inizio
-\item $\delta(r_i,w_{i+1}) = r_{i+1}$, $0{\leq}i{\leq}n{-}1$ \hfill $r_i{\rightarrow}r_{i+1}$
-\item $r_n{\in}F$ \hfill $\exists\, r_n$ accett.
+\item $r_0\,{=}\,q_0$ \hfill $\exists\, r_0$ inizio
+\item $\delta(r_i,w_{i+1})\,{=}\,r_{i+1}$, $0\,{\leq}\,i\,{\leq}\,n{-}1$ \hfill $r_i\,{\rightarrow}\,r_{i+1}$
+\item $r_n\,{\in}\,F$ \hfill $\exists\, r_n$ accett.
 \end{enumerate}
 \end{definition}
 
 Si noti l'assonanza con la definizione di computazione: i tre passi precedenti sono infatti da considerarsi i tre stadi della computazione per un automa finito. La macchina accetta l'input (quindi parte), salta di stato in stato con una legge predefinita (funzione di transizione) e dopo un numero indefinito (ma finito) di salti, casca in uno degli stati di terminazione.
 
 \begin{definition}
-Il \underline{linguaggio} $A$ della macchina $M$ è l'insieme di tutte le stringhe accettate dalla macchina: $A{=}L(M)$.
+L'insieme (potenzialmente \infty) di tutte le stringhe accettate dalla macchina è chiamato \underline{linguaggio della macchina} ($A{=}L(M)$).
 \end{definition}
 
 \begin{definition}
-$M$ \underline{riconosce il linguaggio} $A$ se $A{=}\{w\, |\, w{\in}A,\, M \text{accetta}\, w\}$.
+Si dirà che $M$ \underline{riconosce il linguaggio} $A$ se ne accetta tutte le stringhe
+\begin{equation*}
+A = \{w\ |\ w\,{\in}\,A\, \wedge\, M \text{accetta}\, w\}
+\end{equation*}
 \end{definition}
 
 \begin{definition}
-Un linguaggio $A$ è chiamato \underline{regolare} sse esiste un automa finito $M$ che lo riconosce.
+Un linguaggio è detto \underline{regolare} sse $\exists$ un automa finito che lo riconosce.
 \end{definition}
 
-Dalle precedenti definizioni, posso già facilmente intuire qualche semplice implicazione che però non dimostro per mancanza di spazio \faMehO.
-\begin{center}
-\texttt{se} $A$ è regolare $\Leftrightarrow$ $\exists$ $M$ che riconosce $A$ $\Leftrightarrow$ $M$ accetta tutte le stringhe di $A$ \texttt{es}
-\end{center}
-
 \begin{definition}
-Due macchine $M_1$ e $M_2$ si dicono \underline{equivalenti}  se riconoscono lo stesso linguaggio $A{=}L(M_1){=}L(M_2)$.
+Due macchine si dicono \underline{equivalenti} se riconoscono lo stesso linguaggio.
 \end{definition}
 
 
@@ -110,9 +110,9 @@ Trattare i linguaggi regolari non è lo scopo di queste note ma, visto che li ho
 Dati i linguaggi $A$ e $B$, sono definite \underline{operazioni regolari}
 
 \begin{enumerate}[itemsep=-7pt]
-\item $A{\cup}B = \{w\ |\ w{\in}A\, \vee\,  w{\in}B\}$ \hfill Unione
-\item $A{\circ}B = \{wv\ |\ w{\in}A\, \wedge\,  v{\in}B\}$ \hfill Concatenazione
-\item $A^* = \{w_0w_1...w_k\ |\ w_i{\in}A\, \wedge\, 0{\leq}i{\leq}k\}$ \hfill Star
+\item $A\,{\cup}\,B\,{=}\,\{w\ |\ w\,{\in}\,A\, \vee\,  w\,{\in}\,B\}$ \hfill Unione
+\item $A\,{\circ}\,B\,{=}\,\{wv\ |\ w\,{\in}\,A\, \wedge\,  v\,{\in}\,B\}$ \hfill Concatenazione
+\item $A^*\,{=}\,\{w_0w_1...w_k\ |\ w_i\,{\in}\,A\, \wedge\, 0\,{\leq}\,i\,{\leq}\,k\}$ \hfill Star
 \end{enumerate}
 \end{definition}
 
@@ -151,7 +151,7 @@ Q\prime = \mathcal{P}(Q)
 
 \item Se $R$ è uno stato di $M$, esso è anche un insieme di stati di $N$. Quando $M$ legge un simbolo $w$ nello stato $R$, ci mostra gli stati successivi a quelli in $R$ e, poichè da ogni stato si può andare in un insieme di stati, ne prendiamo l'unione
 \begin{align*}
-R{\in}Q,\, w{\in}\Sigma\, \Rightarrow\, \delta\prime(R,w) &= \{q{\in}Q\ |\ \exists\, r{\in}R\, .\, q{\in}\delta(r,w)\}\\
+R\,{\in}\,Q,\, w\,{\in}\,\Sigma\, \Rightarrow\, \delta\prime(R,w) &= \{q\,{\in}\,Q\ |\ \exists\, r\,{\in}\,R\, .\, q\,{\in}\,\delta(r,w)\}\\
                                                           &= \bigcup_{r \in R}\delta(r,w)
 \end{align*}
 
@@ -162,7 +162,7 @@ q_0^\prime = q_0
 
 \item $M$ accetta se $N$ è in uno stato accettante in quel momento
 \begin{equation*}
-F\prime = \{R{\in}Q\prime\ |\ \text{$R$ contiene uno stato accettante di $N$}\}
+F\prime = \{R\,{\in}\,Q\prime\ |\ \text{$R$ contiene uno stato accettante di $N$}\}
 \end{equation*}
 \end{enumerate}
 
@@ -172,7 +172,7 @@ E(R) = \{q\ |\ \text{$q$ può essere raggiunto da $R$ attraverso $0$ o più $\ep
 \end{equation*}
 Poi modifico $\delta\prime$ in modo che possa raggiungere tutti quegli stati esplorabili con $\epsilon$-archi dopo ogni passo. Sostituisco $\delta(r,w)$ con $E(\delta(r,w))$ e ottengo
 \begin{equation*}
-\delta\prime(R,w) = \{q{\in}Q\ |\ \exists\, r{\in}R\, .\, q{\in}E(\delta(r,w))\}
+\delta\prime(R,w) = \{q\,{\in}\,Q\ |\ \exists\, r\,{\in}\,R\, .\, q\,{\in}\,E(\delta(r,w))\}
 \end{equation*}
 In ultimo devo modificare lo stato iniziale di $M$ per potermi muovere inizialmente su tutti i possibili stati che possono essere raggiunti dallo stato iniziale di $N$ attraverso gli $\epsilon$-archi. Per fare questo cambio $q_0^\prime$ in $E(q_0)$. Ho completato la costruzione di $M$.
 
@@ -181,10 +181,12 @@ Da notare che $M$ funziona correttamente perchè ad ogni passo della computazion
 \end{theorem}
 
 \begin{corollary}
-Dato un linguaggio $L$
-\begin{center}
-\texttt{se} $\exists$ un NFA che riconosce $L$ $\Leftrightarrow$ $\exists$ un DFA che riconosce $L$ $\Leftrightarrow$ $L$ è regolare \texttt{es}
-\end{center}
+Le seguenti proposizioni sono semanticamente equivalenti
+\begin{itemize}[itemsep=-7pt]
+\item $\exists$ un NFA che riconosce il linguaggio L
+\item $\exists$ un DFA che riconosce il linguaggio L
+\item L è regolare
+\end{itemize}
 \begin{proof}
 Banale, segue dal teorema \faMehO.
 \end{proof}
@@ -314,7 +316,7 @@ Ecco qua sotto due automi finiti equivalenti che riconoscono $A$: il primo non d
 
 
 
-[^7]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f::a->b`).
+[^7]: L'*arrow type* di una funzione è generato dal *type constructor* che giustappone i tipi primitivi di argomenti e risultato ottenendo il tipo composto della funzione (`f :: a -> b`).
 [^8]: Come nella più comune bibliografia $\mathcal{P}$ indica l'insieme delle parti e $\epsilon$ la stringa vuota, anche se, in questo caso, è più corretto riferirsi al carattere nullo.
 [^9]: Ho volutamente abusato del termine *macchina*. Qui mi riferisco ad un automa ma queste definizioni sono utilizzabili anche con una MdT. Tra poco sarò più preciso.
 

@@ -1,4 +1,6 @@
-# Decidibilità \hfill \faCodepen
+# Decidibilità
+
+\thispagestyle{empty}
 
 
 
@@ -16,7 +18,7 @@ Sia $M{=}(Q,\Sigma,\delta,q_0,\{q_A,q_R\})$ una MdT e $w{=}w_0w_1...w_n$ una str
 
 \begin{enumerate}[itemsep=-7pt]
 \item $C_0$ è la configurazione iniziale su input $w$ \hfill $\exists\, C_0$ inizio
-\item Ogni $C_i$ produce $C_{i+1}$ \hfill $C_i{\rightarrow}C_{i+1}$
+\item Ogni $C_i$ produce $C_{i+1}$ \hfill $C_i\,{\rightarrow}\,C_{i+1}$
 \item $C_n$ è una configurazione di accettazione \hfill $\exists\, C_n$ accett.
 \end{enumerate}
 
@@ -84,7 +86,7 @@ Con prossimo problema, chiamato *test del vuoto* per il linguaggio di un automa 
 \begin{lemma}
 Sia $E_{DFA}$ il linguaggio contenente le codifiche di tutti i DFA che non accettano alcuna stringa
 \begin{equation*}
-E_{DFA} = \{\langle A\rangle\ |\ \text{$A$ è un DFA e $L(A){=}\emptyset$}\}
+E_{DFA} = \{\langle A\rangle\ |\ \text{$A$ è un DFA e $L(A)\,{=}\,\emptyset$}\}
 \end{equation*}
 $E_{DFA}$ è un linguaggio decidibile.
 \begin{proof}
@@ -97,7 +99,7 @@ $T$ marca lo stato iniziale e, successivamente, marca tutti gli stati che hanno 
 \begin{lemma}
 Sia $EQ_{DFA}$ il linguaggio contenente tutte le coppie formate dalle codifiche di due DFA che riconoscono lo stesso linguaggio
 \begin{equation*}
-EQ_{DFA} = \{\langle A,B\rangle\, |\, \text{$A$ e $B$ sono DFA tali che $L(A){=}L(B)$}\}
+EQ_{DFA} = \{\langle A,B\rangle\ |\ \text{$A$ e $B$ sono DFA tali che $L(A)\,{=}\,L(B)$}\}
 \end{equation*}
 $EQ_{DFA}$ è un linguaggio decidibile.
 \begin{proof}

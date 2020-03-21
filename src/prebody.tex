@@ -41,7 +41,7 @@ Degano, con l'ausilio del dott. Giulio Masetti, per il Corso di Laurea in
 Informatica.
 
 Il materiale usato per la stesura, oltre alle note distribuite dal professore,
-comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
+comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi
 
 \begin{itemize}[itemsep=-7pt]
 \item \textit{Sipser - Introduction to the theory of computation}
@@ -83,12 +83,13 @@ comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi:
 
 \newpage
 \pagenumbering{arabic}
-\setcounter{page}{0}
+%\setcounter{page}{0}
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[C]{\nouppercase\leftmark}
-\fancyfoot[C]{\thepage}
+\fancyhead[L]{\faParagraph\ \scshape\leftmark}
+\fancyhead[R]{\faTerminal\ \ttfamily\thepage}
+%\fancyfoot[C]{\thepage}
 
 \renewcommand\chaptermark[1]{\markboth{#1}{}}
 \renewcommand\sectionmark[1]{\markright{#1}}

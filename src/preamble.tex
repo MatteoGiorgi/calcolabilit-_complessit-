@@ -21,6 +21,7 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{sectsty}
+\usepackage{MnSymbol}
 
 
 
@@ -43,7 +44,6 @@
 \definecolor{gray50}{gray}{0.50}
 \definecolor{gray60}{gray}{0.60}
 \definecolor{gray70}{gray}{0.70}
-\definecolor{gray75}{gray}{0.75}
 \definecolor{gray80}{gray}{0.80}
 \definecolor{gray90}{gray}{0.90}
 \usetikzlibrary{automata,positioning}
@@ -54,4 +54,8 @@
 \newtheorem*{lemma}{Lemma}
 
 \setlist{rightmargin=\leftmargin}
+\newcommand{\jump}[0]
+    {\underset
+        {\raisebox{0.5em}{$\rcurvearrowright$}}
+        { }}
 

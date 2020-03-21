@@ -1,4 +1,6 @@
-# Algoritmi e macchine \hfill \faGear
+# Algoritmi e macchine
+
+\thispagestyle{empty}
 
 
 
@@ -44,7 +46,7 @@ In conclusione, una procedura algoritmica riceve in ingresso una descrizione fin
 
 Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli `#` e `>` che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa.
 \begin{equation*}
-\texttt{> a b ... a } \underset{\text{\faHandPointerO}}{\texttt{b}} \texttt{ b \# \#}
+\texttt{>} \jump \texttt{a} \jump \texttt{b} \jump ... \jump \texttt{a} \jump \underset{\text{\faHandPointerO}}{\texttt{b}} \texttt{ b \# \#}
 \end{equation*}
 
 * la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
@@ -62,8 +64,8 @@ M = (Q, \Sigma, \delta, q_0)
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati $q_i$ tale che lo stato di accettazione $h{\notin}Q$
 \item $\Sigma$ è l'insieme finito dei simboli (alfabeto della macchina) al quale non appartengono i simboli di spostamento $\Lleftarrow$, $\Rrightarrow$, $\equiv$
-\item $\delta{\subseteq}(Q{\times}\Sigma){\times}(Q{\cup}{h}){\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è la relazione di transizione, tale che il carattere puntato dal cursore non possa mai trovarsi a sinistra di \textnormal{\ttfamily >}
-\item $q_0{\in}Q$ è lo stato iniziale
+\item $\delta\,{\subseteq}\,(Q\,{\times}\,\Sigma)\,{\times}\,(Q\,{\cup}\,{h})\,{\times}\,\Sigma\,{\times}\,\{\Lleftarrow,\Rrightarrow,\equiv\}$ è la relazione di transizione, tale che il carattere puntato non possa mai trovarsi a sinistra di \textnormal{\ttfamily >}
+\item $q_0\,{\in}\,Q$ è lo stato iniziale
 \end{itemize}
 \end{definition}
 
@@ -142,10 +144,10 @@ M = (Q, \Sigma, \delta, q_0, \{q_A,q_R\})
 
 \begin{itemize}[itemsep=-7pt]
 \item $Q$ è l'insieme finito degli stati $q_i$ che non contiene gli stati terminali
-\item $\Sigma{\nsupseteq}\{\Lleftarrow,\Rrightarrow,\equiv\}$ è sempre l'insieme finito dei simboli
-\item $\delta{::}(Q{\times}\Sigma){\rightarrow}(Q{\times}\Sigma{\times}\{\Lleftarrow,\Rrightarrow,\equiv\})$ è la funzione di transizione
-\item $q_0{\in}Q$ è lo stato iniziale
-\item $\{q_A,q_R\}{\nsubseteq}Q$ è l'insieme degli stati terminali di accettazione e rifiuto
+\item $\Sigma\,{\nsupseteq}\,\{\Lleftarrow,\Rrightarrow,\equiv\}$ è sempre l'insieme finito dei simboli
+\item $\delta\,{:}\,(Q\,{\times}\,\Sigma)\,{\rightarrow}\,(Q\,{\times}\,\Sigma\,{\times}\,\{\Lleftarrow,\Rrightarrow,\equiv\})$ è la funzione di transizione
+\item $q_0\,{\in}\,Q$ è lo stato iniziale
+\item $\{q_A,q_R\}\,{\nsubseteq}\,Q$ è l'insieme degli stati terminali di accettazione e rifiuto
 \end{itemize}
 \end{definition}
 
@@ -251,8 +253,8 @@ Dalla precedente posso facilmente tabulare la funzione $\delta$, mentre la succe
 [^5]: Quando verranno trattate macchine a $k$ nastri, si parlerà di una k-upla di stringhe, ciascuna delle quali riferita ad un nastro della macchina.
 [^6]: La chiusura riflessiva e transitiva $\bar{R}$ di una relazione $R$ è definita come $\bar{R}{=}\cap_{R{\subseteq}S}S$, dove $S$ sia anch'essa relazione riflessiva e transitiva. Alternativamente la può pensare come la più piccola relazione definita per induzione attraverso le seguenti proposizioni
 \begin{itemize}[itemsep=-3pt]
-\item $\forall a{\in}A. \exists\bar{R}(a,a)$
-\item $R(a,b){\Rightarrow}\bar{R}(a,b)$
-\item $\bar{R}(a,b){\wedge}\bar{R}(b,c){\Rightarrow}\bar{R}(a,c)$
+\item $\forall\, a{\in}A\, .\, \exists\bar{R}(a,a)$
+\item $R(a,b)\, {\Rightarrow}\, \bar{R}(a,b)$
+\item $\bar{R}(a,b)\, {\wedge}\, \bar{R}(b,c)\, {\Rightarrow}\, \bar{R}(a,c)$
 \end{itemize}
 \noindent Prova a dimostrare l'equivalenza delle due definizioni \faMehO.
