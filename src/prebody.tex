@@ -6,14 +6,14 @@
 \newgeometry{top=7cm, bottom=7cm}
 
 \begin{center}
-\Huge{\textbf{Note di calcolabilità}}\\
+{\fontsize{35}{42} \textsc{Note di calcolabilità}}\\
 \vspace{10pt}
-\large{\faGlobe\hspace{5pt}\texttt{matteogiorgi.github.io}}\\
+\Large{\faGithub\ \texttt{matteogiorgi.github.io}}\\
 \vspace{5\baselineskip}
-\includegraphics[width=0.8\textwidth]{../assets/machine.png}\\
+\includegraphics[width=0.9\textwidth]{../assets/machine.png}\\
 \vfill
 \begin{equation*}
-\large{\texttt{> UniPi 20} \underset{\text{\faHandPointerO}}{\texttt{2}}
+\Large{\texttt{> UniPi 20} \pointer{\texttt{2}}
 \texttt{0 \#\#}}
 \end{equation*}
 \end{center}
@@ -31,8 +31,9 @@
 
 \newpage
 \restoregeometry
+\addtolength{\topmargin}{20pt}
 \pagenumbering{roman}
-\renewcommand{\abstractname}{Info\hspace{5pt}\faPencil}
+\renewcommand{\abstractname}{Info\ \faPencil}
 
 \begin{abstract}
 Queste note sono state redatte dal sottoscritto durante le lezioni del corso
@@ -87,8 +88,9 @@ comprende, in maniera più o meno estensiva, riferimenti ai seguenti testi
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\faParagraph\ \scshape\leftmark}
-\fancyhead[R]{\faTerminal\ \ttfamily\thepage}
+\fancyhead[L]{\scshape\faBookmarkO}
+\fancyhead[C]{\scshape\leftmark}
+\fancyhead[R]{\scshape\thepage}
 %\fancyfoot[C]{\thepage}
 
 \renewcommand\chaptermark[1]{\markboth{#1}{}}

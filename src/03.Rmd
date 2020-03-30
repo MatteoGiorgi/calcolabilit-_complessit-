@@ -27,7 +27,7 @@ Esattamente come detto prima $M$ \underline{riconosce} un linguaggio $A$ se ne a
 
 Appare chiaro che sono tre i risultati possibili per una MdT: *accettare*, *rifiutare* oppure andare in *loop*[^10]. Quindi fai attenzione perchè una macchina $M$ può non accettare un input sia raggiungendo lo stato $q_R$ che andando in loop.
 
-A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input. Una tale macchina è detta **decisore** e diremo che **decide** un certo linguaggio se lo riconosce.
+A volte distinguere una macchina che è entrata in un loop da una che sta semplicemente impiegando molto tempo risulta difficile, per questo sono preferibili MdT che si fermano su ogni singolo input. Una tale macchina è detta *decisore* e diremo che decide un certo linguaggio se lo riconosce.
 
 \begin{definition}
 Un linguaggio si dice \underline{Turing-riconoscibile} sse esiste una MdT che lo riconosce (ovvero, per ogni stringa del linguaggio la machina termina nello stato di accettazione).
@@ -81,7 +81,7 @@ Presentiamo una MdT $N$ che decide $A_{NFA}$. $N$ converte l'NFA $B$ in un DFA $
 \end{proof}
 \end{lemma}
 
-Con prossimo problema, chiamato *test del vuoto* per il linguaggio di un automa finito, si vuove determinare se un DFA accetta una qualche stringa.
+Con il prossimo problema, chiamato *test del vuoto* per il linguaggio di un automa finito, si vuove determinare se un DFA accetta una qualche stringa.
 
 \begin{lemma}
 Sia $E_{DFA}$ il linguaggio contenente le codifiche di tutti i DFA che non accettano alcuna stringa
@@ -103,11 +103,12 @@ EQ_{DFA} = \{\langle A,B\rangle\ |\ \text{$A$ e $B$ sono DFA tali che $L(A)\,{=}
 \end{equation*}
 $EQ_{DFA}$ è un linguaggio decidibile.
 \begin{proof}
-A partire da $A$ e $B$ costruisco un nuovo DFS $C$ che accetta solo quella stringhe che sono accettate da $A$ o da $B$ ma non da entrambi. In particolare, se $A$ e $B$ riconoscono lo stesso linguaggio, $C$ non accetterà nulla
-\begin{equation*}
-L(C) = \big( L(A) \cap \overline{L(B)} \big) \cup \big( \overline{L(A)} \cap L(B) \big)
-\end{equation*}
-Quindi $L(C){=}\emptyset \Leftrightarrow L(A){=}L(B)$.
+A partire da $A$ e $B$ costruisco un nuovo DFA $C$ che accetta solo quella stringhe che sono accettate da $A$ o da $B$ ma non da entrambi. In particolare, se $A$ e $B$ riconoscono lo stesso linguaggio, $C$ non accetterà nulla
+\begin{gather*}
+L(C) = \big( L(A) \cap \overline{L(B)} \big) \cup \big( \overline{L(A)} \cap L(B) \big)\\
+\text{ovvero}\ L(C)\,{=}\,\emptyset\ \Leftrightarrow\ L(A)\,{=}\,L(B)
+\end{gather*}
+Non resta che costruire una MdT $F$ che verifica questa implicazione usando il lemma precedente. $F$ prende in input $\langle A,B\rangle$, costruisce il DFA $C$, esegue la MdT $T$ per decidere $E_{DFA}$ su input $\langle C\rangle$ e accetta se $T$ accetta, viceversa rifiuta.
 \end{proof}
 \end{lemma}
 
@@ -118,6 +119,29 @@ Quindi $L(C){=}\emptyset \Leftrightarrow L(A){=}L(B)$.
 
 
 
+### Cosa *non* posso decidere?
+
+Mauris lacus sapien, congue a, facilisis at, egestas vel, quam. Vestibulum ante
+ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+
+Phasellus ipsum odio, suscipit nec, fringilla at, vehicula quis, tellus.
+Phasellus gravida condimentum dui. Aenean imperdiet arcu vitae ipsum. Duis
+dapibus, nisi non porttitor iaculis, ligula odio sollicitudin mauris, non
+luctus nunc massa a velit. Fusce ac nisi. Integer volutpat elementum metus.
+Vivamus luctus ultricies diam. Curabitur euismod. Vivamus quam. Nunc ante.
+Nulla mi nulla, vehicula nec, ultrices a, tincidunt vel, enim.
+
+Suspendisse potenti. Aenean sed velit. Nunc a urna quis turpis imperdiet
+sollicitudin. Mauris aliquam mauris ut tortor. Pellentesque.
+
+
+
+
+
+
+
+
+
 [^10]: Si intende una sequenza $\infty$ di configurazioni.
-[^11]: Nella formalizzazione del linguaggio salta subito all'occhio che automi e MdT sono rappresentati come stringhe. Per fare questo è necessaria una corrispondenza biunivoca tra macchina e codifica della macchina di cui non ho ancora fatto menzione (sarà argomento dei prossimi capitoli). Per adesso è sufficiente sapere che ogni macchina può essere codificata con una stringa e viceversa.
+[^11]: Nella formalizzazione del linguaggio salta subito all'occhio che automi e MdT sono rappresentati come stringhe. Per fare questo è necessaria una corrispondenza biunivoca tra macchina e codifica della macchina di cui non ho ancora fatto menzione. Per adesso è sufficiente sapere che ogni macchina può essere codificata con una stringa e che ogni stringa rappresenta una macchina. Le codifiche saranno rappresentate come n-uple di stringhe tra parentesi a diamante: $\langle cod_1, cod_2, ... \rangle$.
 

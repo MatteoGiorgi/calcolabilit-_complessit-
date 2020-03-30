@@ -22,6 +22,7 @@
 \usepackage{xcolor}
 \usepackage{sectsty}
 \usepackage{MnSymbol}
+\usepackage{anyfontsize}
 
 
 
@@ -38,13 +39,20 @@
 %                                List Margins                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\hsp}{\hspace{20pt}}
-\titleformat{\chapter}[hang]{\Huge\bfseries}{}{0pt}{\Huge\bfseries}
+\titleformat{\chapter}[frame]
+    {\Huge\scshape}
+    {\filcenter\thechapter}
+    {20pt}
+    {\filcenter}
+    {}
+
+\titlespacing{\chapter}{0pt}{0pt}{40pt}
 
 \definecolor{gray50}{gray}{0.50}
 \definecolor{gray60}{gray}{0.60}
 \definecolor{gray70}{gray}{0.70}
 \definecolor{gray80}{gray}{0.80}
+\definecolor{gray85}{gray}{0.85}
 \definecolor{gray90}{gray}{0.90}
 \usetikzlibrary{automata,positioning}
 
@@ -54,8 +62,14 @@
 \newtheorem*{lemma}{Lemma}
 
 \setlist{rightmargin=\leftmargin}
+
 \newcommand{\jump}[0]
     {\underset
         {\raisebox{0.5em}{$\rcurvearrowright$}}
         { }}
+
+\newcommand{\pointer}[1]
+    {\underset
+        {\text{\faHandOUp}}
+        {#1}}
 

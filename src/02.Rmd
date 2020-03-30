@@ -1,4 +1,4 @@
-# Automi e linguaggi
+# Automi e Linguaggi
 
 \thispagestyle{empty}
 

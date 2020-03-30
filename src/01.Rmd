@@ -1,4 +1,4 @@
-# Algoritmi e macchine
+# Algoritmi e Macchine
 
 \thispagestyle{empty}
 
@@ -46,7 +46,7 @@ In conclusione, una procedura algoritmica riceve in ingresso una descrizione fin
 
 Esattamente come *funzioni ricorsive* e *$\lambda$-calcolo*, le Macchine di Turing sono un modello di calcolo. Nella sua versione più tradizionale una *MdT* si presenta come un dispositivo che accede ad un nastro potenzialmente illimitato diviso in celle, ciascuna contenente un simbolo appartenente ad un dato alfabeto $\Sigma$ (alfabeto della macchina), comprendente i simboli `#` e `>` che denotano rispettivamente l'assenza di informazione nella cella e la marca di inizio stringa.
 \begin{equation*}
-\texttt{>} \jump \texttt{a} \jump \texttt{b} \jump ... \jump \texttt{a} \jump \underset{\text{\faHandPointerO}}{\texttt{b}} \texttt{ b \# \#}
+\texttt{>}\, \texttt{a}\, \texttt{b}\, ...\, \texttt{a}\, \pointer{\texttt{b}}\, \texttt{b\,\#\,\#}
 \end{equation*}
 
 * la MdT opera tramite un *cursore*, che può scorrere sul nastro in entrambe le direzioni e scrivere i caratteri $\sigma_i$ appartenenti all'alfabeto $\Sigma$
@@ -82,7 +82,7 @@ M = (Q, \Sigma, \delta, q_0)
 Una \underline{configurazione} (istantanea) $C$ di una MdT è definita dalla quadrupla
 \begin{gather*}
 (q,u,\sigma,v) \in (Q \cup \{h\}) \times \Sigma^* \times \Sigma \times \Sigma^F \\
-\boxed{\qquad u \qquad}\ \underset{\text{\faHandPointerO}}{\sigma}\ \boxed{\qquad v \qquad}
+\colorbox{gray85}{\qquad u \qquad}\ \sigma\ \colorbox{gray85}{\qquad v \qquad}
 \end{gather*}
 
 \begin{itemize}[itemsep=-7pt]
@@ -182,15 +182,15 @@ C_0 \rightarrow_M^* C_n
 
 ### Esempio di MdT
 
-Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali scritti in notazione unaria usando il simbolo `|` e separati dal simbolo `+`. La seguente successione di configurazioni rappresenterà la computazione $(q_0, \underset{\text{\faHandPointerO}}{\texttt{>}} \texttt{|+||\#}){\rightarrow^*_M}(h, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{\#}})$
+Consideriamo una macchina $M$ che calcoli la somma di due numeri naturali scritti in notazione unaria usando il simbolo `|` e separati dal simbolo `+`. La seguente successione di configurazioni rappresenterà la computazione $(q_0, \pointer{\texttt{>}} \texttt{|+||\#}){\rightarrow^*_M}(h, \texttt{>} \texttt{|||} \pointer{\texttt{\#}})$
 \begin{align*}
-(q_0, \underset{\text{\faHandPointerO}}{\texttt{>}} \texttt{|+||\#}) &\rightarrow (q_0, \texttt{>} \underset{\text{\faHandPointerO}}{\texttt{|}} \texttt{+||})\\
-                                                                     &\rightarrow (q_0, \texttt{>} \texttt{|} \underset{\text{\faHandPointerO}}{\texttt{+}} \texttt{||})\\
-                                                                     &\rightarrow (q_1, \texttt{>} \texttt{||} \underset{\text{\faHandPointerO}}{\texttt{|}} \texttt{|})\\
-                                                                     &\rightarrow (q_1, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{|}})\\
-                                                                     &\rightarrow (q_1, \texttt{>} \texttt{||||} \underset{\text{\faHandPointerO}}{\texttt{\#}})\\
-                                                                     &\rightarrow (q_2, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{|}})\\
-                                                                     &\rightarrow (h, \texttt{>} \texttt{|||} \underset{\text{\faHandPointerO}}{\texttt{\#}})
+(q_0,\ \pointer{\texttt{>}}\, \texttt{|\,+\,|\,|\,\#})\ &\longrightarrow\ (q_0,\ \texttt{>}\, \pointer{\texttt{|}}\, \texttt{+\,|\,|})\\
+                                                        &\longrightarrow\ (q_0,\ \texttt{>}\, \texttt{|}\, \pointer{\texttt{+}}\, \texttt{|\,|})\\
+                                                        &\longrightarrow\ (q_1,\ \texttt{>}\, \texttt{|\,|}\, \pointer{\texttt{|}}\, \texttt{|})\\
+                                                        &\longrightarrow\ (q_1,\ \texttt{>}\, \texttt{|\,|\,|}\, \pointer{\texttt{|}})\\
+                                                        &\longrightarrow\ (q_1,\ \texttt{>}\, \texttt{|\,|\,|\,|}\, \pointer{\texttt{\#}})\\
+                                                        &\longrightarrow\ (q_2,\ \texttt{>}\, \texttt{|\,|\,|}\, \pointer{\texttt{|}})\\
+                                                        &\longrightarrow\ (h,\ \texttt{>}\, \texttt{|\,|\,|}\, \pointer{\texttt{\#}})
 \end{align*}
 Dalla precedente posso facilmente tabulare la funzione $\delta$, mentre la successione degli stati esplorati dalla macchina sono rappresentabili con un automa finito.
 
