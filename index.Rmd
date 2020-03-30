@@ -13,7 +13,7 @@ The notes are written in italian and follow professor [P. Degano](http://pages.d
 #! /usr/bin/env Rscript
 
 require(rmarkdown)
-render_site(commandArgs(trailingOnly=TRUE))
+render(commandArgs(trailingOnly=TRUE))
 ```
 
 <p align="center">
