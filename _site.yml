@@ -3,13 +3,11 @@ output_dir: "."
 navbar:
     title: "👾 Notes"
     left:
+        - text: "📚 Repo"
+          href: https://github.com/MatteoGiorgi/computability_notes
+    right:
         - text: "🌍 Home"
           href: https://matteogiorgi.github.io
-        - text: "📚 GitHub"
-          href: https://github.com/MatteoGiorgi
-    right:
-        - text: "📫 Mail"
-          href: mail.html
 output:
     html_document:
         theme: "readable"
