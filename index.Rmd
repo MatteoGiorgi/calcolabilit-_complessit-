@@ -7,10 +7,13 @@ title: "Computability notes"
 
 I know there is a vast bibliography on the subject but I just wanted to write something intuitive and easy to read on such essential and extensive topic for a computer scientist.
 
-The notes are written in italian and follow professor [P. Degano](http://pages.di.unipi.it/degano/) lectures at [B.Sc. Computer Science](https://didattica.di.unipi.it/en/undergraduate-programme-in-computer-science/) University of Pisa. The source code can be compiled using R with Rmarkdown[^1] package, just use this tiny bash script below.
+The notes are written in italian and follow professor [P. Degano](http://pages.di.unipi.it/degano/) lectures at [B.Sc. Computer Science](https://didattica.di.unipi.it/en/undergraduate-programme-in-computer-science/) University of Pisa. The source code can be compiled using R with Rmarkdown[^1] package, just use this tiny Rscript below.
 
-```{bash eval=FALSE}
-echo "require(rmarkdown); render('$1')" | R --vanilla
+```{r eval=FALSE}
+#! /usr/bin/env Rscript
+
+require(rmarkdown)
+render_site(commandArgs(trailingOnly=TRUE))
 ```
 
 <p align="center">
