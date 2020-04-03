@@ -121,6 +121,8 @@ Non resta che costruire una MdT $F$ che verifica questa implicazione usando il l
 
 ### Cosa *non* posso decidere?
 
+Che succederebbe adesso usassi la codifica di una MdT invece che quella di un automa? Posso determinare se una MdT accetta una determinata stringa? (no)
+
 Mauris lacus sapien, congue a, facilisis at, egestas vel, quam. Vestibulum ante
 ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
 
