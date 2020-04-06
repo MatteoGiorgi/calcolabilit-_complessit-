@@ -60,7 +60,7 @@ I problemi computazionali proposti, a partire da quello dell'*accettazione* qua 
 \begin{lemma}
 Sia $A_{DFA}$ il linguaggio contenente le coppie formate dalle codifiche di tutti i DFA con delle particolari stringhe che essi accettano
 \begin{equation*}
-A_{DFA} = \{\langle B,w\rangle\ |\ \text{$B$ è un DFA che accetta la stringa di input $w$}\}
+A_{DFA} = \{\langle B,w\rangle\ |\ \text{$B$ è un DFA che accetta la stringa in input $w$}\}
 \end{equation*}
 $A_{DFA}$ è un linguaggio decidibile.
 \begin{proof}
@@ -73,7 +73,7 @@ Quindi, dopo aver controllato la validità della coppia in input, $M$ esegue la 
 \begin{lemma}
 Sia $A_{NFA}$ il linguaggio contenente le coppie formate dalle codifiche di tutti gli NFA con delle particolari stringhe che essi accettano
 \begin{equation*}
-A_{NFA} = \{\langle B,w\rangle\ |\ \text{$B$ è un NFA che accetta la stringa di input $w$}\}
+A_{NFA} = \{\langle B,w\rangle\ |\ \text{$B$ è un NFA che accetta la stringa in input $w$}\}
 \end{equation*}
 $A_{NFA}$ è un linguaggio decidibile.
 \begin{proof}
@@ -119,23 +119,58 @@ Non resta che costruire una MdT $F$ che verifica questa implicazione usando il l
 
 
 
-### Cosa *non* posso decidere?
+## Cosa *non* posso decidere?
 
-Che succederebbe adesso usassi la codifica di una MdT invece che quella di un automa? Posso determinare se una MdT accetta una determinata stringa? (no)
+Che succederebbe se adesso usassi la codifica di una MdT invece che quella di un automa? Posso determinare se una MdT accetta una determinata stringa?
 
-Mauris lacus sapien, congue a, facilisis at, egestas vel, quam. Vestibulum ante
-ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+Lo scopo di questo paragrafo sarà quindi quello di dimostrare che il linguaggio contenente le coppie formate dalle codifiche di tutte le MdT con delle particolari stringhe che essi accettano è indecidibile[^12].
 
-Phasellus ipsum odio, suscipit nec, fringilla at, vehicula quis, tellus.
-Phasellus gravida condimentum dui. Aenean imperdiet arcu vitae ipsum. Duis
-dapibus, nisi non porttitor iaculis, ligula odio sollicitudin mauris, non
-luctus nunc massa a velit. Fusce ac nisi. Integer volutpat elementum metus.
-Vivamus luctus ultricies diam. Curabitur euismod. Vivamus quam. Nunc ante.
-Nulla mi nulla, vehicula nec, ultrices a, tincidunt vel, enim.
 
-Suspendisse potenti. Aenean sed velit. Nunc a urna quis turpis imperdiet
-sollicitudin. Mauris aliquam mauris ut tortor. Pellentesque.
 
+
+
+
+
+
+### Il metodo della diagonalizzazione
+
+Misurare la dimensione di insiemi finiti è relativamente facile, è sufficiente contare gli elementi contenuti in ciascuno ma con insiemi di cardinalità infinita, le cose si complicano. La soluzione sarà quella di mostrare una bigezione tra due insiemi di equa cardinalità.
+
+\begin{definition}
+Un insieme $A$ è numerabile se è finito o ha la stessa cardinalità di $\mathcal{N}$.
+\end{definition}
+
+\normalsize Curabitur urna tellus, aliquam vitae, ultrices eget, vehicula nec, diam.
+Integer elementum, felis non faucibus euismod, erat massa dictum eros, eu
+ornare ligula tortor et mauris. Cras molestie magna in nibh. Aenean et tellus.
+Fusce adipiscing commodo erat. In eu justo. Nulla dictum, erat sed blandit
+venenatis, arcu dolor molestie.
+\small Taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+himenaeos. Nulla lectus sem, tristique sed, semper in, hendrerit non, sem.
+Vivamus dignissim massa in ipsum. Morbi fringilla ullamcorper ligula. Nunc
+turpis. Mauris vitae sapien. Nunc luctus bibendum velit.
+metus at mi mollis posuere. Quisque ac.
+\footnotesize Non neque. Suspendisse et diam. Sed vestibulum malesuada ipsum.
+Pellentesque quis leo eget ante tempor cursus. Pellentesque sagittis, diam ut
+dictum accumsan, magna est viverra erat, vitae imperdiet neque mauris aliquam
+nisl. Suspendisse blandit quam quis felis. Praesent turpis nunc, vehicula in,
+bibendum vitae, blandit ac, turpis. Duis rhoncus. Vestibulum metus. Morbi
+consectetuer felis id tortor. Etiam augue leo, cursus eget, ornare et, ornare
+sagittis, tellus. Fusce felis tellus, consectetuer nec, consequat.
+\scriptsize Nulla sed lectus. Morbi sollicitudin, diam ac bibendum scelerisque,
+enim tortor rhoncus sapien, vel posuere dolor neque in sem. Pellentesque tellus
+augue, tempus nec, laoreet at, porttitor blandit, leo. Phasellus in odio. Duis
+lobortis, metus eu laoreet tristique, pede mi congue mi, quis posuere augue
+nulla a augue. Pellentesque sed est. Mauris cursus urna id lectus. Integer
+dignissim feugiat eros. Sed tempor volutpat dolor. Vestibulum vel lectus nec
+mauris semper adipiscing.
+\tiny Phasellus placerat. In sem nisl, elementum vitae, venenatis nec, lacinia
+Duis viverra. Nulla diam lectus, tincidunt et, scelerisque vitae, aliquam
+vitae, justo. Quisque eget erat. Donec aliquet porta magna. Sed nisl. Ut
+tellus. Suspendisse quis mi eget dolor sagittis tristique. Aenean non pede eget
+nisl bibendum gravida. Class aptent taciti sociosqu ad litora torquent per
+conubia nostra, per inceptos himenaeos. Morbi laoreet. Suspendisse potenti.
+Nec, varius consectetuer, lorem.
 
 
 
@@ -146,4 +181,7 @@ sollicitudin. Mauris aliquam mauris ut tortor. Pellentesque.
 
 [^10]: Si intende una sequenza $\infty$ di configurazioni.
 [^11]: Nella formalizzazione del linguaggio salta subito all'occhio che automi e MdT sono rappresentati come stringhe. Per fare questo è necessaria una corrispondenza biunivoca tra macchina e codifica della macchina di cui non ho ancora fatto menzione. Per adesso è sufficiente sapere che ogni macchina può essere codificata con una stringa e che ogni stringa rappresenta una macchina. Le codifiche saranno rappresentate come n-uple di stringhe tra parentesi a diamante: $\langle cod_1, cod_2, ... \rangle$.
-
+[^12]: $A_{MdT}$ è indecidibile
+\begin{equation*}
+A_{MdT} = \{\langle M,w\rangle\ |\ \text{$M$ è un MdT che accetta la stringa in input $w$}\}
+\end{equation*}
